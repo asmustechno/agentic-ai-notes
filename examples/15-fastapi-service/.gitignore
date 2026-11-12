@@ -1,0 +1,2 @@
+# Local secret files for docker-compose. Never commit them.
+secrets/

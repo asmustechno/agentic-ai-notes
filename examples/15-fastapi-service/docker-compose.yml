@@ -1,0 +1,36 @@
+# Run the agent service locally in a container:
+#     cd examples/15-fastapi-service
+#     docker compose up --build
+#     curl http://localhost:8000/healthz
+#
+# For a real model, set LLM_PROVIDER=anthropic (or openai) and provide the key at run time,
+# from your shell or a secret, never from a file baked into the image.
+services:
+  agent:
+    build:
+      context: ..                              # examples/, so the image can include common/
+      dockerfile: 15-fastapi-service/Dockerfile
+    image: agent-service:local
+    ports:
+      - "8000:8000"
+    environment:
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      AGENT_MAX_STEPS: "6"
+      RUN_DEADLINE_SECONDS: "30"
+      LOG_LEVEL: INFO
+      # Passed through from your shell, if set there. Visible to `docker inspect`;
+      # the secrets section below is the safer option.
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      # With the secrets section below enabled, the app reads the key from this file:
+      # ANTHROPIC_API_KEY_FILE: /run/secrets/anthropic_api_key
+    # secrets:
+    #   - anthropic_api_key
+    restart: unless-stopped
+
+# Compose secrets are mounted as files under /run/secrets/ inside the container.
+# Put the key in secrets/anthropic_api_key.txt (git-ignored), then uncomment:
+# secrets:
+#   anthropic_api_key:
+#     file: ./secrets/anthropic_api_key.txt

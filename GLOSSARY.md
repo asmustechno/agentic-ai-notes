@@ -4,7 +4,7 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 > 🚧 This glossary grows as chapters are written. Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
+**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [L](#l) · [M](#m) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
 
 ## A
 
@@ -24,6 +24,10 @@ A secret string that identifies you to a model provider and lets your code call 
 
 Code in the agent loop that pauses a risky tool call, shows a person a preview of exactly what will happen, and runs it only if they approve. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
 
+### At-least-once delivery
+
+A queue guarantee that every job is delivered until a worker confirms it, so nothing is lost but some jobs are processed more than once. Handlers must therefore be safe to run twice. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+
 ### Audit log
 
 An append-only record of every action an agent took or was refused, with who approved it and what happened, kept for investigation and accountability. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
@@ -33,6 +37,10 @@ An append-only record of every action an agent took or was refused, with who app
 A scale describing how much an LLM system's model decides, from a single prompt (code decides everything) to a fully autonomous agent (the model sets its own sub-goals). → [1.3 The autonomy spectrum](docs/01-foundations/01.3-the-autonomy-spectrum.md)
 
 ## B
+
+### Background agent
+
+An agent run that no one is waiting for in real time: it is started by a schedule or an event and reports its result somewhere useful, such as a ticket or a chat message. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Benchmark
 
@@ -44,9 +52,25 @@ A public, standardised set of tasks with a fixed way of grading them, used to co
 
 A system that answers with a single model reply per message and takes no actions. It can only use what the model already knows or what is in the prompt. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
 
+### Checkpoint
+
+A saved snapshot of a run's state (for an agent, the messages and the step counter) that lets the run resume after a crash instead of starting over. → [15.4 State persistence & resumability](docs/15-production-and-deployment/15.4-state-persistence-and-resumability.md)
+
+### Circuit breaker
+
+A guard that stops calling a dependency after repeated failures, fails fast for a cool-down period, then lets one trial call through to see whether it has recovered. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+
 ### Compounding errors
 
 The way small per-step error rates add up over many steps: if each step is right with probability p, all n steps are right with probability pⁿ. A key reason long agent runs need ways to catch mistakes. → [1.6 When NOT to use an agent](docs/01-foundations/01.6-when-not-to-use-an-agent.md)
+
+### Container
+
+A running instance of a container image: an isolated process with its own filesystem, started the same way on any machine. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+
+### Container image
+
+A packaged, read-only bundle of an application with its runtime and dependencies (for example a Docker image), built once and run anywhere. It should never contain secrets. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
 
 ### Context window
 
@@ -61,6 +85,10 @@ When benchmark or test questions (or their answers) end up in a model's training
 ### Data exfiltration
 
 Getting private data out of a system to somewhere an attacker can read it, for example by tricking an agent into emailing it or putting it in a URL. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+
+### Dead-letter queue (DLQ)
+
+A holding queue for jobs that failed permanently or ran out of retries, so they are neither retried forever nor silently dropped, and a human can inspect and replay them. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Defence in depth
 
@@ -88,6 +116,10 @@ Short for evaluation: a repeatable test that measures how well an LLM system per
 
 A loop in which one LLM call generates a result and a separate evaluator grades it against clear criteria and gives feedback; the generator revises until the result passes or a round limit is reached. → [8.2 The evaluator–optimizer loop](docs/08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md)
 
+### Exponential backoff
+
+A retry strategy that doubles the wait after each failure (for example 0.5 s, 1 s, 2 s, 4 s) up to a cap, giving a struggling service time to recover. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+
 ## F
 
 ### Function calling
@@ -110,11 +142,23 @@ A check that runs before or after a model call to block, fix or flag unsafe or i
 
 When a model states something false or invented as if it were true, such as a delivery date it had no data for. Giving the model real data through tools or retrieval reduces it. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
 
+### Health check
+
+A cheap endpoint, such as GET /healthz, that a load balancer or orchestrator calls to decide whether a service instance is alive and should receive traffic. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+
 ### Human-in-the-loop (HITL)
 
 A design in which an agent pauses at chosen points so a person can approve, edit or reject an action, or take over the case, before the run continues. → [9.6 Human-in-the-loop](docs/09-agent-design-patterns/09.6-human-in-the-loop.md)
 
 ## I
+
+### Idempotency key
+
+A unique id sent with a request that has a side effect, so the receiver can recognise a retry of the same request and return the first result instead of acting twice. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+
+### Idempotent
+
+Describes an operation that has the same effect whether it runs once or many times, like setting a thermostat to 21°C. Idempotent operations are safe to retry. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Indirect prompt injection
 
@@ -123,6 +167,16 @@ Prompt injection that arrives through content the agent reads, such as a web pag
 ### Instructions
 
 The part of an agent that tells the model its role, goal, rules and how to use its tools, usually written as the system prompt. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+
+## J
+
+### Jitter
+
+Randomness added to retry waits so that many clients that failed at the same moment do not all retry at the same moment. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+
+### Job queue
+
+A buffer between the part of a system that accepts work and the workers that do it. It absorbs bursts and keeps jobs safe if a worker crashes. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
 
 ## L
 
@@ -159,6 +213,14 @@ A fake model used in these notes' examples. It returns pre-written responses, so
 ### Model Context Protocol (MCP)
 
 An open protocol that standardises how applications give models access to tools, data and prompts, so one integration works across many apps. → [4.1 Why MCP exists](docs/04-model-context-protocol/04.1-why-mcp-exists.md)
+
+### Model fallback
+
+Switching a request to another model or provider when the first one is unavailable, overloaded or declines it. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+
+### Model gateway
+
+The single component every model call goes through. It handles retries, rate limits, fallbacks between models or providers, and records tokens and cost. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
 
 ## O
 
@@ -198,6 +260,10 @@ An attack in which text the model reads, such as a user message, a web page or a
 
 ## R
 
+### Rate limit
+
+A cap a provider puts on how much you can send in a time window, such as requests or tokens per minute. Going over it returns HTTP 429. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+
 ### ReAct
 
 Short for "Reasoning and Acting": a pattern in which the model alternates between writing a reasoning step and taking an action, then reads the observation before continuing. Introduced by Yao et al. (2022). → [2.2 ReAct explained](docs/02-the-agent-loop/02.2-react-explained.md)
@@ -235,6 +301,10 @@ An isolated, disposable environment, such as a locked-down container or microVM,
 ### Self-correction
 
 A model revising its own output. Intrinsic self-correction uses only what the model already knows and is unreliable for reasoning; self-correction with external feedback (tests, errors, tool results) works much better. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
+
+### Server-sent events (SSE)
+
+A simple HTTP standard for a server to push a stream of events to a client over one long-lived response, often used to stream an agent's progress to a browser. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Short-term memory
 
@@ -274,6 +344,10 @@ A written answer to four questions about a system: what is valuable, who might a
 
 The unit of text a model reads and writes: often a word, part of a word, or a punctuation mark. Context windows, limits and prices are all measured in tokens. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### Token bucket
+
+A rate-limiting algorithm: tokens refill at a steady rate up to a maximum, each request takes one, and requests wait when the bucket is empty. It allows short bursts while capping the average rate. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+
 ### Tokenizer
 
 The component that splits text into tokens before the model reads it. Each provider has its own, so the same text gives different token counts on different models. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -297,6 +371,10 @@ The neural network architecture behind modern LLMs, introduced in 2017. It lets 
 A self-contained folder of Python packages for one project, so its dependencies do not clash with other projects. Created with `python -m venv .venv`. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ## W
+
+### Webhook
+
+An HTTP request a system sends to a URL you registered when something happens, such as an agent run finishing, so you don't have to poll. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Workflow
 

@@ -1,0 +1,15 @@
+# Build context is examples/, so patterns are relative to examples/.
+# This file is named Dockerfile.dockerignore so it applies only to this Dockerfile
+# (a Dockerfile-specific ignore file takes precedence over a root .dockerignore).
+#
+# Allow-list: ignore everything, then let back in only what the image needs.
+*
+!common/
+!15-fastapi-service/main.py
+!15-fastapi-service/requirements.txt
+
+# Never send these, even inside allowed folders.
+**/__pycache__
+**/*.pyc
+**/.env
+**/.env.*
