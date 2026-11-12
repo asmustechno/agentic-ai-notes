@@ -4,7 +4,7 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 > 🚧 This glossary grows as chapters are written. Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
+**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
 
 ## A
 
@@ -96,6 +96,10 @@ The model's ability to reply with a structured request to run one of the tools y
 
 ## G
 
+### Gate
+
+A check in plain code between two steps of a workflow, such as "is this valid JSON?" or "is it under 80 words?". If it fails, the workflow stops or retries that step instead of passing bad output on. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
+
 ### Guardrail
 
 A check that runs before or after a model call to block, fix or flag unsafe or invalid input and output. → [13.4 Input & output guardrails](docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md)
@@ -105,6 +109,10 @@ A check that runs before or after a model call to block, fix or flag unsafe or i
 ### Hallucination
 
 When a model states something false or invented as if it were true, such as a delivery date it had no data for. Giving the model real data through tools or retrieval reduces it. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+
+### Human-in-the-loop (HITL)
+
+A design in which an agent pauses at chosen points so a person can approve, edit or reject an action, or take over the case, before the run continues. → [9.6 Human-in-the-loop](docs/09-agent-design-patterns/09.6-human-in-the-loop.md)
 
 ## I
 
@@ -152,7 +160,17 @@ A fake model used in these notes' examples. It returns pre-written responses, so
 
 An open protocol that standardises how applications give models access to tools, data and prompts, so one integration works across many apps. → [4.1 Why MCP exists](docs/04-model-context-protocol/04.1-why-mcp-exists.md)
 
+## O
+
+### Orchestrator-workers
+
+A pattern in which a lead LLM call breaks a task into sub-tasks decided at run time, worker calls handle one sub-task each, and the lead combines their results. → [9.4 Orchestrator–workers](docs/09-agent-design-patterns/09.4-orchestrator-workers.md)
+
 ## P
+
+### Parallelisation
+
+Running independent LLM calls at the same time and combining the results in code: either different subtasks (sectioning) or the same task several times, aggregated by a vote (voting). → [9.3 Parallelisation (sectioning & voting)](docs/09-agent-design-patterns/09.3-parallelisation.md)
 
 ### pass@k (pass at k)
 
@@ -169,6 +187,10 @@ Information that can identify a person, such as a name, email address, phone num
 ### Position bias
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
+
+### Prompt chaining
+
+A workflow that splits a task into a fixed sequence of LLM calls, each working on the previous call's output, usually with gates in code between the steps. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
 
 ### Prompt injection
 
@@ -191,6 +213,10 @@ A pattern in which a model drafts an answer, critiques the draft (usually with a
 ### Retrieval-augmented generation (RAG)
 
 A technique that first retrieves relevant documents, then gives them to the model along with the question, so the answer is grounded in that information. → [6.1 RAG in 5 minutes](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
+
+### Routing
+
+A workflow that first classifies an input, checks the label, and then sends the input to a handler (prompt, tools or model) specialised for that kind of input. → [9.2 Routing](docs/09-agent-design-patterns/09.2-routing.md)
 
 ### Rubric
 

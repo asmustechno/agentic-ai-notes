@@ -2,11 +2,39 @@
 
 # 09 · Agent Design Patterns
 
-> **Estimated reading time:** ~54 min
+> **Estimated reading time:** ~54 min · **Difficulty:** 🟢 Beginner to 🟡 Intermediate · **Prerequisites:** [01 · Foundations](../01-foundations/README.md), [02 · The Agent Loop](../02-the-agent-loop/README.md)
 
-Reusable building blocks, from simple chains to autonomous agents.
+Most useful [LLM](../../GLOSSARY.md#large-language-model-llm) systems are not free-roaming [agents](../../GLOSSARY.md#agent). They are a handful of simple, composable patterns: chains, routers, parallel calls, orchestrators, evaluator loops and human checkpoints. This chapter builds each one in plain Python, following the patterns described in Anthropic's [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents), and ends with a flowchart for choosing the simplest one that works.
 
-> 🚧 **This chapter is planned but not written yet.**
+## 🎯 What you'll learn
+
+- Prompt chaining: fixed steps with code gates between them
+- Routing: classify, validate the label, dispatch, and send easy inputs to cheaper models
+- Parallelisation: sectioning and voting with `ThreadPoolExecutor`, and how to combine the results
+- Orchestrator–workers: letting a model decide the sub-tasks at run time, and validating its plan
+- Evaluator–optimizer as a reusable building block you can drop into any other pattern
+- Human-in-the-loop: approval gates, edits, rejection, escalation, and pausing and resuming a run
+- How to choose, compare and combine patterns, starting from the simplest
+
+## 📋 Prerequisites
+
+- [1.2 Chatbot vs workflow vs agent](../01-foundations/01.2-chatbot-vs-workflow-vs-agent.md) and [1.6 When NOT to use an agent](../01-foundations/01.6-when-not-to-use-an-agent.md)
+- [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md) and [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md), for 9.6
+- [8.2 The evaluator–optimizer loop](../08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md), for 9.5
+
+## 👀 Chapter overview
+
+```mermaid
+flowchart LR
+    ONE["Single call"] --> WF["Workflows: code fixes the flow<br/>9.1 chaining · 9.2 routing · 9.3 parallelisation"]
+    WF --> MS["Model shapes the flow<br/>9.4 orchestrator–workers · 9.5 evaluator–optimizer"]
+    MS --> AG["Agent: model picks every step<br/>(chapter 02)"]
+    HL["9.6 Human-in-the-loop:<br/>a layer for risky actions"] -.-> WF
+    HL -.-> MS
+    HL -.-> AG
+```
+
+*Left to right: more flexibility, more cost, less predictability. Page 9.7 shows how to move right only when you must. Human-in-the-loop applies at every level.*
 
 ## 📄 Pages in this chapter
 
@@ -21,6 +49,17 @@ Reusable building blocks, from simple chains to autonomous agents.
 | 9.6 | [Human-in-the-loop](./09.6-human-in-the-loop.md) — Pause for a person to approve, correct or decide. | 🟡 Intermediate | ~8 min |
 | 9.7 | [Choosing a pattern](./09.7-choosing-a-pattern.md) — A decision flowchart for picking the simplest pattern that works. | 🟡 Intermediate | ~8 min |
 <!-- PAGES:END -->
+
+## 💻 Examples for this chapter
+
+| Example | What it shows | Used in |
+| --- | --- | --- |
+| [`09-prompt-chaining`](../../examples/09-prompt-chaining/README.md) | Extract → write → translate, with gates that stop bad output early | [9.1](./09.1-prompt-chaining.md) |
+| [`09-routing`](../../examples/09-routing/README.md) | Classify tickets, validate labels, route to prompts and small or large models | [9.2](./09.2-routing.md) |
+| [`09-parallelisation`](../../examples/09-parallelisation/README.md) | Sectioned code review and a SQL-injection vote, run concurrently | [9.3](./09.3-parallelisation.md) |
+| [`09-orchestrator-workers`](../../examples/09-orchestrator-workers/README.md) | A plan whose size depends on the task, validated, then run by workers | [9.4](./09.4-orchestrator-workers.md) |
+| [`08-evaluator-optimizer`](../../examples/08-evaluator-optimizer/README.md) | The reusable `optimize()` building block | [9.5](./09.5-evaluator-optimizer.md) |
+| [`09-human-in-the-loop`](../../examples/09-human-in-the-loop/README.md) | Approve, edit, reject and escalate; pause to JSON and resume | [9.6](./09.6-human-in-the-loop.md) |
 
 <!-- FOOTER -->
 
