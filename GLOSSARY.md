@@ -16,6 +16,14 @@ A system in which a [large language model](#large-language-model-llm) decides, s
 
 In A2A, a JSON document an agent publishes (usually at /.well-known/agent-card.json) describing its name, skills, endpoints, capabilities and authentication requirements. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
 
+### Agent framework
+
+A library that provides ready-made pieces for building agents, such as the loop, tool schemas, memory and multi-agent patterns, so you write less of that code yourself. → [11.1 Framework landscape](docs/11-frameworks/11.1-framework-landscape.md)
+
+### Agent harness
+
+A complete, ready-made agent runtime with built-in tools, permissions and context management that you configure rather than build. Claude Code, used through the Claude Agent SDK, is one. → [11.6 Claude Agent SDK](docs/11-frameworks/11.6-claude-agent-sdk.md)
+
 ### Agent loop
 
 The repeating cycle at the heart of an agent: observe the current state, think about what to do, act (for example by calling a tool), then observe the result. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
@@ -209,6 +217,10 @@ A retry strategy that doubles the wait after each failure (for example 0.5 s, 1 
 Reasoning a model does internally before it replies, returned as separate thinking blocks (often hidden or summarized) and billed as output tokens. Anthropic's name for built-in reasoning. → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ## F
+
+### Fake model
+
+A stand-in for a real LLM that returns scripted replies, so agent code can be tested offline, for free and deterministically. MockLLM is one; most frameworks ship their own. → [11.1 Framework landscape](docs/11-frameworks/11.1-framework-landscape.md)
 
 ### Function calling
 
@@ -541,6 +553,10 @@ What an agent knows during the current run: the conversation so far, including e
 ### Span
 
 One timed step inside a trace, such as a model call or a tool call, with a name, start and end time, attributes, a status and a link to its parent step. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+
+### State graph
+
+A way to build an agent as nodes (steps) connected by edges (what runs next), all reading and updating one shared state object. LangGraph's core abstraction. → [11.2 LangGraph](docs/11-frameworks/11.2-langgraph.md)
 
 ### Stateless
 

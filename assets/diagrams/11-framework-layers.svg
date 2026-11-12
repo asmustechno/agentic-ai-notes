@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" role="img" aria-labelledby="t d">
+<title id="t">Four layers of agent tooling</title>
+<desc id="d">Agent tools grouped in four layers. Bottom: your own loop over a provider SDK. Next: agent SDKs that run the loop for you (OpenAI Agents SDK, Pydantic AI, LlamaIndex agents, Microsoft Agent Framework). Next: orchestration frameworks where you design the control flow (LangGraph, CrewAI, Agent Framework workflows, LlamaIndex workflows). Top: harnesses that come with built-in tools and permissions (Claude Agent SDK, LangChain Deep Agents, the Agent Framework harness agent). An arrow on the left shows that higher layers decide more for you, lower layers give you more control.</desc>
+<rect x="0" y="0" width="960" height="640" rx="16" fill="#FFFFFF"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<text x="480.0" y="42" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#334155">Four layers of agent tooling</text>
+<text x="480.0" y="66" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">One useful way to group the tools in this chapter. Many frameworks offer pieces at more than one layer.</text>
+<rect x="130" y="90" width="800" height="118" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+<text x="150" y="120" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">Harnesses: a whole agent, ready made</text>
+<text x="150" y="142" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Built-in tools, file access, permissions and context management. You mostly configure it.</text>
+<rect x="150" y="158" width="189" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="244.5" y="179" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Claude Agent SDK (11.6)</text>
+<rect x="351" y="158" width="175" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="438.5" y="179" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">LangChain Deep Agents</text>
+<rect x="538" y="158" width="231" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="653.5" y="179" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Agent Framework harness agent</text>
+<rect x="130" y="222" width="800" height="118" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+<text x="150" y="252" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">Orchestration: you design the control flow</text>
+<text x="150" y="274" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Graphs, crews and workflows of many steps or agents, with state you can save and resume.</text>
+<rect x="150" y="290" width="140" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="220.0" y="311" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">LangGraph (11.2)</text>
+<rect x="302" y="290" width="119" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="361.5" y="311" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">CrewAI (11.3)</text>
+<rect x="433" y="290" width="252" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="559.0" y="311" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Agent Framework workflows (11.4)</text>
+<rect x="697" y="290" width="217" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="805.5" y="311" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">LlamaIndex workflows (11.7)</text>
+<rect x="130" y="354" width="800" height="118" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+<text x="150" y="384" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">Agent SDKs: the framework runs the loop</text>
+<text x="150" y="406" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">You give it a model, instructions and tools. It calls the tools and loops until done.</text>
+<rect x="150" y="422" width="196" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="248.0" y="443" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">OpenAI Agents SDK (11.5)</text>
+<rect x="358" y="422" width="154" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="435.0" y="443" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Pydantic AI (11.8)</text>
+<rect x="524" y="422" width="196" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="622.0" y="443" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">LlamaIndex agents (11.7)</text>
+<rect x="732" y="422" width="182" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="823.0" y="443" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Agent Framework (11.4)</text>
+<rect x="130" y="486" width="800" height="118" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+<text x="150" y="516" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#334155">Your own loop</text>
+<text x="150" y="538" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">The provider's SDK plus about 50 lines of your code. Nothing is hidden.</text>
+<rect x="150" y="554" width="238" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="269.0" y="575" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Plain loop over the SDK (11.9)</text>
+<rect x="400" y="554" width="252" height="32" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="526.0" y="575" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Anthropic SDK tool runner (11.9)</text>
+<line x1="70" y1="598" x2="70" y2="96" stroke="#334155" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="56" y="210" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155" transform="rotate(-90 56 210)">more decided for you</text>
+<text x="56" y="488" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" fill="#334155" transform="rotate(-90 56 488)">more control, more code</text>
+</svg>
