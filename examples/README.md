@@ -22,7 +22,7 @@ python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-python check_setup.py            # prints the provider and a test reply
+python 00-check-setup/main.py    # prints the provider and a test reply
 pytest                           # runs every test offline
 ```
 
@@ -40,7 +40,7 @@ Then edit `.env`:
 | Anthropic | `LLM_PROVIDER=anthropic`, `ANTHROPIC_API_KEY=...` | Model defaults to `claude-opus-5-5`; override with `ANTHROPIC_MODEL` |
 | OpenAI | `LLM_PROVIDER=openai`, `OPENAI_API_KEY=...`, `OPENAI_MODEL=...` | Pick a current model ID from the [OpenAI models page](https://platform.openai.com/docs/models) |
 
-`.env` is ignored by git. Never commit real keys. Run `python check_setup.py` again to confirm it works.
+`.env` is ignored by git. Never commit real keys. Run `python 00-check-setup/main.py` again to confirm it works.
 
 ## 🧩 How the shared code works
 
@@ -86,13 +86,13 @@ Examples are added chapter by chapter. Each folder is named `NN-example-name`, m
 | Folder | Chapter | What it shows |
 | --- | --- | --- |
 | [`common/`](common/) | All | Shared LLM wrapper and `MockLLM` |
-| [`check_setup.py`](check_setup.py) | [0.3 Setup](../docs/00-start-here/00.3-setup.md) | Confirms your environment works |
+| [`00-check-setup/`](00-check-setup/README.md) | [0.3 Setup](../docs/00-start-here/00.3-setup.md) | Confirms Python, packages and your provider work |
 
 ## 🔨 Writing a new example
 
 1. Create `examples/NN-example-name/` with `main.py`, `README.md` and `tests/test_main.py`.
 2. Get the model with `get_llm(mock_responses=[...])`, passing a script that shows a realistic run, so `python main.py` is meaningful offline.
-3. Test with `MockLLM` directly. Tests must never need a key or network.
+3. Test with `MockLLM` directly, loading your file with `common.testing.load_example(__file__)`. Tests must never need a key or network.
 4. Add the folder to the index above.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md#-code-examples) for the full rules.

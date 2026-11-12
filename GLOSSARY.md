@@ -4,7 +4,7 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 > 🚧 This glossary grows as chapters are written. Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [C](#c) · [E](#e) · [F](#f) · [G](#g) · [L](#l) · [M](#m) · [P](#p) · [R](#r) · [S](#s) · [T](#t)
+**Jump to:** [A](#a) · [C](#c) · [E](#e) · [F](#f) · [G](#g) · [L](#l) · [M](#m) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v)
 
 ## A
 
@@ -15,6 +15,10 @@ A system in which a [large language model](#large-language-model-llm) decides, s
 ### Agent loop
 
 The repeating cycle at the heart of an agent: observe the current state, think about what to do, act (for example by calling a tool), then observe the result. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
+
+### API key
+
+A secret string that identifies you to a model provider and lets your code call its API. Keep it in a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ## C
 
@@ -31,6 +35,10 @@ A list of numbers that represents the meaning of a piece of text. Texts with sim
 ### Eval
 
 Short for evaluation: a repeatable test that measures how well an LLM system performs on a set of example tasks. → [12.1 Why evals are hard for agents](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
+
+### Environment variable
+
+A named setting passed to a program by its environment rather than written in its code, such as `LLM_PROVIDER=mock`. The examples read them from a `.env` file. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ## F
 
@@ -95,3 +103,9 @@ The unit of text a model reads and writes: often a word, part of a word, or a pu
 ### Tool
 
 A function that your code exposes to the model, described by a name, a description and an input schema. The model can ask for it to be run; your code runs it and returns the result. → [3.1 What is a tool?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
+
+## V
+
+### Virtual environment
+
+A self-contained folder of Python packages for one project, so its dependencies do not clash with other projects. Created with `python -m venv .venv`. → [0.3 Setup](docs/00-start-here/00.3-setup.md)

@@ -1,0 +1,15 @@
+# Configuration for the external link checker (lychee), used by .github/workflows/links.yml.
+
+# Some sites block automated requests or rate-limit them. Treat those codes as "reachable".
+accept = ["200..=299", "403", "429"]
+
+max_retries = 3
+timeout = 30
+
+exclude = [
+  "^https://example\.com",
+  "YOUR-GITHUB-USERNAME",
+  "^https://platform\.openai\.com",   # blocks bots; checked by hand
+]
+
+exclude_path = [".venv", "examples/.venv", "templates", "site"]
