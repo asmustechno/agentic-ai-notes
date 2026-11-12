@@ -90,6 +90,10 @@ Examples are added chapter by chapter. Each folder is named `NN-example-name`, m
 | [`12-llm-judge/`](12-llm-judge/README.md) | [12.3 LLM-as-judge](../docs/12-evaluation/12.3-llm-as-judge.md) | A rubric judge with structured verdicts, a swap test for position bias, and calibration against human labels (Cohen's kappa) |
 | [`12-regression-evals/`](12-regression-evals/README.md) | [12.5 Regression testing agents in CI](../docs/12-evaluation/12.5-regression-testing-in-ci.md) | An eval runner that replays recorded model replies offline, detects stale recordings, and gates on a threshold and a baseline |
 | [`12-trajectory-metrics/`](12-trajectory-metrics/README.md) | [12.2 Task, trajectory & tool-use metrics](../docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md) | Scores recorded runs: final state, strict/in-order/any-order trajectory match, tool precision/recall, cost, pass@k vs pass^k |
+| [`13-approval-gate/`](13-approval-gate/README.md) | [13.5 Human approval for risky actions](../docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md) | Risk tiers, dry-run previews, human approval and an append-only JSONL audit log |
+| [`13-guardrails/`](13-guardrails/README.md) | [13.4 Input & output guardrails](../docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md) | Layered input and output guards: length, deny list, injection flag, moderation hook, schema, refund limit, PII, link allowlist |
+| [`13-pii-redaction/`](13-pii-redaction/README.md) | [13.6 Secrets & PII handling](../docs/13-safety-and-guardrails/13.6-secrets-and-pii.md) | Reversible placeholders for emails, phones, cards and API keys, plus a redacting log filter |
+| [`13-prompt-injection-demo/`](13-prompt-injection-demo/README.md) | [13.2 Prompt injection & defences](../docs/13-safety-and-guardrails/13.2-prompt-injection.md) | A poisoned web page fools the agent; marking + taint tracking and the dual-LLM pattern stop the data leak anyway |
 
 ## 🔨 Writing a new example
 

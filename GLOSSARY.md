@@ -20,6 +20,14 @@ The repeating cycle at the heart of an agent: observe the current state, think a
 
 A secret string that identifies you to a model provider and lets your code call its API. Keep it in a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
+### Approval gate
+
+Code in the agent loop that pauses a risky tool call, shows a person a preview of exactly what will happen, and runs it only if they approve. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
+
+### Audit log
+
+An append-only record of every action an agent took or was refused, with who approved it and what happened, kept for investigation and accountability. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
+
 ### Autonomy spectrum
 
 A scale describing how much an LLM system's model decides, from a single prompt (code decides everything) to a fully autonomous agent (the model sets its own sub-goals). → [1.3 The autonomy spectrum](docs/01-foundations/01.3-the-autonomy-spectrum.md)
@@ -49,6 +57,18 @@ The maximum amount of text, measured in [tokens](#token), that a model can read 
 ### Data contamination
 
 When benchmark or test questions (or their answers) end up in a model's training data, so its score partly reflects memorisation and overstates how well it handles new problems. → [12.6 Public benchmarks (overview)](docs/12-evaluation/12.6-public-benchmarks.md)
+
+### Data exfiltration
+
+Getting private data out of a system to somewhere an attacker can read it, for example by tricking an agent into emailing it or putting it in a URL. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+
+### Defence in depth
+
+Stacking several independent, imperfect safety layers so that an attack that gets past one is caught by another. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+
+### Dual LLM pattern
+
+A design in which a privileged model plans and calls tools but never reads untrusted text, while a quarantined model with no tools reads it; code passes results between them only as variable references. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
 ## E
 
@@ -84,6 +104,10 @@ When a model states something false or invented as if it were true, such as a de
 
 ## I
 
+### Indirect prompt injection
+
+Prompt injection that arrives through content the agent reads, such as a web page, email, document or tool result, rather than from the user. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+
 ### Instructions
 
 The part of an agent that tells the model its role, goal, rules and how to use its tools, usually written as the system prompt. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
@@ -93,6 +117,14 @@ The part of an agent that tells the model its role, goal, rules and how to use i
 ### Large language model (LLM)
 
 A neural network trained on large amounts of text to predict the next [token](#token). Given a prompt, it generates text one token at a time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Least privilege
+
+Giving each part of a system, including an agent and its tools, only the access it needs for its task, for only as long as it needs it. → [13.3 Least-privilege tools & sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
+
+### Lethal trifecta
+
+Simon Willison's name for an agent that combines access to private data, exposure to untrusted content and a way to communicate externally; together they let an attacker steal data. Removing any one leg removes that attack. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### LLM-as-judge
 
@@ -126,6 +158,10 @@ The chance that at least one of k independent attempts at a task succeeds. It ri
 
 The chance that all k independent attempts at a task succeed. It falls as k grows, and measures the consistency that customer-facing agents need. → [12.2 Task, trajectory & tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
 
+### Personally identifiable information (PII)
+
+Information that can identify a person, such as a name, email address, phone number, card number or ID number. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
+
 ### Position bias
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
@@ -140,6 +176,10 @@ An attack in which text the model reads, such as a user message, a web page or a
 
 Short for "Reasoning and Acting": a pattern in which the model alternates between writing a reasoning step and taking an action, then reads the observation before continuing. Introduced by Yao et al. (2022). → [2.2 ReAct explained](docs/02-the-agent-loop/02.2-react-explained.md)
 
+### Redaction
+
+Replacing sensitive values in text with placeholders or masks, for example turning an email address into <EMAIL_1>, before the text reaches a model or a log. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
+
 ### Retrieval-augmented generation (RAG)
 
 A technique that first retrieves relevant documents, then gives them to the model along with the question, so the answer is grounded in that information. → [6.1 RAG in 5 minutes](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
@@ -153,6 +193,10 @@ A written list of criteria, each with a clear pass/fail rule, that a human or mo
 ### Sampling
 
 How a model picks each next token from its predicted probabilities, rather than always taking the most likely one. It is why the same prompt can give different replies. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Sandbox
+
+An isolated, disposable environment, such as a locked-down container or microVM, where an agent's code runs with limited files, network and resources and no secrets. → [13.3 Least-privilege tools & sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
 
 ### Short-term memory
 
@@ -172,9 +216,17 @@ Instructions given to the model separately from the user's messages, used to set
 
 ## T
 
+### Taint tracking
+
+Remembering when untrusted content has entered an agent's context, and restricting risky actions (such as sending data out) from that point on. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+
 ### Temperature
 
 A sampling setting that controls how random a model's output is: lower is more predictable, higher is more varied. Several recent models no longer accept it, and even at 0 outputs can vary. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Threat model
+
+A written answer to four questions about a system: what is valuable, who might attack it, how they could get in, and what damage they could do. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### Token
 

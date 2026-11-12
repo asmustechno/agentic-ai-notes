@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Defence in depth for agents</title>
+  <desc id="desc">Six defensive layers drawn as slices with holes, from left to right: input guardrails, trusted versus untrusted separation, least-privilege tools, human approval, sandbox and egress control, and output guardrails with redaction. An attack arrow from the left passes through holes in the first three layers and is stopped by the fourth, human approval. A bar along the bottom shows monitoring, tracing and the audit log spanning every layer.</desc>
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#991B1B"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="440" rx="16" fill="#FFFFFF"/>
+
+  <text x="480" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155">Defence in depth: no single layer is enough</text>
+  <text x="480" y="66" text-anchor="middle" font-size="14" fill="#334155">Every layer has holes. Stack several so the holes don't line up.</text>
+
+  <!-- attacker -->
+  <rect x="20" y="168" width="104" height="64" rx="10" fill="#FEE2E2" stroke="#991B1B" stroke-width="2"/>
+  <text x="72" y="196" text-anchor="middle" font-size="14" font-weight="bold" fill="#991B1B">Attack</text>
+  <text x="72" y="216" text-anchor="middle" font-size="12" fill="#991B1B">injected text</text>
+
+  <!-- slice 1: input guardrails -->
+  <rect x="160" y="96" width="70" height="200" rx="10" fill="#FEE2E2" stroke="#991B1B" stroke-width="2"/>
+  <ellipse cx="195" cy="200" rx="18" ry="14" fill="#FFFFFF" stroke="#991B1B" stroke-width="1.5"/>
+  <ellipse cx="195" cy="132" rx="12" ry="10" fill="#FFFFFF" stroke="#991B1B" stroke-width="1.5"/>
+  <text x="195" y="324" text-anchor="middle" font-size="14" fill="#334155">Input</text>
+  <text x="195" y="342" text-anchor="middle" font-size="14" fill="#334155">guardrails</text>
+
+  <!-- slice 2: trusted / untrusted separation -->
+  <rect x="290" y="96" width="70" height="200" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+  <ellipse cx="325" cy="200" rx="18" ry="14" fill="#FFFFFF" stroke="#3730A3" stroke-width="1.5"/>
+  <ellipse cx="325" cy="262" rx="12" ry="10" fill="#FFFFFF" stroke="#3730A3" stroke-width="1.5"/>
+  <text x="325" y="324" text-anchor="middle" font-size="14" fill="#334155">Mark</text>
+  <text x="325" y="342" text-anchor="middle" font-size="14" fill="#334155">untrusted</text>
+
+  <!-- slice 3: least-privilege tools -->
+  <rect x="420" y="96" width="70" height="200" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+  <ellipse cx="455" cy="200" rx="18" ry="14" fill="#FFFFFF" stroke="#115E59" stroke-width="1.5"/>
+  <text x="455" y="324" text-anchor="middle" font-size="14" fill="#334155">Least-privilege</text>
+  <text x="455" y="342" text-anchor="middle" font-size="14" fill="#334155">tools</text>
+
+  <!-- slice 4: human approval (stops the attack) -->
+  <rect x="550" y="96" width="70" height="200" rx="10" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <ellipse cx="585" cy="128" rx="12" ry="10" fill="#FFFFFF" stroke="#9D174D" stroke-width="1.5"/>
+  <ellipse cx="585" cy="262" rx="14" ry="11" fill="#FFFFFF" stroke="#9D174D" stroke-width="1.5"/>
+  <text x="585" y="324" text-anchor="middle" font-size="14" fill="#334155">Human</text>
+  <text x="585" y="342" text-anchor="middle" font-size="14" fill="#334155">approval</text>
+
+  <!-- slice 5: sandbox and egress -->
+  <rect x="680" y="96" width="70" height="200" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+  <ellipse cx="715" cy="150" rx="14" ry="11" fill="#FFFFFF" stroke="#115E59" stroke-width="1.5"/>
+  <text x="715" y="324" text-anchor="middle" font-size="14" fill="#334155">Sandbox &amp;</text>
+  <text x="715" y="342" text-anchor="middle" font-size="14" fill="#334155">egress control</text>
+
+  <!-- slice 6: output guardrails and redaction -->
+  <rect x="810" y="96" width="70" height="200" rx="10" fill="#FEE2E2" stroke="#991B1B" stroke-width="2"/>
+  <ellipse cx="845" cy="240" rx="14" ry="11" fill="#FFFFFF" stroke="#991B1B" stroke-width="1.5"/>
+  <text x="845" y="324" text-anchor="middle" font-size="14" fill="#334155">Output guards</text>
+  <text x="845" y="342" text-anchor="middle" font-size="14" fill="#334155">&amp; redaction</text>
+
+  <!-- the attack path: through three holes, stopped at approval -->
+  <line x1="124" y1="200" x2="544" y2="200" stroke="#991B1B" stroke-width="2.5" stroke-dasharray="8 5" marker-end="url(#arrow-red)"/>
+  <g stroke="#991B1B" stroke-width="3" stroke-linecap="round">
+    <line x1="560" y1="188" x2="584" y2="212"/>
+    <line x1="584" y1="188" x2="560" y2="212"/>
+  </g>
+  <text x="585" y="236" text-anchor="middle" font-size="13" font-weight="bold" fill="#991B1B">stopped</text>
+
+  <!-- monitoring bar -->
+  <rect x="160" y="370" width="720" height="40" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <text x="520" y="395" text-anchor="middle" font-size="14" fill="#334155">Monitoring, tracing and an audit log across every layer (chapter 14)</text>
+</svg>
