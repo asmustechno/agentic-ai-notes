@@ -242,6 +242,10 @@ The limit you set on how many tokens the model may write in one reply. If it is 
 
 A fake model used in these notes' examples. It returns pre-written responses, so every example and test can run offline, for free, and with the same result every time. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
+### Model cascade
+
+A routing strategy that tries a cheaper model first, checks its answer, and sends the request to a more capable model only if the check fails. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
+
 ### Model Context Protocol (MCP)
 
 An open protocol that standardises how applications give models access to tools, data and prompts, so one integration works across many apps. → [4.1 Why MCP exists](docs/04-model-context-protocol/04.1-why-mcp-exists.md)
@@ -253,6 +257,10 @@ Switching a request to another model or provider when the first one is unavailab
 ### Model gateway
 
 The single component every model call goes through. It handles retries, rate limits, fallbacks between models or providers, and records tokens and cost. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
+
+### Model routing
+
+Choosing which model handles each request, for example sending easy work to a small, cheap model and hard work to a large one, using rules, a classifier or a cascade. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
 
 ### Multi-agent system
 
@@ -293,6 +301,10 @@ Information that can identify a person, such as a name, email address, phone num
 ### Position bias
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
+
+### Prompt caching
+
+A provider feature that reuses the work already done on the unchanged beginning (prefix) of a request, making repeated input tokens much cheaper and faster to process. → [16.2 Prompt caching](docs/16-cost-and-performance/16.2-prompt-caching.md)
 
 ### Prompt chaining
 
@@ -336,6 +348,10 @@ A workflow that first classifies an input, checks the label, and then sends the 
 
 A written list of criteria, each with a clear pass/fail rule, that a human or model grader uses so that grading is consistent. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
 
+### Run budget
+
+Limits on how many steps, tokens, dollars and seconds one agent run may use, checked in the loop before each model call so the run stops gracefully when a limit is reached. → [16.5 Budget limits per run](docs/16-cost-and-performance/16.5-budget-limits-per-run.md)
+
 ## S
 
 ### Sampling
@@ -374,6 +390,10 @@ Describes an API that keeps no memory between calls. LLM APIs are stateless, so 
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### Streaming
+
+Receiving a model's reply piece by piece as it is generated, instead of all at once at the end, so users see the first words sooner. → [16.4 Latency optimisation](docs/16-cost-and-performance/16.4-latency-optimisation.md)
+
 ### Structured logging
 
 Writing each log entry as data (usually one JSON object with named fields) instead of a free-text sentence, so logs can be searched, filtered and counted. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
@@ -411,6 +431,10 @@ Turning a question in plain language into a SQL query that answers it. Usually e
 ### Threat model
 
 A written answer to four questions about a system: what is valuable, who might attack it, how they could get in, and what damage they could do. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+
+### Time to first token (TTFT)
+
+How long after a request is sent the first token of the response arrives. It grows with the amount of uncached input the model has to read. → [16.4 Latency optimisation](docs/16-cost-and-performance/16.4-latency-optimisation.md)
 
 ### Token
 
