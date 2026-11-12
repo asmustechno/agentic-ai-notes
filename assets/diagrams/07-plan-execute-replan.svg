@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">Planning and reasoning: plan, execute, check, re-plan</title>
+  <desc id="desc">A goal goes to a planner model, which writes a plan of steps with dependencies and done-when criteria. An executor, a model with tools, runs one ready step at a time and produces a result. A check decides: if the step is done, run the next step or, when all are done, answer the user; if the step failed, a re-planner writes new steps for the remaining work and they go back into the plan. Every model box can think before acting, and tree of thoughts explores several options instead of one.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="430" rx="16" fill="#FFFFFF"/>
+  <text x="480" y="36" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155">Planning &amp; reasoning: plan, execute, check, re-plan</text>
+
+  <!-- top row -->
+  <rect x="20" y="110" width="100" height="80" rx="10" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <text x="70" y="146" text-anchor="middle" font-size="14" font-weight="bold" fill="#9D174D">Goal</text>
+  <text x="70" y="166" text-anchor="middle" font-size="12" fill="#9D174D">from the user</text>
+
+  <rect x="180" y="110" width="150" height="80" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+  <text x="255" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#3730A3">Planner (LLM)</text>
+  <text x="255" y="160" text-anchor="middle" font-size="12" fill="#3730A3">no tools, only plans</text>
+  <text x="255" y="178" text-anchor="middle" font-size="12" fill="#3730A3">7.2</text>
+
+  <rect x="400" y="110" width="160" height="80" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+  <text x="480" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">Plan (a DAG)</text>
+  <text x="480" y="160" text-anchor="middle" font-size="12" fill="#92400E">steps, dependencies,</text>
+  <text x="480" y="178" text-anchor="middle" font-size="12" fill="#92400E">done-when · 7.3</text>
+
+  <rect x="630" y="110" width="150" height="80" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+  <text x="705" y="140" text-anchor="middle" font-size="14" font-weight="bold" fill="#115E59">Executor</text>
+  <text x="705" y="160" text-anchor="middle" font-size="12" fill="#115E59">LLM + tools,</text>
+  <text x="705" y="178" text-anchor="middle" font-size="12" fill="#115E59">one step at a time</text>
+
+  <rect x="850" y="110" width="90" height="80" rx="10" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <text x="895" y="146" text-anchor="middle" font-size="14" font-weight="bold" fill="#9D174D">Answer</text>
+  <text x="895" y="166" text-anchor="middle" font-size="12" fill="#9D174D">to the user</text>
+
+  <line x1="120" y1="150" x2="176" y2="150" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="148" y="141" text-anchor="middle" font-size="12" fill="#334155">goal</text>
+  <line x1="330" y1="150" x2="396" y2="150" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="363" y="141" text-anchor="middle" font-size="12" fill="#334155">JSON</text>
+  <line x1="560" y1="150" x2="626" y2="150" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="593" y="141" text-anchor="middle" font-size="12" fill="#334155">ready</text>
+
+  <!-- bottom row -->
+  <rect x="370" y="270" width="190" height="70" rx="10" fill="#FEE2E2" stroke="#991B1B" stroke-width="2"/>
+  <text x="465" y="300" text-anchor="middle" font-size="14" font-weight="bold" fill="#991B1B">Re-planner (LLM)</text>
+  <text x="465" y="320" text-anchor="middle" font-size="12" fill="#991B1B">remaining work only · 7.5</text>
+
+  <rect x="630" y="270" width="150" height="70" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <text x="705" y="300" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">Check</text>
+  <text x="705" y="320" text-anchor="middle" font-size="12" fill="#334155">DONE or FAILED?</text>
+
+  <line x1="680" y1="190" x2="680" y2="266" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="672" y="234" text-anchor="end" font-size="12" fill="#334155">result</text>
+  <line x1="730" y1="270" x2="730" y2="194" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="738" y="234" font-size="12" fill="#334155">next step</text>
+
+  <line x1="630" y1="305" x2="564" y2="305" stroke="#991B1B" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="597" y="296" text-anchor="middle" font-size="12" font-weight="bold" fill="#991B1B">FAILED</text>
+
+  <line x1="465" y1="270" x2="465" y2="194" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="457" y="234" text-anchor="end" font-size="12" fill="#334155">new steps</text>
+
+  <path d="M 780 305 L 895 305 L 895 194" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="836" y="296" text-anchor="middle" font-size="12" fill="#334155">all done</text>
+
+  <!-- notes -->
+  <text x="40" y="384" font-size="13" fill="#334155">Every LLM box can reason before it acts: chain-of-thought or built-in thinking, tuned with an effort level (7.1).</text>
+  <text x="40" y="406" font-size="13" fill="#334155">Tree of thoughts (7.4) explores several candidate steps and keeps the best, instead of committing to one.</text>
+</svg>

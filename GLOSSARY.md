@@ -84,6 +84,10 @@ An agent that uses a web browser through tools, such as opening pages, reading t
 
 A unique, meaningless string planted in a system prompt or secret document. If it ever appears in a model's output, you know the hidden text has leaked, so an output guardrail can block the reply. → [18.5 Project 5: Production-ready support agent](docs/18-projects/18.5-project-5-production-support-agent.md)
 
+### Chain-of-thought (CoT)
+
+Prompting a model to write out intermediate reasoning steps before its final answer, which improves accuracy on multi-step problems. Introduced by Wei et al. (2022). → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
+
 ### Chatbot
 
 A system that answers with a single model reply per message and takes no actions. It can only use what the model already knows or what is in the prompt. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
@@ -162,6 +166,14 @@ A holding queue for jobs that failed permanently or ran out of retries, so they 
 
 Stacking several independent, imperfect safety layers so that an attack that gets past one is caught by another. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
+### Directed acyclic graph (DAG)
+
+A set of tasks connected by one-way dependency arrows with no loops. Plans shaped like this can be put in a valid order, and independent tasks can run in parallel. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+
+### Done criterion
+
+A test that says when a task is finished, such as "the lunch total in EUR is known". The best ones can be checked by code. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+
 ### Dual LLM pattern
 
 A design in which a privileged model plans and calls tools but never reads untrusted text, while a quarantined model with no tools reads it; code passes results between them only as variable references. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
@@ -191,6 +203,10 @@ A loop in which one LLM call generates a result and a separate evaluator grades 
 ### Exponential backoff
 
 A retry strategy that doubles the wait after each failure (for example 0.5 s, 1 s, 2 s, 4 s) up to a cap, giving a struggling service time to recover. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+
+### Extended thinking
+
+Reasoning a model does internally before it replies, returned as separate thinking blocks (often hidden or summarized) and billed as output tokens. Anthropic's name for built-in reasoning. → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ## F
 
@@ -396,6 +412,10 @@ The chance that all k independent attempts at a task succeed. It falls as k grow
 
 Information that can identify a person, such as a name, email address, phone number, card number or ID number. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
 
+### Plan-and-execute
+
+An agent pattern in which a planner writes the whole plan first and an executor carries it out one step at a time, with code validating and scheduling the plan. → [7.2 Plan-and-execute](docs/07-planning-and-reasoning/07.2-plan-and-execute.md)
+
 ### Position bias
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
@@ -432,6 +452,10 @@ Turning a user's question into better search queries, for example by adding prod
 
 A cap a provider puts on how much you can send in a time window, such as requests or tokens per minute. Going over it returns HTTP 429. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
+### Re-planning
+
+Writing a new plan for the remaining work after a step fails, keeping finished steps and using the failure's reason, within a fixed limit of attempts. → [7.5 Re-planning when things fail](docs/07-planning-and-reasoning/07.5-re-planning-when-things-fail.md)
+
 ### Re-ranker
 
 A model that re-scores a short list of retrieved passages by reading the query and each passage together (often a cross-encoder). Slower than first-stage search but more accurate. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
@@ -439,6 +463,10 @@ A model that re-scores a short list of retrieved passages by reading the query a
 ### ReAct
 
 Short for "Reasoning and Acting": a pattern in which the model alternates between writing a reasoning step and taking an action, then reads the observation before continuing. Introduced by Yao et al. (2022). → [2.2 ReAct explained](docs/02-the-agent-loop/02.2-react-explained.md)
+
+### Reasoning effort
+
+A request setting that controls how much a model thinks before answering, such as low, medium or high. Claude takes it as output_config.effort; OpenAI as reasoning.effort or reasoning_effort. → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ### Reciprocal rank fusion (RRF)
 
@@ -568,6 +596,10 @@ Instructions given to the model separately from the user's messages, used to set
 
 Remembering when untrusted content has entered an agent's context, and restricting risky actions (such as sending data out) from that point on. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
+### Task decomposition
+
+Breaking a goal into smaller sub-tasks, each with one outcome, a done criterion and explicit dependencies on other sub-tasks. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+
 ### Temperature
 
 A sampling setting that controls how random a model's output is: lower is more predictable, higher is more varied. Several recent models no longer accept it, and even at 0 outputs can vary. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -631,6 +663,10 @@ The ordered list of steps an agent took in one run, especially its tool calls an
 ### Transformer
 
 The neural network architecture behind modern LLMs, introduced in 2017. It lets each token take every earlier token into account when predicting the next one. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Tree of thoughts (ToT)
+
+A search method in which a model proposes several possible next steps, evaluates them, keeps the most promising and continues, exploring a tree of partial solutions. Introduced by Yao et al. (2023). → [7.4 Tree-of-thoughts (overview)](docs/07-planning-and-reasoning/07.4-tree-of-thoughts.md)
 
 ## V
 
