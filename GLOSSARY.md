@@ -12,9 +12,17 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 A system in which a [large language model](#large-language-model-llm) decides, step by step, which actions to take (usually by calling [tools](#tool)) to reach a goal, and keeps going until the goal is met or it stops. → [1.1 What is an AI agent?](docs/01-foundations/01.1-what-is-an-ai-agent.md)
 
+### Agent card
+
+In A2A, a JSON document an agent publishes (usually at /.well-known/agent-card.json) describing its name, skills, endpoints, capabilities and authentication requirements. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
+
 ### Agent loop
 
 The repeating cycle at the heart of an agent: observe the current state, think about what to do, act (for example by calling a tool), then observe the result. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
+
+### Agent2Agent protocol (A2A)
+
+An open protocol, under the Linux Foundation, that lets independent agents discover each other through Agent Cards, exchange messages and track shared tasks without exposing their internals. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
 
 ### API key
 
@@ -46,6 +54,10 @@ An agent run that no one is waiting for in real time: it is started by a schedul
 
 A public, standardised set of tasks with a fixed way of grading them, used to compare models or agent systems. A score describes the whole system tested (model plus scaffold), on that benchmark's tasks only. → [12.6 Public benchmarks (overview)](docs/12-evaluation/12.6-public-benchmarks.md)
 
+### Blackboard
+
+A shared store that several agents read and write through tools. It needs rules for who may see and change what, and for catching conflicting writes. → [10.4 Shared state & communication](docs/10-multi-agent-systems/10.4-shared-state-and-communication.md)
+
 ## C
 
 ### Canary token
@@ -75,6 +87,10 @@ A running instance of a container image: an isolated process with its own filesy
 ### Container image
 
 A packaged, read-only bundle of an application with its runtime and dependencies (for example a Docker image), built once and run anywhere. It should never contain secrets. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+
+### Context isolation
+
+Giving a sub-task its own fresh context, so its raw work (searches, files, tool output) stays out of the main agent's context and only a short result comes back. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
 
 ### Context window
 
@@ -145,6 +161,10 @@ A check that runs before or after a model call to block, fix or flag unsafe or i
 ### Hallucination
 
 When a model states something false or invented as if it were true, such as a delivery date it had no data for. Giving the model real data through tools or retrieval reduces it. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+
+### Handoff
+
+Passing control of a conversation from one agent to another, which then answers the user directly with its own instructions and tools. Usually offered to the model as a tool such as transfer_to_billing. → [10.3 Peer-to-peer & handoffs](docs/10-multi-agent-systems/10.3-peer-to-peer-and-handoffs.md)
 
 ### Health check
 
@@ -225,6 +245,10 @@ Switching a request to another model or provider when the first one is unavailab
 ### Model gateway
 
 The single component every model call goes through. It handles retries, rate limits, fallbacks between models or providers, and records tokens and cost. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
+
+### Multi-agent system
+
+A system in which several agents, each with its own instructions, tools and context, work on one task by delegating to or handing over to each other. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
 
 ## O
 
@@ -321,6 +345,14 @@ Describes an API that keeps no memory between calls. LLM APIs are stateless, so 
 ### Stop reason
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Subagent
+
+An agent started by another agent to do one focused sub-task in its own context. It receives a brief and returns only its final result. → [10.2 Supervisor & hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
+
+### Supervisor agent
+
+An agent that keeps control of a task, delegates parts of it to specialist agents (usually exposed to it as tools) and combines their results. Also called a lead, orchestrator or manager agent. → [10.2 Supervisor & hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
 
 ### Sycophancy
 
