@@ -272,6 +272,10 @@ A system in which several agents, each with its own instructions, tools and cont
 
 Being able to answer "what happened, and why?" about a running system from the data it records (traces, logs and metrics), without adding new code first. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
 
+### Observation
+
+The result an agent sees after an action, such as a tool's output or error, added to the conversation so the model can use it in its next decision. In ReAct it is the line your code writes after each Action. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
+
 ### OpenTelemetry (OTel)
 
 An open, vendor-neutral standard and set of libraries for creating and exporting traces, metrics and logs, so the same instrumentation works with many backends. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
@@ -389,6 +393,10 @@ Describes an API that keeps no memory between calls. LLM APIs are stateless, so 
 ### Stop reason
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Stopping condition
+
+A rule that ends an agent run: the good one is a complete final answer; the safety ones are limits your code enforces, such as maximum steps, time, tokens, cost or repeated identical calls. → [2.4 Stopping conditions](docs/02-the-agent-loop/02.4-stopping-conditions.md)
 
 ### Streaming
 
