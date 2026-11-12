@@ -4,7 +4,7 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 > 🚧 This glossary grows as chapters are written. Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [L](#l) · [M](#m) · [O](#o) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
+**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
 
 ## A
 
@@ -28,6 +28,10 @@ The set of commands and tools an agent uses to work in a computer environment, s
 
 An open protocol, under the Linux Foundation, that lets independent agents discover each other through Agent Cards, exchange messages and track shared tasks without exposing their internals. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
 
+### Agentic RAG
+
+Retrieval-augmented generation in which search is a tool the model calls, so the agent decides whether to search, what to search for, when to search again, and when to say the answer isn't there. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+
 ### API key
 
 A secret string that identifies you to a model provider and lets your code call its API. Keep it in a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
@@ -35,6 +39,10 @@ A secret string that identifies you to a model provider and lets your code call 
 ### Approval gate
 
 Code in the agent loop that pauses a risky tool call, shows a person a preview of exactly what will happen, and runs it only if they approve. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
+
+### Approximate nearest neighbour (ANN) search
+
+A way to find the vectors closest to a query without comparing it with every stored vector, trading a little accuracy for a large gain in speed. HNSW and IVF are common ANN indexes. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ### At-least-once delivery
 
@@ -62,6 +70,10 @@ A public, standardised set of tasks with a fixed way of grading them, used to co
 
 A shared store that several agents read and write through tools. It needs rules for who may see and change what, and for catching conflicting writes. → [10.4 Shared state & communication](docs/10-multi-agent-systems/10.4-shared-state-and-communication.md)
 
+### BM25
+
+A keyword ranking function that scores documents by how many of the query's words they contain, weighting rare words more, with diminishing returns for repeats and a correction for document length. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+
 ### Browser agent
 
 An agent that uses a web browser through tools, such as opening pages, reading their text and clicking or filling elements, to complete tasks on websites. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
@@ -79,6 +91,10 @@ A system that answers with a single model reply per message and takes no actions
 ### Checkpoint
 
 A saved snapshot of a run's state (for an agent, the messages and the step counter) that lets the run resume after a crash instead of starting over. → [15.4 State persistence & resumability](docs/15-production-and-deployment/15.4-state-persistence-and-resumability.md)
+
+### Chunking
+
+Splitting documents into smaller pieces (chunks) before indexing them for retrieval. How you split decides what search can find. → [6.3 Chunking strategies](docs/06-rag-for-agents/06.3-chunking-strategies.md)
 
 ### Circuit breaker
 
@@ -123,6 +139,10 @@ The maximum amount of text, measured in [tokens](#token), that a model can read 
 ### Correlation ID
 
 An identifier, such as a run ID, attached to every log line and trace of one request or agent run, so all its records can be found and joined together. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
+
+### Cosine similarity
+
+A measure of how closely two vectors point in the same direction, from -1 to 1. For embeddings scaled to length 1 it equals their dot product. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ## D
 
@@ -205,6 +225,10 @@ A cheap endpoint, such as GET /healthz, that a load balancer or orchestrator cal
 ### Human-in-the-loop (HITL)
 
 A design in which an agent pauses at chosen points so a person can approve, edit or reject an action, or take over the case, before the run continues. → [9.6 Human-in-the-loop](docs/09-agent-design-patterns/09.6-human-in-the-loop.md)
+
+### Hybrid search
+
+Retrieval that combines keyword search (such as BM25) with vector search, so exact terms and paraphrases are both found. The two result lists are usually merged with reciprocal rank fusion. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ## I
 
@@ -290,6 +314,10 @@ Read-only data offered by an MCP server and identified by a URI, such as a file 
 
 A program that exposes tools, resources and prompts from one system (such as GitHub, a database or your notes) through the Model Context Protocol, so any MCP host can use them. → [4.4 Build a simple MCP server](docs/04-model-context-protocol/04.4-build-a-simple-mcp-server.md)
 
+### Mean reciprocal rank (MRR)
+
+A retrieval metric: for each query, 1 divided by the position of the first relevant result (0 if none), averaged over all queries. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+
 ### MockLLM
 
 A fake model used in these notes' examples. It returns pre-written responses, so every example and test can run offline, for free, and with the same result every time. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
@@ -317,6 +345,16 @@ Choosing which model handles each request, for example sending easy work to a sm
 ### Multi-agent system
 
 A system in which several agents, each with its own instructions, tools and context, work on one task by delegating to or handing over to each other. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
+
+### Multi-hop question
+
+A question that needs two or more lookups, where a later search depends on what an earlier one found, such as "the price of the plan that includes SSO". → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+
+## N
+
+### nDCG
+
+Normalised discounted cumulative gain: a retrieval metric that rewards putting the most relevant results first, using graded relevance and a discount for lower positions. 1.0 means the ideal order. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ## O
 
@@ -362,6 +400,10 @@ Information that can identify a person, such as a name, email address, phone num
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
 
+### Precision and recall at k
+
+Two retrieval metrics. Precision@k is the share of the top k results that are relevant; recall@k is the share of all relevant documents that appear in the top k. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+
 ### Procedural memory
 
 Long-term memory of how to do the job: instructions, rules and code, plus what the model learned in training. Rules learned from feedback can be added, with care. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
@@ -378,15 +420,29 @@ A workflow that splits a task into a fixed sequence of LLM calls, each working o
 
 An attack in which text the model reads, such as a user message, a web page or a tool result, contains instructions designed to override the developer's instructions. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
+## Q
+
+### Query rewriting
+
+Turning a user's question into better search queries, for example by adding product names, using synonyms, or splitting it into one query per fact. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+
 ## R
 
 ### Rate limit
 
 A cap a provider puts on how much you can send in a time window, such as requests or tokens per minute. Going over it returns HTTP 429. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
+### Re-ranker
+
+A model that re-scores a short list of retrieved passages by reading the query and each passage together (often a cross-encoder). Slower than first-stage search but more accurate. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+
 ### ReAct
 
 Short for "Reasoning and Acting": a pattern in which the model alternates between writing a reasoning step and taking an action, then reads the observation before continuing. Introduced by Yao et al. (2022). → [2.2 ReAct explained](docs/02-the-agent-loop/02.2-react-explained.md)
+
+### Reciprocal rank fusion (RRF)
+
+A way to merge several ranked lists using only positions: each document scores the sum of 1 / (k + rank) over the lists it appears in. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### Redaction
 
@@ -577,6 +633,10 @@ The ordered list of steps an agent took in one run, especially its tool calls an
 The neural network architecture behind modern LLMs, introduced in 2017. It lets each token take every earlier token into account when predicting the next one. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
 ## V
+
+### Vector database
+
+A store for embeddings, with their text and metadata, that can quickly return the vectors nearest to a query vector, usually with an approximate nearest neighbour index. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ### Vector memory
 
