@@ -92,6 +92,10 @@ The way small per-step error rates add up over many steps: if each step is right
 
 Letting a model operate a computer like a person: it receives screenshots and asks for mouse and keyboard actions, which your code performs on an isolated machine. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
 
+### Confused deputy
+
+An attack in which a program with legitimate authority, such as an MCP proxy server holding OAuth credentials, is tricked into using that authority on an attacker's behalf. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+
 ### Container
 
 A running instance of a container image: an isolated process with its own filesystem, started the same way on any machine. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
@@ -222,6 +226,10 @@ A buffer between the part of a system that accepts work and the workers that do 
 
 A standard way to describe the shape of JSON data: which fields exist, their types, which are required and which values are allowed. Tool definitions use it to describe a tool's inputs. → [3.2 JSON Schema for tool definitions](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
 
+### JSON-RPC
+
+A simple message format for remote procedure calls written in JSON: each request has an id, a method and params, and each response carries the same id with a result or an error. MCP messages use JSON-RPC 2.0. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+
 ## L
 
 ### Large language model (LLM)
@@ -249,6 +257,26 @@ Information an agent keeps between runs, such as user preferences, past results 
 ### Max tokens
 
 The limit you set on how many tokens the model may write in one reply. If it is reached, the reply is cut off and the stop reason says so. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### MCP client
+
+The connector inside an MCP host that talks to exactly one MCP server, sending it requests such as tools/list and tools/call. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+
+### MCP host
+
+The AI application that uses MCP servers, such as a desktop chat app, an IDE or your own agent. It runs one MCP client per server, works with the model and enforces user consent. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+
+### MCP prompt
+
+A reusable message template offered by an MCP server, which the user chooses, often as a slash command. One of the three server primitives, alongside tools and resources. → [4.3 Tools, resources and prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
+
+### MCP resource
+
+Read-only data offered by an MCP server and identified by a URI, such as a file or a database schema. The host application decides when to attach it to the model's context. → [4.3 Tools, resources and prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
+
+### MCP server
+
+A program that exposes tools, resources and prompts from one system (such as GitHub, a database or your notes) through the Model Context Protocol, so any MCP host can use them. → [4.4 Build a simple MCP server](docs/04-model-context-protocol/04.4-build-a-simple-mcp-server.md)
 
 ### MockLLM
 
@@ -368,6 +396,10 @@ A workflow that first classifies an input, checks the label, and then sends the 
 
 A written list of criteria, each with a clear pass/fail rule, that a human or model grader uses so that grading is consistent. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
 
+### Rug pull
+
+When an MCP server changes its tool definitions or behaviour after a user has approved it, for example by adding hidden instructions to a description. Pinning tool definitions defends against it. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+
 ### Run budget
 
 Limits on how many steps, tokens, dollars and seconds one agent run may use, checked in the loop before each model call so the run stops gracefully when a limit is reached. → [16.5 Budget limits per run](docs/16-cost-and-performance/16.5-budget-limits-per-run.md)
@@ -410,6 +442,10 @@ One timed step inside a trace, such as a model call or a tool call, with a name,
 
 Describes an API that keeps no memory between calls. LLM APIs are stateless, so your code must resend the conversation every time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### stdio transport
+
+The MCP transport in which the host starts the server as a local subprocess and they exchange newline-delimited JSON-RPC messages over its standard input and output. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+
 ### Stop reason
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -417,6 +453,10 @@ The field in a model's reply that says why it stopped writing: it finished, it w
 ### Stopping condition
 
 A rule that ends an agent run: the good one is a complete final answer; the safety ones are limits your code enforces, such as maximum steps, time, tokens, cost or repeated identical calls. → [2.4 Stopping conditions](docs/02-the-agent-loop/02.4-stopping-conditions.md)
+
+### Streamable HTTP
+
+The MCP transport for servers that run independently, often remotely: the client sends each message as an HTTP POST to one endpoint, and the reply comes back as JSON or as a stream of events for that request. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ### Streaming
 
@@ -476,6 +516,10 @@ The unit of text a model reads and writes: often a word, part of a word, or a pu
 
 A rate-limiting algorithm: tokens refill at a steady rate up to a maximum, each request takes one, and requests wait when the bucket is empty. It allows short bursts while capping the average rate. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
+### Token passthrough
+
+An anti-pattern in which an MCP server accepts an access token that was not issued for it and forwards it to another API. The MCP authorization specification forbids it. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+
 ### Tokenizer
 
 The component that splits text into tokens before the model reads it. Each provider has its own, so the same text gives different token counts on different models. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -491,6 +535,10 @@ The model's structured request to run one tool: the tool's name, its arguments a
 ### Tool choice
 
 A request setting that controls whether the model may call a tool, must call one, must call a specific one, or may not call any on this turn. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+
+### Tool poisoning
+
+An attack that hides instructions for the model inside a tool's name, description or schema, so that simply connecting the tool can steer the agent, for example into leaking files. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
 
 ### Tool result
 

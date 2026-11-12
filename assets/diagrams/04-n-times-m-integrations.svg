@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">The N times M integration problem, and how MCP turns it into N plus M</title>
+  <desc id="desc">Left panel, without MCP: three AI applications (a chat app, an IDE assistant and your agent) each need custom connector code for each of four systems (GitHub, a database, a calendar and files), so twelve lines cross between them. Right panel, with MCP: each application has one MCP client and each system has one MCP server, all speaking the same protocol in the middle, so only seven connections are needed: three plus four.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="440" rx="16" fill="#FFFFFF"/>
+
+  <!-- ===================== left panel: without MCP ===================== -->
+  <rect x="16" y="16" width="452" height="408" rx="12" fill="#FFFFFF" stroke="#FEE2E2" stroke-width="2"/>
+  <text x="242" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#991B1B">Without MCP</text>
+  <text x="242" y="68" text-anchor="middle" font-size="14" fill="#334155">3 apps × 4 systems = 12 custom connectors</text>
+
+  <!-- 12 connector lines (drawn first, so boxes sit on top) -->
+  <g stroke="#991B1B" stroke-width="1.6" opacity="0.75">
+    <line x1="172" y1="132" x2="300" y2="112"/>
+    <line x1="172" y1="132" x2="300" y2="182"/>
+    <line x1="172" y1="132" x2="300" y2="252"/>
+    <line x1="172" y1="132" x2="300" y2="322"/>
+    <line x1="172" y1="212" x2="300" y2="112"/>
+    <line x1="172" y1="212" x2="300" y2="182"/>
+    <line x1="172" y1="212" x2="300" y2="252"/>
+    <line x1="172" y1="212" x2="300" y2="322"/>
+    <line x1="172" y1="292" x2="300" y2="112"/>
+    <line x1="172" y1="292" x2="300" y2="182"/>
+    <line x1="172" y1="292" x2="300" y2="252"/>
+    <line x1="172" y1="292" x2="300" y2="322"/>
+  </g>
+
+  <g font-size="14" text-anchor="middle">
+    <rect x="40" y="110" width="132" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="106" y="137" fill="#3730A3">Chat app</text>
+    <rect x="40" y="190" width="132" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="106" y="217" fill="#3730A3">IDE assistant</text>
+    <rect x="40" y="270" width="132" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="106" y="297" fill="#3730A3">Your agent</text>
+
+    <rect x="300" y="90" width="140" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="370" y="117" fill="#115E59">GitHub</text>
+    <rect x="300" y="160" width="140" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="370" y="187" fill="#115E59">Database</text>
+    <rect x="300" y="230" width="140" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="370" y="257" fill="#115E59">Calendar</text>
+    <rect x="300" y="300" width="140" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="370" y="327" fill="#115E59">Files</text>
+  </g>
+  <text x="242" y="380" text-anchor="middle" font-size="14" fill="#334155">Every app writes, tests and maintains</text>
+  <text x="242" y="400" text-anchor="middle" font-size="14" fill="#334155">its own connector for every system.</text>
+
+  <!-- ===================== right panel: with MCP ===================== -->
+  <rect x="492" y="16" width="452" height="408" rx="12" fill="#FFFFFF" stroke="#CCFBF1" stroke-width="2"/>
+  <text x="718" y="46" text-anchor="middle" font-size="20" font-weight="700" fill="#115E59">With MCP</text>
+  <text x="718" y="68" text-anchor="middle" font-size="14" fill="#334155">3 MCP clients + 4 MCP servers = 7 pieces</text>
+
+  <!-- the shared protocol in the middle -->
+  <rect x="686" y="90" width="40" height="254" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <text x="706" y="217" text-anchor="middle" font-size="14" font-weight="700" fill="#334155" transform="rotate(-90 706 217)">MCP</text>
+
+  <g stroke="#334155" stroke-width="2" fill="none">
+    <line x1="648" y1="132" x2="684" y2="132" marker-end="url(#arrow)"/>
+    <line x1="648" y1="212" x2="684" y2="212" marker-end="url(#arrow)"/>
+    <line x1="648" y1="292" x2="684" y2="292" marker-end="url(#arrow)"/>
+    <line x1="728" y1="112" x2="770" y2="112" marker-end="url(#arrow)"/>
+    <line x1="728" y1="182" x2="770" y2="182" marker-end="url(#arrow)"/>
+    <line x1="728" y1="252" x2="770" y2="252" marker-end="url(#arrow)"/>
+    <line x1="728" y1="322" x2="770" y2="322" marker-end="url(#arrow)"/>
+  </g>
+
+  <g font-size="14" text-anchor="middle">
+    <rect x="510" y="110" width="138" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="579" y="130" fill="#3730A3">Chat app</text>
+    <text x="579" y="147" font-size="12" fill="#3730A3">+ MCP client</text>
+    <rect x="510" y="190" width="138" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="579" y="210" fill="#3730A3">IDE assistant</text>
+    <text x="579" y="227" font-size="12" fill="#3730A3">+ MCP client</text>
+    <rect x="510" y="270" width="138" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="579" y="290" fill="#3730A3">Your agent</text>
+    <text x="579" y="307" font-size="12" fill="#3730A3">+ MCP client</text>
+
+    <rect x="772" y="90" width="152" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="848" y="117" fill="#115E59">GitHub server</text>
+    <rect x="772" y="160" width="152" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="848" y="187" fill="#115E59">Database server</text>
+    <rect x="772" y="230" width="152" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="848" y="257" fill="#115E59">Calendar server</text>
+    <rect x="772" y="300" width="152" height="44" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="848" y="327" fill="#115E59">Files server</text>
+  </g>
+  <text x="718" y="380" text-anchor="middle" font-size="14" fill="#334155">Each app speaks MCP once; each system</text>
+  <text x="718" y="400" text-anchor="middle" font-size="14" fill="#334155">ships one server that every app can use.</text>
+</svg>
