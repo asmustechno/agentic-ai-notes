@@ -1,12 +1,19 @@
 # Agentic AI Notes
 
+[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
+[![Links](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/links.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/links.yml)
+[![Examples](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/examples.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/examples.yml)
+[![GitHub stars](https://img.shields.io/github/stars/YOUR-GITHUB-USERNAME/agentic-ai-notes?style=social)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/stargazers)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 > **From zero to production: a visual, example-driven guide to Agentic AI.**
 
 These are free, open study notes on building AI agents. Start with no knowledge of agents. Finish able to design, build, evaluate and deploy one in production.
 
 Every idea is explained the same way: **plain words first, then a diagram, then a real example, then code.** No term is used before it is defined.
 
-> 🚧 **Status:** the structure is in place and chapters are being written in order. Pages marked "planned" are placeholders.
+**What's inside:** 19 chapters · 107 pages · 69 runnable examples that work offline · 5 guided projects · a [glossary](GLOSSARY.md) of 160+ terms · a one-page [cheatsheet](CHEATSHEET.md).
 
 ## 📑 Contents
 
@@ -16,6 +23,7 @@ Every idea is explained the same way: **plain words first, then a diagram, then 
 - [Table of contents](#-table-of-contents)
 - [Licenses](#-licenses)
 - [Contributing](#-contributing)
+- [Star history](#-star-history)
 
 ## 👋 Who these notes are for
 
@@ -318,3 +326,17 @@ Why two? CC BY 4.0 is designed for prose and images but is not recommended for s
 ## 🤝 Contributing
 
 Found a mistake, a broken link or a confusing explanation? Please [open an issue](.github/ISSUE_TEMPLATE/fix-content.md) or send a pull request. Read [CONTRIBUTING.md](CONTRIBUTING.md) first, and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+**How to contribute, in three steps:**
+
+1. Find something to improve: a confusing sentence, an outdated API, a missing topic. Check the [open issues](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/issues) first.
+2. Fork the repo, make your change, and run the three checks in [CONTRIBUTING.md](CONTRIBUTING.md#-before-you-open-a-pull-request).
+3. Open a pull request. The template has a short checklist.
+
+First time contributing to open source? Fixing a typo or a broken link is a perfect start.
+
+## ⭐ Star history
+
+If these notes helped you, a star helps others find them.
+
+[![Star history chart](https://api.star-history.com/svg?repos=YOUR-GITHUB-USERNAME/agentic-ai-notes&type=Date)](https://star-history.com/#YOUR-GITHUB-USERNAME/agentic-ai-notes&Date)
