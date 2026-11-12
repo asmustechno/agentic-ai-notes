@@ -1,0 +1,24 @@
+{
+  "model": "claude-opus-5-5",
+  "note": "Model replies captured with RecordingLLM from the run in the bug report. Replayed with MockLLM.",
+  "replies": [
+    {
+      "text": "Let me look that up for you.",
+      "tool_calls": [{"id": "toolu_01", "name": "get_order", "arguments": {"order_id": "1234"}}],
+      "stop_reason": "tool_use",
+      "usage": {"input_tokens": 1312, "output_tokens": 61}
+    },
+    {
+      "text": "",
+      "tool_calls": [{"id": "toolu_02", "name": "get_shipping_eta", "arguments": {"tracking_id": "PC-998877"}}],
+      "stop_reason": "tool_use",
+      "usage": {"input_tokens": 1418, "output_tokens": 48}
+    },
+    {
+      "text": "Your order 1234 has shipped with ParcelCo (tracking PC-998877) and should arrive on 16 November 2026.",
+      "tool_calls": [],
+      "stop_reason": "end_turn",
+      "usage": {"input_tokens": 1502, "output_tokens": 39}
+    }
+  ]
+}

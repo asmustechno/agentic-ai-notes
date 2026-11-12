@@ -100,6 +100,10 @@ Giving a sub-task its own fresh context, so its raw work (searches, files, tool 
 
 The maximum amount of text, measured in [tokens](#token), that a model can read in one request. Everything the model "knows" about the current task must fit inside it. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### Correlation ID
+
+An identifier, such as a run ID, attached to every log line and trace of one request or agent run, so all its records can be found and joined together. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
+
 ## D
 
 ### Data contamination
@@ -256,6 +260,14 @@ A system in which several agents, each with its own instructions, tools and cont
 
 ## O
 
+### Observability
+
+Being able to answer "what happened, and why?" about a running system from the data it records (traces, logs and metrics), without adding new code first. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+
+### OpenTelemetry (OTel)
+
+An open, vendor-neutral standard and set of libraries for creating and exporting traces, metrics and logs, so the same instrumentation works with many backends. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
+
 ### Orchestrator-workers
 
 A pattern in which a lead LLM call breaks a task into sub-tasks decided at run time, worker calls handle one sub-task each, and the lead combines their results. → [9.4 Orchestrator–workers](docs/09-agent-design-patterns/09.4-orchestrator-workers.md)
@@ -308,6 +320,10 @@ Replacing sensitive values in text with placeholders or masks, for example turni
 
 A pattern in which a model drafts an answer, critiques the draft (usually with a separate critic prompt and a checklist), and revises it, repeating until the critique finds no problems or a round limit is hit. → [8.1 The reflection pattern](docs/08-reflection-and-self-correction/08.1-the-reflection-pattern.md)
 
+### Regression test
+
+A test that captures a bug that was fixed, such as a recorded failing agent run, so the bug is caught automatically if it ever comes back. → [14.5 Debugging a broken agent](docs/14-observability-and-debugging/14.5-debugging-a-broken-agent.md)
+
 ### Retrieval-augmented generation (RAG)
 
 A technique that first retrieves relevant documents, then gives them to the model along with the question, so the answer is grounded in that information. → [6.1 RAG in 5 minutes](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
@@ -334,6 +350,10 @@ An isolated, disposable environment, such as a locked-down container or microVM,
 
 A model revising its own output. Intrinsic self-correction uses only what the model already knows and is unreliable for reasoning; self-correction with external feedback (tests, errors, tool results) works much better. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
 
+### Semantic conventions
+
+Agreed names and meanings for span names and attributes in OpenTelemetry, such as gen_ai.usage.input_tokens, so that every backend can read data from any instrumented app. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
+
 ### Server-sent events (SSE)
 
 A simple HTTP standard for a server to push a stream of events to a client over one long-lived response, often used to stream an agent's progress to a browser. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
@@ -342,6 +362,10 @@ A simple HTTP standard for a server to push a stream of events to a client over 
 
 What an agent knows during the current run: the conversation so far, including every tool call and result. It lives in the context window. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
 
+### Span
+
+One timed step inside a trace, such as a model call or a tool call, with a name, start and end time, attributes, a status and a link to its parent step. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+
 ### Stateless
 
 Describes an API that keeps no memory between calls. LLM APIs are stateless, so your code must resend the conversation every time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -349,6 +373,10 @@ Describes an API that keeps no memory between calls. LLM APIs are stateless, so 
 ### Stop reason
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Structured logging
+
+Writing each log entry as data (usually one JSON object with named fields) instead of a free-text sentence, so logs can be searched, filtered and counted. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
 
 ### Subagent
 
@@ -399,6 +427,10 @@ The component that splits text into tokens before the model reads it. Each provi
 ### Tool
 
 A function that your code exposes to the model, described by a name, a description and an input schema. The model can ask for it to be run; your code runs it and returns the result. → [3.1 What is a tool?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
+
+### Trace
+
+The record of one request or agent run as a tree of spans that share one trace ID: the run at the root, with model calls and tool calls as its children. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
 
 ### Trajectory
 

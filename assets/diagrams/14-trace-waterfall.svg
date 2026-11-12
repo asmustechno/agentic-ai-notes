@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="t d">
+  <title id="t">An agent run as a trace waterfall</title>
+  <desc id="d">A timeline of one agent run lasting about 1,360 milliseconds. The top bar is the run span. Below it, five child spans run one after another: a model call of 300 ms, the get_order tool for 50 ms, a second model call of 300 ms, the get_shipping_eta tool for 400 ms, and a final model call of 300 ms that ends the run. Model spans are indigo, tool spans are teal. The slowest single step is the get_shipping_eta tool.</desc>
+  <rect x="0" y="0" width="900" height="400" rx="16" fill="#FFFFFF"/>
+  <g font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="30" y="40" font-size="20" font-weight="bold" fill="#334155">One run = one trace = a tree of spans</text>
+
+    <!-- time axis: x = 250 + ms * 0.45 (0..1400 ms -> 250..880) -->
+    <line x1="250" y1="326" x2="862" y2="326" stroke="#94A3B8" stroke-width="1"/>
+    <g stroke="#94A3B8" stroke-width="1">
+      <line x1="250" y1="320" x2="250" y2="332"/>
+      <line x1="385" y1="320" x2="385" y2="332"/>
+      <line x1="520" y1="320" x2="520" y2="332"/>
+      <line x1="655" y1="320" x2="655" y2="332"/>
+      <line x1="790" y1="320" x2="790" y2="332"/>
+    </g>
+    <g font-size="12" fill="#334155" text-anchor="middle">
+      <text x="250" y="350">0 ms</text>
+      <text x="385" y="350">300</text>
+      <text x="520" y="350">600</text>
+      <text x="655" y="350">900</text>
+      <text x="790" y="350">1,200</text>
+    </g>
+
+    <!-- labels -->
+    <g font-size="13" fill="#334155">
+      <text x="30" y="95" font-weight="bold">invoke_agent order-support</text>
+      <text x="44" y="137">chat (model call 1)</text>
+      <text x="44" y="179">execute_tool get_order</text>
+      <text x="44" y="221">chat (model call 2)</text>
+      <text x="44" y="263">execute_tool get_shipping_eta</text>
+      <text x="44" y="305">chat (model call 3)</text>
+    </g>
+
+    <!-- root span 0..1360 -->
+    <rect x="250" y="78" width="612" height="26" rx="6" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+    <text x="556" y="96" font-size="13" fill="#334155" text-anchor="middle">1,360 ms · 3 model calls · 2 tool calls · answered</text>
+
+    <!-- chat 1: 0..300 -->
+    <rect x="250" y="120" width="135" height="26" rx="6" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="395" y="138" font-size="12" fill="#3730A3">300 ms · in 32 · out 5 · stop=tool_use</text>
+
+    <!-- get_order: 300..350 -->
+    <rect x="385" y="162" width="23" height="26" rx="6" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="418" y="180" font-size="12" fill="#115E59">50 ms · result 72 chars</text>
+
+    <!-- chat 2: 350..650 -->
+    <rect x="408" y="204" width="135" height="26" rx="6" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="553" y="222" font-size="12" fill="#3730A3">300 ms · in 50 · out 7 · stop=tool_use</text>
+
+    <!-- eta: 650..1050 -->
+    <rect x="543" y="246" width="180" height="26" rx="6" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="733" y="264" font-size="12" fill="#115E59">400 ms · slowest step</text>
+
+    <!-- chat 3: 1050..1350 -->
+    <rect x="723" y="288" width="135" height="26" rx="6" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="790" y="306" font-size="12" fill="#3730A3" text-anchor="middle">end_turn · out 25</text>
+
+    <!-- legend -->
+    <rect x="250" y="368" width="16" height="16" rx="4" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="274" y="381" font-size="13" fill="#334155">model call span</text>
+    <rect x="400" y="368" width="16" height="16" rx="4" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+    <text x="424" y="381" font-size="13" fill="#334155">tool call span</text>
+    <rect x="540" y="368" width="16" height="16" rx="4" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+    <text x="564" y="381" font-size="13" fill="#334155">run (root) span: the parent of all the others</text>
+  </g>
+</svg>
