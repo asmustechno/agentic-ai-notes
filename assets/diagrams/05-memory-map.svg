@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">Where an agent's memory lives</title>
+  <desc id="desc">In the centre is the context window, which is the agent's short-term memory. From top to bottom it holds the instructions, memories recalled from long-term storage, a summary of older turns, and the recent turns word for word. The model reads all of it on every call. On the left, older turns that no longer fit are summarised into the summary slot. On the right, long-term memory holds four stores that outlive the conversation: semantic facts, episodic records of past runs, procedural rules, and a vector index for search by meaning. Memories are recalled from long-term storage into the context before a call, and new memories are written from the conversation to long-term storage after a turn.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="430" rx="16" fill="#FFFFFF"/>
+  <text x="480" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#334155">Where an agent's memory lives</text>
+  <text x="480" y="58" text-anchor="middle" font-size="14" fill="#334155">Short-term memory is whatever is in the context window. Long-term memory is everything your code stores outside it.</text>
+
+  <!-- ===================== left: older turns ===================== -->
+  <rect x="24" y="222" width="196" height="64" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="122" y="248" text-anchor="middle" font-size="14" fill="#334155">Older turns that</text>
+  <text x="122" y="267" text-anchor="middle" font-size="14" fill="#334155">no longer fit</text>
+
+  <!-- ===================== centre: the context window ===================== -->
+  <rect x="300" y="78" width="340" height="256" rx="12" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <text x="470" y="102" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Context window = short-term memory</text>
+
+  <g font-size="14" text-anchor="middle">
+    <rect x="320" y="116" width="300" height="40" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+    <text x="470" y="141" fill="#334155">Instructions (system prompt)</text>
+    <rect x="320" y="168" width="300" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="470" y="193" fill="#92400E">Recalled memories</text>
+    <rect x="320" y="234" width="300" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="470" y="259" fill="#92400E">Summary of older turns</text>
+    <rect x="320" y="282" width="300" height="40" rx="10" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+    <text x="470" y="307" fill="#9D174D">Recent turns, word for word</text>
+  </g>
+
+  <!-- summarise arrow, drawn after the container so its head stays visible -->
+  <line x1="222" y1="254" x2="318" y2="254" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="256" y="244" text-anchor="middle" font-size="13" fill="#334155">summarise</text>
+
+  <!-- model -->
+  <line x1="470" y1="336" x2="470" y2="364" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="340" y="366" width="260" height="44" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+  <text x="470" y="393" text-anchor="middle" font-size="14" fill="#3730A3">Model reads all of it, every call</text>
+
+  <!-- ===================== right: long-term memory ===================== -->
+  <rect x="716" y="78" width="224" height="256" rx="12" fill="#FFFFFF" stroke="#92400E" stroke-width="2"/>
+  <text x="828" y="102" text-anchor="middle" font-size="15" font-weight="700" fill="#92400E">Long-term memory</text>
+  <g font-size="14" text-anchor="middle">
+    <rect x="732" y="116" width="192" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="828" y="141" fill="#92400E">Semantic: facts</text>
+    <rect x="732" y="168" width="192" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="828" y="193" fill="#92400E">Episodic: past runs</text>
+    <rect x="732" y="220" width="192" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="828" y="245" fill="#92400E">Procedural: rules</text>
+    <rect x="732" y="272" width="192" height="40" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+    <text x="828" y="297" fill="#92400E">Vector index</text>
+  </g>
+
+  <!-- recall and write arrows -->
+  <line x1="714" y1="188" x2="624" y2="188" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="668" y="180" text-anchor="middle" font-size="13" fill="#334155">recall</text>
+  <line x1="624" y1="302" x2="714" y2="302" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="668" y="294" text-anchor="middle" font-size="13" fill="#334155">write</text>
+
+  <text x="828" y="360" text-anchor="middle" font-size="13" fill="#334155">Outlives the conversation.</text>
+  <text x="828" y="378" text-anchor="middle" font-size="13" fill="#334155">Your code decides what goes in</text>
+  <text x="828" y="396" text-anchor="middle" font-size="13" fill="#334155">and what comes back out.</text>
+</svg>

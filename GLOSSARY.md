@@ -104,6 +104,14 @@ A running instance of a container image: an isolated process with its own filesy
 
 A packaged, read-only bundle of an application with its runtime and dependencies (for example a Docker image), built once and run anywhere. It should never contain secrets. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
 
+### Context compaction
+
+Shrinking a long conversation so it fits its budget, usually by replacing older turns with a summary, so the model continues from the summary instead of the full history. Anthropic and OpenAI can also do it server-side. → [5.2 Summarisation & context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
+
+### Context editing
+
+Removing specific content from a conversation before the model sees it, such as old tool results or thinking blocks, to keep the context small without summarising it. → [5.2 Summarisation & context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
+
 ### Context isolation
 
 Giving a sub-task its own fresh context, so its raw work (searches, files, tool output) stays out of the main agent's context and only a short result comes back. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
@@ -147,6 +155,10 @@ A list of numbers that represents the meaning of a piece of text. Texts with sim
 ### Environment variable
 
 A named setting passed to a program by its environment rather than written in its code, such as `LLM_PROVIDER=mock`. The examples read them from a `.env` file. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+
+### Episodic memory
+
+Long-term memory of past experiences: what task an agent did, what it tried and how it turned out. Recalled to learn from similar past runs. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
 
 ### Eval
 
@@ -350,6 +362,10 @@ Information that can identify a person, such as a name, email address, phone num
 
 A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
 
+### Procedural memory
+
+Long-term memory of how to do the job: instructions, rules and code, plus what the model learned in training. Rules learned from feedback can be added, with care. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
+
 ### Prompt caching
 
 A provider feature that reuses the work already done on the unchanged beginning (prefix) of a request, making repeated input tokens much cheaper and faster to process. → [16.2 Prompt caching](docs/16-cost-and-performance/16.2-prompt-caching.md)
@@ -421,6 +437,10 @@ A model revising its own output. Intrinsic self-correction uses only what the mo
 ### Semantic conventions
 
 Agreed names and meanings for span names and attributes in OpenTelemetry, such as gen_ai.usage.input_tokens, so that every backend can read data from any instrumented app. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
+
+### Semantic memory
+
+Long-term memory of facts about the user, the world or the agent itself, such as "the user is vegetarian". A new value for the same fact should replace the old one. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
 
 ### Server tool
 
@@ -557,6 +577,10 @@ The ordered list of steps an agent took in one run, especially its tool calls an
 The neural network architecture behind modern LLMs, introduced in 2017. It lets each token take every earlier token into account when predicting the next one. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
 ## V
+
+### Vector memory
+
+Long-term memory stored as text plus embeddings, and recalled by finding the memories whose embeddings are most similar to the query's. → [5.3 Vector memory](docs/05-memory/05.3-vector-memory.md)
 
 ### Virtual environment
 
