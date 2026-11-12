@@ -84,6 +84,10 @@ A named setting passed to a program by its environment rather than written in it
 
 Short for evaluation: a repeatable test that measures how well an LLM system performs on a set of example tasks. → [12.1 Why evals are hard for agents](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
 
+### Evaluator-optimizer
+
+A loop in which one LLM call generates a result and a separate evaluator grades it against clear criteria and gives feedback; the generator revises until the result passes or a round limit is reached. → [8.2 The evaluator–optimizer loop](docs/08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md)
+
 ## F
 
 ### Function calling
@@ -180,6 +184,10 @@ Short for "Reasoning and Acting": a pattern in which the model alternates betwee
 
 Replacing sensitive values in text with placeholders or masks, for example turning an email address into <EMAIL_1>, before the text reaches a model or a log. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
 
+### Reflection
+
+A pattern in which a model drafts an answer, critiques the draft (usually with a separate critic prompt and a checklist), and revises it, repeating until the critique finds no problems or a round limit is hit. → [8.1 The reflection pattern](docs/08-reflection-and-self-correction/08.1-the-reflection-pattern.md)
+
 ### Retrieval-augmented generation (RAG)
 
 A technique that first retrieves relevant documents, then gives them to the model along with the question, so the answer is grounded in that information. → [6.1 RAG in 5 minutes](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
@@ -198,6 +206,10 @@ How a model picks each next token from its predicted probabilities, rather than 
 
 An isolated, disposable environment, such as a locked-down container or microVM, where an agent's code runs with limited files, network and resources and no secrets. → [13.3 Least-privilege tools & sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
 
+### Self-correction
+
+A model revising its own output. Intrinsic self-correction uses only what the model already knows and is unreliable for reasoning; self-correction with external feedback (tests, errors, tool results) works much better. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
+
 ### Short-term memory
 
 What an agent knows during the current run: the conversation so far, including every tool call and result. It lives in the context window. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
@@ -209,6 +221,10 @@ Describes an API that keeps no memory between calls. LLM APIs are stateless, so 
 ### Stop reason
 
 The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Sycophancy
+
+A model's tendency to agree with the user, or with what the prompt implies, even when that means giving up a correct answer. It is why "are you sure?" is a poor way to check an answer. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
 
 ### System prompt
 
