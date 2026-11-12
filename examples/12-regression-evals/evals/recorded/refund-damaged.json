@@ -1,0 +1,33 @@
+{
+  "prompt_fingerprint": "74c6ee222439",
+  "model": "claude-opus-5-5",
+  "replies": [
+    {
+      "text": "",
+      "tool_calls": [
+        {
+          "name": "get_order",
+          "arguments": {
+            "order_id": "1234"
+          }
+        }
+      ]
+    },
+    {
+      "text": "",
+      "tool_calls": [
+        {
+          "name": "issue_refund",
+          "arguments": {
+            "order_id": "1234",
+            "amount": 25.0
+          }
+        }
+      ]
+    },
+    {
+      "text": "Sorry about the broken lamp. I've refunded the full $25.00 for order 1234.",
+      "tool_calls": []
+    }
+  ]
+}

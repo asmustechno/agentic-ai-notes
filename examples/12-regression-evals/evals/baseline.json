@@ -1,0 +1,7 @@
+{
+  "refund-damaged": true,
+  "track-order": true,
+  "cancel-order": true,
+  "cancel-shipped": true,
+  "refund-over-limit": false
+}

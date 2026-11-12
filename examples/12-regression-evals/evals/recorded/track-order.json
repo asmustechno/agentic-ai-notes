@@ -1,0 +1,21 @@
+{
+  "prompt_fingerprint": "74c6ee222439",
+  "model": "claude-opus-5-5",
+  "replies": [
+    {
+      "text": "",
+      "tool_calls": [
+        {
+          "name": "get_order",
+          "arguments": {
+            "order_id": "5678"
+          }
+        }
+      ]
+    },
+    {
+      "text": "Order 5678 has shipped and is due on Thursday, so it should arrive before Friday.",
+      "tool_calls": []
+    }
+  ]
+}
