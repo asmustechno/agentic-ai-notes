@@ -20,6 +20,10 @@ In A2A, a JSON document an agent publishes (usually at /.well-known/agent-card.j
 
 The repeating cycle at the heart of an agent: observe the current state, think about what to do, act (for example by calling a tool), then observe the result. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
 
+### Agent-computer interface (ACI)
+
+The set of commands and tools an agent uses to work in a computer environment, such as search, view and edit commands for a coding agent. Its design strongly affects how well the agent performs. → [17.1 Coding agent](docs/17-case-studies/17.1-coding-agent.md)
+
 ### Agent2Agent protocol (A2A)
 
 An open protocol, under the Linux Foundation, that lets independent agents discover each other through Agent Cards, exchange messages and track shared tasks without exposing their internals. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
@@ -371,6 +375,10 @@ Remembering when untrusted content has entered an agent's context, and restricti
 ### Temperature
 
 A sampling setting that controls how random a model's output is: lower is more predictable, higher is more varied. Several recent models no longer accept it, and even at 0 outputs can vary. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Text-to-SQL
+
+Turning a question in plain language into a SQL query that answers it. Usually evaluated by comparing the query's results with those of a reference query. → [17.4 Data analysis agent](docs/17-case-studies/17.4-data-analysis-agent.md)
 
 ### Threat model
 
