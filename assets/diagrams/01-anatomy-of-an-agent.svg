@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">Anatomy of an agent</title>
+  <desc id="desc">An agent has five parts. A model in the centre reasons and decides. Instructions tell it its role and rules. Tools let it act on the world. Memory holds what it knows. The loop connects them: the model decides, a tool runs, the result is stored in memory, and the model decides again until the goal is met.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- background (keeps text readable in dark mode) -->
+  <rect x="0" y="0" width="900" height="520" rx="16" fill="#FFFFFF"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#334155">Anatomy of an agent</text>
+  <text x="450" y="64" text-anchor="middle" font-size="14" fill="#334155">Five parts. The loop is what turns a model into an agent.</text>
+
+  <!-- the loop: a dashed rounded track around the centre -->
+  <rect x="190" y="110" width="520" height="330" rx="40" fill="#F1F5F9" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="450" y="428" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">⑤ LOOP: repeat until the goal is met or a limit is hit</text>
+
+  <!-- model (centre) -->
+  <rect x="345" y="215" width="210" height="100" rx="12" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+  <text x="450" y="250" text-anchor="middle" font-size="18" font-weight="700" fill="#3730A3">① MODEL</text>
+  <text x="450" y="274" text-anchor="middle" font-size="14" fill="#3730A3">the LLM: reads, reasons,</text>
+  <text x="450" y="294" text-anchor="middle" font-size="14" fill="#3730A3">decides the next step</text>
+
+  <!-- instructions (top) -->
+  <rect x="345" y="125" width="210" height="62" rx="12" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <text x="450" y="152" text-anchor="middle" font-size="16" font-weight="700" fill="#9D174D">② INSTRUCTIONS</text>
+  <text x="450" y="174" text-anchor="middle" font-size="13" fill="#9D174D">role, goal, rules (system prompt)</text>
+  <line x1="450" y1="187" x2="450" y2="213" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- tools (right) -->
+  <rect x="620" y="200" width="250" height="130" rx="12" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+  <text x="745" y="232" text-anchor="middle" font-size="16" font-weight="700" fill="#115E59">③ TOOLS</text>
+  <text x="745" y="256" text-anchor="middle" font-size="13" fill="#115E59">functions it can ask you to run</text>
+  <text x="745" y="280" text-anchor="middle" font-size="13" fill="#115E59">search · database · email</text>
+  <text x="745" y="302" text-anchor="middle" font-size="13" fill="#115E59">calculator · code · APIs</text>
+
+  <!-- memory (left) -->
+  <rect x="30" y="200" width="250" height="130" rx="12" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+  <text x="155" y="232" text-anchor="middle" font-size="16" font-weight="700" fill="#92400E">④ MEMORY</text>
+  <text x="155" y="256" text-anchor="middle" font-size="13" fill="#92400E">short-term: this conversation</text>
+  <text x="155" y="280" text-anchor="middle" font-size="13" fill="#92400E">long-term: facts, past runs,</text>
+  <text x="155" y="302" text-anchor="middle" font-size="13" fill="#92400E">documents</text>
+
+  <!-- arrows: model -> tools (act), tools -> memory (observe), memory -> model (recall) -->
+  <path d="M555,245 L618,245" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="587" y="264" text-anchor="middle" font-size="13" fill="#334155">act</text>
+
+  <path d="M745,332 C745,402 215,402 215,334" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="480" y="405" text-anchor="middle" font-size="13" fill="#334155">observe: the tool's result is added to memory</text>
+
+  <path d="M282,285 L343,285" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="312" y="276" text-anchor="middle" font-size="13" fill="#334155">recall</text>
+
+  <!-- user goal in (bottom left), answer out (top right) -->
+  <rect x="30" y="455" width="250" height="44" rx="12" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <text x="155" y="483" text-anchor="middle" font-size="14" font-weight="700" fill="#9D174D">User goal goes in</text>
+  <path d="M100,455 L100,334" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
+
+  <rect x="720" y="96" width="160" height="52" rx="12" fill="#FCE7F3" stroke="#9D174D" stroke-width="2"/>
+  <text x="800" y="118" text-anchor="middle" font-size="14" font-weight="700" fill="#9D174D">Final answer</text>
+  <text x="800" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#9D174D">comes out</text>
+  <path d="M555,225 L595,225 L595,122 L718,122" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrow)" stroke-dasharray="4 4"/>
+  <text x="602" y="175" font-size="13" fill="#334155">done</text>
+</svg>

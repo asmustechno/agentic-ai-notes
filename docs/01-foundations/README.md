@@ -2,11 +2,29 @@
 
 # 01 · Foundations
 
-> **Estimated reading time:** ~52 min
+> **Estimated reading time:** ~52 min · **Difficulty:** 🟢 Beginner · **Prerequisites:** [00 · Start Here](../00-start-here/README.md)
 
-What an agent is, how it differs from a chatbot, and the parts every agent shares.
+Before building an agent, you need a clear picture of what one is. This chapter gives you precise definitions, a simple model of how LLMs work, the five parts every agent shares, and an honest list of cases where you should *not* build one.
 
-> 🚧 **This chapter is planned but not written yet.**
+## 🎯 What you'll learn
+
+- A precise, plain-language definition of an AI agent
+- How chatbots, workflows and agents differ, using one task solved all three ways
+- The autonomy spectrum: six levels of how much control a model has
+- Just enough about LLMs: tokens, context windows, sampling, system prompts and why the API is stateless
+- The five parts of every agent: model, instructions, tools, memory and loop
+- When an agent is the wrong choice, and what to use instead
+
+## 📋 Prerequisites
+
+- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the examples
+- Basic Python
+
+## 👀 Chapter overview
+
+![The five parts of an agent: a model at the centre, instructions above it, tools on the right, memory on the left, all inside a loop that repeats until the goal is met](../../assets/diagrams/01-anatomy-of-an-agent.svg)
+
+*Everything in this book hangs off this picture. Chapter 01 introduces each part; later chapters go deep on one part each: the loop (02), tools (03, 04), memory (05, 06) and the model's reasoning (07, 08).*
 
 ## 📄 Pages in this chapter
 
@@ -20,6 +38,14 @@ What an agent is, how it differs from a chatbot, and the parts every agent share
 | 1.5 | [Anatomy of an agent](./01.5-anatomy-of-an-agent.md) — Model, instructions, tools, memory and loop: the five parts of every agent. | 🟢 Beginner | ~10 min |
 | 1.6 | [When NOT to use an agent](./01.6-when-not-to-use-an-agent.md) — Signs that a simpler solution will serve you better. | 🟢 Beginner | ~7 min |
 <!-- PAGES:END -->
+
+## 💻 Examples for this chapter
+
+| Example | What it shows | Used in |
+| --- | --- | --- |
+| [`01-chatbot-workflow-agent`](../../examples/01-chatbot-workflow-agent/README.md) | One customer question answered three ways | [1.1](./01.1-what-is-an-ai-agent.md), [1.2](./01.2-chatbot-vs-workflow-vs-agent.md), [1.3](./01.3-the-autonomy-spectrum.md) |
+| [`01-how-llms-work`](../../examples/01-how-llms-work/README.md) | Statelessness, growing context and token counting | [1.4](./01.4-how-llms-work.md) |
+| [`01-anatomy-of-an-agent`](../../examples/01-anatomy-of-an-agent/README.md) | An agent with its five parts labelled in code | [1.5](./01.5-anatomy-of-an-agent.md) |
 
 <!-- FOOTER -->
 

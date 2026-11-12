@@ -4,7 +4,7 @@ Every term used in these notes, A to Z. Each entry gives a short, plain definiti
 
 > 🚧 This glossary grows as chapters are written. Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [C](#c) · [E](#e) · [F](#f) · [G](#g) · [L](#l) · [M](#m) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v)
+**Jump to:** [A](#a) · [C](#c) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [L](#l) · [M](#m) · [P](#p) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
 
 ## A
 
@@ -20,7 +20,19 @@ The repeating cycle at the heart of an agent: observe the current state, think a
 
 A secret string that identifies you to a model provider and lets your code call its API. Keep it in a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
+### Autonomy spectrum
+
+A scale describing how much an LLM system's model decides, from a single prompt (code decides everything) to a fully autonomous agent (the model sets its own sub-goals). → [1.3 The autonomy spectrum](docs/01-foundations/01.3-the-autonomy-spectrum.md)
+
 ## C
+
+### Chatbot
+
+A system that answers with a single model reply per message and takes no actions. It can only use what the model already knows or what is in the prompt. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+
+### Compounding errors
+
+The way small per-step error rates add up over many steps: if each step is right with probability p, all n steps are right with probability pⁿ. A key reason long agent runs need ways to catch mistakes. → [1.6 When NOT to use an agent](docs/01-foundations/01.6-when-not-to-use-an-agent.md)
 
 ### Context window
 
@@ -32,13 +44,13 @@ The maximum amount of text, measured in [tokens](#token), that a model can read 
 
 A list of numbers that represents the meaning of a piece of text. Texts with similar meanings have embeddings that are close together, which makes search by meaning possible. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
-### Eval
-
-Short for evaluation: a repeatable test that measures how well an LLM system performs on a set of example tasks. → [12.1 Why evals are hard for agents](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
-
 ### Environment variable
 
 A named setting passed to a program by its environment rather than written in its code, such as `LLM_PROVIDER=mock`. The examples read them from a `.env` file. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+
+### Eval
+
+Short for evaluation: a repeatable test that measures how well an LLM system performs on a set of example tasks. → [12.1 Why evals are hard for agents](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
 
 ## F
 
@@ -52,13 +64,33 @@ The model's ability to reply with a structured request to run one of the tools y
 
 A check that runs before or after a model call to block, fix or flag unsafe or invalid input and output. → [13.4 Input & output guardrails](docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md)
 
+## H
+
+### Hallucination
+
+When a model states something false or invented as if it were true, such as a delivery date it had no data for. Giving the model real data through tools or retrieval reduces it. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+
+## I
+
+### Instructions
+
+The part of an agent that tells the model its role, goal, rules and how to use its tools, usually written as the system prompt. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+
 ## L
 
 ### Large language model (LLM)
 
 A neural network trained on large amounts of text to predict the next [token](#token). Given a prompt, it generates text one token at a time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### Long-term memory
+
+Information an agent keeps between runs, such as user preferences, past results or documents. Code stores it and puts relevant parts back into the context when needed. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+
 ## M
+
+### Max tokens
+
+The limit you set on how many tokens the model may write in one reply. If it is reached, the reply is cut off and the stop reason says so. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
 ### MockLLM
 
@@ -86,6 +118,22 @@ A technique that first retrieves relevant documents, then gives them to the mode
 
 ## S
 
+### Sampling
+
+How a model picks each next token from its predicted probabilities, rather than always taking the most likely one. It is why the same prompt can give different replies. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Short-term memory
+
+What an agent knows during the current run: the conversation so far, including every tool call and result. It lives in the context window. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+
+### Stateless
+
+Describes an API that keeps no memory between calls. LLM APIs are stateless, so your code must resend the conversation every time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
+### Stop reason
+
+The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
 ### System prompt
 
 Instructions given to the model separately from the user's messages, used to set its role, rules and behaviour for the whole conversation. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
@@ -94,18 +142,32 @@ Instructions given to the model separately from the user's messages, used to set
 
 ### Temperature
 
-A sampling setting that controls how random a model's output is. Lower values make output more predictable; higher values make it more varied. Some newer models no longer accept it. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+A sampling setting that controls how random a model's output is: lower is more predictable, higher is more varied. Several recent models no longer accept it, and even at 0 outputs can vary. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Token
 
 The unit of text a model reads and writes: often a word, part of a word, or a punctuation mark. Context windows, limits and prices are all measured in tokens. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
+### Tokenizer
+
+The component that splits text into tokens before the model reads it. Each provider has its own, so the same text gives different token counts on different models. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+
 ### Tool
 
 A function that your code exposes to the model, described by a name, a description and an input schema. The model can ask for it to be run; your code runs it and returns the result. → [3.1 What is a tool?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
+
+### Transformer
+
+The neural network architecture behind modern LLMs, introduced in 2017. It lets each token take every earlier token into account when predicting the next one. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
 
 ## V
 
 ### Virtual environment
 
 A self-contained folder of Python packages for one project, so its dependencies do not clash with other projects. Created with `python -m venv .venv`. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+
+## W
+
+### Workflow
+
+An LLM system in which your code fixes the sequence of steps in advance and the model fills in parts, such as writing text or classifying input. Contrast with an agent, where the model chooses the steps. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)

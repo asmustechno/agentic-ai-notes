@@ -4,9 +4,9 @@ Hand-made SVG diagrams live in this folder. Use them only for overview graphics 
 
 ## File naming
 
-`NN-topic-name.svg`, where `NN` is the chapter number. Keep the editable source next to it with the same name: `NN-topic-name.excalidraw`.
+`NN-topic-name.svg`, where `NN` is the chapter number. Hand-written SVG is its own source. If you draw in a tool such as Excalidraw, keep the editable file next to the SVG with the same name: `NN-topic-name.excalidraw`.
 
-Example: `01-anatomy-of-an-agent.svg` and `01-anatomy-of-an-agent.excalidraw`.
+Example: [`01-anatomy-of-an-agent.svg`](01-anatomy-of-an-agent.svg).
 
 ## Palette
 
@@ -28,6 +28,7 @@ Six colours, used with the same meaning everywhere:
 - **Arrows:** 2 px, stroke `#334155`, with a label on every arrow that carries meaning ("calls", "returns", "stores").
 - **Font:** `font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"`. Titles 20 px bold, labels 14 px. No text smaller than 12 px.
 - **Size:** design at 960 px wide or less; set `viewBox` so it scales.
+- **Preview:** open the SVG in a browser, or render a PNG with a headless browser, and check that no lines cross labels.
 
 ## Accessibility
 

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">The autonomy spectrum</title>
+  <desc id="desc">Six levels from left to right, each giving the model more control. Level 0, single prompt: code decides everything and the model only writes text. Level 1, fixed workflow: code runs a set sequence of model calls. Level 2, router: the model picks which path to take. Level 3, tool call: the model picks a function and its arguments. Level 4, agent loop: the model decides when to keep going and when to stop. Level 5, autonomous: long-running agents that set their own sub-goals, with little human oversight. Predictability and ease of testing fall from left to right; flexibility rises.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="400" rx="16" fill="#FFFFFF"/>
+  <text x="480" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#334155">The autonomy spectrum</text>
+  <text x="480" y="62" text-anchor="middle" font-size="14" fill="#334155">Who decides what happens next: your code, or the model?</text>
+
+  <!-- six level cards: shades move from neutral (code decides) to indigo (model decides) -->
+  <g font-size="13">
+    <rect x="20"  y="90" width="140" height="170" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+    <text x="90" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">0 · Single</text>
+    <text x="90" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">prompt</text>
+    <text x="90" y="166" text-anchor="middle" fill="#334155">Model writes</text>
+    <text x="90" y="184" text-anchor="middle" fill="#334155">text. Code</text>
+    <text x="90" y="202" text-anchor="middle" fill="#334155">does the rest.</text>
+    <text x="90" y="240" text-anchor="middle" font-style="italic" fill="#334155">"Summarise this"</text>
+
+    <rect x="176" y="90" width="140" height="170" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+    <text x="246" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">1 · Fixed</text>
+    <text x="246" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">workflow</text>
+    <text x="246" y="166" text-anchor="middle" fill="#334155">Code runs a</text>
+    <text x="246" y="184" text-anchor="middle" fill="#334155">set sequence of</text>
+    <text x="246" y="202" text-anchor="middle" fill="#334155">model calls.</text>
+    <text x="246" y="240" text-anchor="middle" font-style="italic" fill="#334155">outline → draft</text>
+
+    <rect x="332" y="90" width="140" height="170" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="402" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#3730A3">2 · Router</text>
+    <text x="402" y="166" text-anchor="middle" fill="#3730A3">Model picks</text>
+    <text x="402" y="184" text-anchor="middle" fill="#3730A3">which path</text>
+    <text x="402" y="202" text-anchor="middle" fill="#3730A3">to take.</text>
+    <text x="402" y="240" text-anchor="middle" font-style="italic" fill="#3730A3">billing or tech?</text>
+
+    <rect x="488" y="90" width="140" height="170" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+    <text x="558" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#3730A3">3 · Tool call</text>
+    <text x="558" y="166" text-anchor="middle" fill="#3730A3">Model picks a</text>
+    <text x="558" y="184" text-anchor="middle" fill="#3730A3">function and</text>
+    <text x="558" y="202" text-anchor="middle" fill="#3730A3">its arguments.</text>
+    <text x="558" y="240" text-anchor="middle" font-style="italic" fill="#3730A3">get_weather(Paris)</text>
+
+    <rect x="644" y="90" width="140" height="170" rx="10" fill="#C7D2FE" stroke="#3730A3" stroke-width="2"/>
+    <text x="714" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#3730A3">4 · Agent</text>
+    <text x="714" y="136" text-anchor="middle" font-size="15" font-weight="700" fill="#3730A3">loop</text>
+    <text x="714" y="166" text-anchor="middle" fill="#3730A3">Model decides</text>
+    <text x="714" y="184" text-anchor="middle" fill="#3730A3">when to keep</text>
+    <text x="714" y="202" text-anchor="middle" fill="#3730A3">going or stop.</text>
+    <text x="714" y="240" text-anchor="middle" font-style="italic" fill="#3730A3">tools in a loop</text>
+
+    <rect x="800" y="90" width="140" height="170" rx="10" fill="#A5B4FC" stroke="#3730A3" stroke-width="2"/>
+    <text x="870" y="118" text-anchor="middle" font-size="15" font-weight="700" fill="#1E1B4B">5 · Autonomous</text>
+    <text x="870" y="166" text-anchor="middle" fill="#1E1B4B">Long-running;</text>
+    <text x="870" y="184" text-anchor="middle" fill="#1E1B4B">sets its own</text>
+    <text x="870" y="202" text-anchor="middle" fill="#1E1B4B">sub-goals.</text>
+    <text x="870" y="240" text-anchor="middle" font-style="italic" fill="#1E1B4B">"fix all the bugs"</text>
+  </g>
+
+  <!-- brackets: workflows vs agents -->
+  <path d="M20,280 L20,292 L628,292 L628,280" stroke="#115E59" stroke-width="2" fill="none"/>
+  <text x="324" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#115E59">Workflows: your code controls the path</text>
+  <path d="M644,280 L644,292 L940,292 L940,280" stroke="#3730A3" stroke-width="2" fill="none"/>
+  <text x="792" y="312" text-anchor="middle" font-size="14" font-weight="700" fill="#3730A3">Agents: the model controls the path</text>
+
+  <!-- trade-off arrows -->
+  <line x1="40" y1="345" x2="920" y2="345" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="40" y="335" font-size="13" fill="#334155">more predictable · cheaper · easier to test</text>
+  <text x="920" y="335" text-anchor="end" font-size="13" fill="#334155">more flexible · handles open-ended tasks</text>
+  <text x="480" y="378" text-anchor="middle" font-size="13" fill="#991B1B">Rule of thumb: choose the leftmost level that solves your problem.</text>
+</svg>
