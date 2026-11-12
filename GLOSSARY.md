@@ -62,6 +62,10 @@ A public, standardised set of tasks with a fixed way of grading them, used to co
 
 A shared store that several agents read and write through tools. It needs rules for who may see and change what, and for catching conflicting writes. → [10.4 Shared state & communication](docs/10-multi-agent-systems/10.4-shared-state-and-communication.md)
 
+### Browser agent
+
+An agent that uses a web browser through tools, such as opening pages, reading their text and clicking or filling elements, to complete tasks on websites. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
+
 ## C
 
 ### Canary token
@@ -83,6 +87,10 @@ A guard that stops calling a dependency after repeated failures, fails fast for 
 ### Compounding errors
 
 The way small per-step error rates add up over many steps: if each step is right with probability p, all n steps are right with probability pⁿ. A key reason long agent runs need ways to catch mistakes. → [1.6 When NOT to use an agent](docs/01-foundations/01.6-when-not-to-use-an-agent.md)
+
+### Computer use
+
+Letting a model operate a computer like a person: it receives screenshots and asks for mouse and keyboard actions, which your code performs on an isolated machine. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
 
 ### Container
 
@@ -210,6 +218,10 @@ Randomness added to retry waits so that many clients that failed at the same mom
 
 A buffer between the part of a system that accepts work and the workers that do it. It absorbs bursts and keeps jobs safe if a worker crashes. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
 
+### JSON Schema
+
+A standard way to describe the shape of JSON data: which fields exist, their types, which are required and which values are allowed. Tool definitions use it to describe a tool's inputs. → [3.2 JSON Schema for tool definitions](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
+
 ## L
 
 ### Large language model (LLM)
@@ -285,6 +297,10 @@ An open, vendor-neutral standard and set of libraries for creating and exporting
 A pattern in which a lead LLM call breaks a task into sub-tasks decided at run time, worker calls handle one sub-task each, and the lead combines their results. → [9.4 Orchestrator–workers](docs/09-agent-design-patterns/09.4-orchestrator-workers.md)
 
 ## P
+
+### Parallel tool calls
+
+Several tool calls returned by the model in a single turn. Your code may run them at the same time, but must return one result per call, matched by ID. → [3.5 Parallel tool calls](docs/03-tools-and-function-calling/03.5-parallel-tool-calls.md)
 
 ### Parallelisation
 
@@ -374,6 +390,10 @@ A model revising its own output. Intrinsic self-correction uses only what the mo
 
 Agreed names and meanings for span names and attributes in OpenTelemetry, such as gen_ai.usage.input_tokens, so that every backend can read data from any instrumented app. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
 
+### Server tool
+
+A tool the model provider runs on its own infrastructure inside the API call, such as web search or code execution, so your code does not execute it. → [3.6 Code execution as a tool](docs/03-tools-and-function-calling/03.6-code-execution-as-a-tool.md)
+
 ### Server-sent events (SSE)
 
 A simple HTTP standard for a server to push a stream of events to a client over one long-lived response, often used to stream an agent's progress to a browser. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
@@ -401,6 +421,10 @@ A rule that ends an agent run: the good one is a complete final answer; the safe
 ### Streaming
 
 Receiving a model's reply piece by piece as it is generated, instead of all at once at the end, so users see the first words sooner. → [16.4 Latency optimisation](docs/16-cost-and-performance/16.4-latency-optimisation.md)
+
+### Strict mode
+
+A tool option (`strict: true`) that makes the provider constrain the model's output so its tool arguments always match the JSON Schema. Anthropic and OpenAI both offer it, with slightly different schema rules. → [3.2 JSON Schema for tool definitions](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
 
 ### Structured logging
 
@@ -459,6 +483,18 @@ The component that splits text into tokens before the model reads it. Each provi
 ### Tool
 
 A function that your code exposes to the model, described by a name, a description and an input schema. The model can ask for it to be run; your code runs it and returns the result. → [3.1 What is a tool?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
+
+### Tool call
+
+The model's structured request to run one tool: the tool's name, its arguments and an ID. Your code runs it and replies with a tool result carrying the same ID. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+
+### Tool choice
+
+A request setting that controls whether the model may call a tool, must call one, must call a specific one, or may not call any on this turn. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+
+### Tool result
+
+The message your code sends back after running a tool call, linked to it by ID. It carries the tool's output, or an error message the model can read and act on. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
 ### Trace
 
