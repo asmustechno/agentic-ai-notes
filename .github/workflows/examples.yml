@@ -34,3 +34,29 @@ jobs:
           cache-dependency-path: examples/requirements.txt
       - run: pip install -r requirements.txt
       - run: pytest
+
+  own-requirements:
+    # Some examples need extra packages, pinned in their own requirements.txt (the chapter 11
+    # frameworks, the PDF project). Each is installed into its own virtual environment so
+    # their dependencies never clash, and its tests run there instead of being skipped.
+    runs-on: ubuntu-latest
+    env:
+      LLM_PROVIDER: mock
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Test each example that has its own requirements.txt
+        working-directory: examples
+        run: |
+          status=0
+          for dir in */; do
+            [ -f "$dir/requirements.txt" ] || continue
+            echo "::group::$dir"
+            python -m venv "/tmp/venv-${dir%/}"
+            "/tmp/venv-${dir%/}/bin/pip" install -q -r requirements.txt -r "$dir/requirements.txt" || status=1
+            "/tmp/venv-${dir%/}/bin/python" -m pytest "$dir" -q || status=1
+            echo "::endgroup::"
+          done
+          exit $status
