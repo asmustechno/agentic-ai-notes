@@ -48,6 +48,10 @@ A public, standardised set of tasks with a fixed way of grading them, used to co
 
 ## C
 
+### Canary token
+
+A unique, meaningless string planted in a system prompt or secret document. If it ever appears in a model's output, you know the hidden text has leaked, so an output guardrail can block the reply. → [18.5 Project 5: Production-ready support agent](docs/18-projects/18.5-project-5-production-support-agent.md)
+
 ### Chatbot
 
 A system that answers with a single model reply per message and takes no actions. It can only use what the model already knows or what is in the prompt. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)

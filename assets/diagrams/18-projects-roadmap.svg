@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="title desc" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="title">Five projects, one growing agent</title>
+  <desc id="desc">Five boxes from left to right. Project 1, weather and calculator agent, beginner: tools, an agent loop and a step limit. Project 2, research assistant, intermediate: pluggable search, citations and JSON memory. Project 3, RAG over your PDFs, intermediate: chunking, embeddings and a search_docs tool. Project 4, content team, advanced: three agents, shared state and review rounds. Project 5, support agent, advanced: guardrails, human approval, tracing, evals and an HTTP API. An arrow underneath shows rising difficulty, and every project reuses the loop from Project 1.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="400" rx="16" fill="#FFFFFF"/>
+  <text x="480" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#334155">Five projects, one growing agent</text>
+
+  <!-- Project 1 -->
+  <rect x="30" y="70" width="156" height="230" rx="10" fill="#CCFBF1" stroke="#115E59" stroke-width="2"/>
+  <text x="108" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#115E59">Project 1</text>
+  <text x="108" y="120" text-anchor="middle" font-size="14" fill="#115E59">Weather +</text>
+  <text x="108" y="138" text-anchor="middle" font-size="14" fill="#115E59">calculator agent</text>
+  <text x="108" y="160" text-anchor="middle" font-size="12" font-style="italic" fill="#115E59">Beginner</text>
+  <line x1="46" y1="174" x2="170" y2="174" stroke="#115E59" stroke-width="1"/>
+  <text x="46" y="196" font-size="14" fill="#115E59">+ two tools</text>
+  <text x="46" y="218" font-size="14" fill="#115E59">+ agent loop</text>
+  <text x="46" y="240" font-size="14" fill="#115E59">+ step limit</text>
+  <text x="46" y="262" font-size="14" fill="#115E59">+ tool errors</text>
+
+  <!-- Project 2 -->
+  <rect x="216" y="70" width="156" height="230" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+  <text x="294" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">Project 2</text>
+  <text x="294" y="120" text-anchor="middle" font-size="14" fill="#92400E">Research</text>
+  <text x="294" y="138" text-anchor="middle" font-size="14" fill="#92400E">assistant</text>
+  <text x="294" y="160" text-anchor="middle" font-size="12" font-style="italic" fill="#92400E">Intermediate</text>
+  <line x1="232" y1="174" x2="356" y2="174" stroke="#92400E" stroke-width="1"/>
+  <text x="232" y="196" font-size="14" fill="#92400E">+ pluggable search</text>
+  <text x="232" y="218" font-size="14" fill="#92400E">+ checked citations</text>
+  <text x="232" y="240" font-size="14" fill="#92400E">+ JSON memory</text>
+  <text x="232" y="262" font-size="14" fill="#92400E">+ sessions</text>
+
+  <!-- Project 3 -->
+  <rect x="402" y="70" width="156" height="230" rx="10" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+  <text x="480" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400E">Project 3</text>
+  <text x="480" y="120" text-anchor="middle" font-size="14" fill="#92400E">RAG over</text>
+  <text x="480" y="138" text-anchor="middle" font-size="14" fill="#92400E">your PDFs</text>
+  <text x="480" y="160" text-anchor="middle" font-size="12" font-style="italic" fill="#92400E">Intermediate</text>
+  <line x1="418" y1="174" x2="542" y2="174" stroke="#92400E" stroke-width="1"/>
+  <text x="418" y="196" font-size="14" fill="#92400E">+ ingest files</text>
+  <text x="418" y="218" font-size="14" fill="#92400E">+ chunking</text>
+  <text x="418" y="240" font-size="14" fill="#92400E">+ embeddings</text>
+  <text x="418" y="262" font-size="14" fill="#92400E">+ vector search</text>
+
+  <!-- Project 4 -->
+  <rect x="588" y="70" width="156" height="230" rx="10" fill="#E0E7FF" stroke="#3730A3" stroke-width="2"/>
+  <text x="666" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#3730A3">Project 4</text>
+  <text x="666" y="120" text-anchor="middle" font-size="14" fill="#3730A3">Multi-agent</text>
+  <text x="666" y="138" text-anchor="middle" font-size="14" fill="#3730A3">content team</text>
+  <text x="666" y="160" text-anchor="middle" font-size="12" font-style="italic" fill="#3730A3">Advanced</text>
+  <line x1="604" y1="174" x2="728" y2="174" stroke="#3730A3" stroke-width="1"/>
+  <text x="604" y="196" font-size="14" fill="#3730A3">+ three roles</text>
+  <text x="604" y="218" font-size="14" fill="#3730A3">+ shared state</text>
+  <text x="604" y="240" font-size="14" fill="#3730A3">+ editor rubric</text>
+  <text x="604" y="262" font-size="14" fill="#3730A3">+ bounded rounds</text>
+
+  <!-- Project 5 -->
+  <rect x="774" y="70" width="156" height="230" rx="10" fill="#FEE2E2" stroke="#991B1B" stroke-width="2"/>
+  <text x="852" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#991B1B">Project 5</text>
+  <text x="852" y="120" text-anchor="middle" font-size="14" fill="#991B1B">Production</text>
+  <text x="852" y="138" text-anchor="middle" font-size="14" fill="#991B1B">support agent</text>
+  <text x="852" y="160" text-anchor="middle" font-size="12" font-style="italic" fill="#991B1B">Advanced</text>
+  <line x1="790" y1="174" x2="914" y2="174" stroke="#991B1B" stroke-width="1"/>
+  <text x="790" y="196" font-size="14" fill="#991B1B">+ guardrails</text>
+  <text x="790" y="218" font-size="14" fill="#991B1B">+ human approval</text>
+  <text x="790" y="240" font-size="14" fill="#991B1B">+ tracing</text>
+  <text x="790" y="262" font-size="14" fill="#991B1B">+ evals</text>
+  <text x="790" y="284" font-size="14" fill="#991B1B">+ HTTP API</text>
+
+  <!-- arrows between projects -->
+  <line x1="188" y1="185" x2="213" y2="185" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="374" y1="185" x2="399" y2="185" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="185" x2="585" y2="185" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="746" y1="185" x2="771" y2="185" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- difficulty axis -->
+  <line x1="30" y1="330" x2="926" y2="330" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="290" y="346" width="380" height="34" rx="10" fill="#F1F5F9" stroke="#334155" stroke-width="2"/>
+  <text x="480" y="368" text-anchor="middle" font-size="14" fill="#334155">rising difficulty: every project reuses Project 1's loop</text>
+</svg>
