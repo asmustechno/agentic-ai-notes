@@ -1,0 +1,12 @@
+# Pinned versions used and tested with these notes (November 2026).
+# Install with:  pip install -r requirements.txt
+
+# Model providers
+anthropic==2.8.0
+openai==3.49.0
+
+# Loads API keys from examples/.env
+python-dotenv==1.2.4
+
+# Tests (all run offline with MockLLM)
+pytest==9.2.0

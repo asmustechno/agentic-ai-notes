@@ -1,0 +1,250 @@
+# Optional website for these notes, built with MkDocs + Material and deployed
+# to GitHub Pages by .github/workflows/pages.yml.
+#
+# Local preview:
+#   pip install -r requirements-docs.txt
+#   mkdocs serve
+#
+# The `same-dir` plugin lets MkDocs read the Markdown straight from the repo
+# root, so every relative link works the same on GitHub, in a clone and here.
+# The nav below is generated from curriculum.yml: run `python scripts/build_nav.py`.
+
+site_name: Agentic AI Notes
+site_description: "From zero to production: a visual, example-driven guide to Agentic AI."
+# TODO(owner): set these once the GitHub repository exists.
+site_url: https://YOUR-GITHUB-USERNAME.github.io/agentic-ai-notes/
+repo_url: https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes
+repo_name: agentic-ai-notes
+edit_uri: edit/main/
+copyright: Content CC BY 4.0 · Code MIT
+
+docs_dir: .
+site_dir: site
+
+exclude_docs: |
+  .venv/
+  venv/
+  site/
+  .github/workflows/
+  **/__pycache__/
+  **/.pytest_cache/
+  *.excalidraw
+  templates/
+  scripts/
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.footer
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+hooks:
+  - scripts/mkdocs_hooks.py
+
+plugins:
+  - same-dir
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      # GitHub-style slugs, so "On this page" links work on GitHub and on the site.
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+
+# NAV:START
+nav:
+  - Home: README.md
+  - Roadmap: ROADMAP.md
+  - "00 · Start Here":
+      - Overview: docs/00-start-here/README.md
+      - "0.1 How to use these notes": docs/00-start-here/00.1-how-to-use-these-notes.md
+      - "0.2 Learning paths": docs/00-start-here/00.2-learning-paths.md
+      - "0.3 Setup": docs/00-start-here/00.3-setup.md
+  - "01 · Foundations":
+      - Overview: docs/01-foundations/README.md
+      - "1.1 What is an AI agent?": docs/01-foundations/01.1-what-is-an-ai-agent.md
+      - "1.2 Chatbot vs workflow vs agent": docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md
+      - "1.3 The autonomy spectrum": docs/01-foundations/01.3-the-autonomy-spectrum.md
+      - "1.4 How LLMs work (just enough)": docs/01-foundations/01.4-how-llms-work.md
+      - "1.5 Anatomy of an agent": docs/01-foundations/01.5-anatomy-of-an-agent.md
+      - "1.6 When NOT to use an agent": docs/01-foundations/01.6-when-not-to-use-an-agent.md
+  - "02 · The Agent Loop":
+      - Overview: docs/02-the-agent-loop/README.md
+      - "2.1 The observe–think–act loop": docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md
+      - "2.2 ReAct explained": docs/02-the-agent-loop/02.2-react-explained.md
+      - "2.3 A 50-line agent from scratch": docs/02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md
+      - "2.4 Stopping conditions": docs/02-the-agent-loop/02.4-stopping-conditions.md
+      - "2.5 Handling errors in the loop": docs/02-the-agent-loop/02.5-handling-errors-in-the-loop.md
+  - "03 · Tools & Function Calling":
+      - Overview: docs/03-tools-and-function-calling/README.md
+      - "3.1 What is a tool?": docs/03-tools-and-function-calling/03.1-what-is-a-tool.md
+      - "3.2 JSON Schema for tool definitions": docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md
+      - "3.3 How function calling works": docs/03-tools-and-function-calling/03.3-how-function-calling-works.md
+      - "3.4 Designing good tools": docs/03-tools-and-function-calling/03.4-designing-good-tools.md
+      - "3.5 Parallel tool calls": docs/03-tools-and-function-calling/03.5-parallel-tool-calls.md
+      - "3.6 Code execution as a tool": docs/03-tools-and-function-calling/03.6-code-execution-as-a-tool.md
+      - "3.7 Computer use & browser agents": docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md
+  - "04 · Model Context Protocol (MCP)":
+      - Overview: docs/04-model-context-protocol/README.md
+      - "4.1 Why MCP exists": docs/04-model-context-protocol/04.1-why-mcp-exists.md
+      - "4.2 Hosts, clients and servers": docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md
+      - "4.3 Tools, resources and prompts": docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md
+      - "4.4 Build a simple MCP server": docs/04-model-context-protocol/04.4-build-a-simple-mcp-server.md
+      - "4.5 Connect MCP to an agent": docs/04-model-context-protocol/04.5-connect-mcp-to-an-agent.md
+      - "4.6 Security for MCP servers": docs/04-model-context-protocol/04.6-mcp-security.md
+  - "05 · Memory":
+      - Overview: docs/05-memory/README.md
+      - "5.1 Short-term vs long-term memory": docs/05-memory/05.1-short-term-vs-long-term-memory.md
+      - "5.2 Summarisation & context compaction": docs/05-memory/05.2-summarisation-and-context-compaction.md
+      - "5.3 Vector memory": docs/05-memory/05.3-vector-memory.md
+      - "5.4 Episodic, semantic & procedural memory": docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md
+      - "5.5 Memory design trade-offs": docs/05-memory/05.5-memory-design-trade-offs.md
+  - "06 · RAG for Agents":
+      - Overview: docs/06-rag-for-agents/README.md
+      - "6.1 RAG in 5 minutes": docs/06-rag-for-agents/06.1-rag-in-5-minutes.md
+      - "6.2 Embeddings & vector databases": docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md
+      - "6.3 Chunking strategies": docs/06-rag-for-agents/06.3-chunking-strategies.md
+      - "6.4 Agentic RAG": docs/06-rag-for-agents/06.4-agentic-rag.md
+      - "6.5 Re-ranking & retrieval evaluation": docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md
+  - "07 · Planning & Reasoning":
+      - Overview: docs/07-planning-and-reasoning/README.md
+      - "7.1 Chain-of-thought & extended thinking": docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md
+      - "7.2 Plan-and-execute": docs/07-planning-and-reasoning/07.2-plan-and-execute.md
+      - "7.3 Task decomposition": docs/07-planning-and-reasoning/07.3-task-decomposition.md
+      - "7.4 Tree-of-thoughts (overview)": docs/07-planning-and-reasoning/07.4-tree-of-thoughts.md
+      - "7.5 Re-planning when things fail": docs/07-planning-and-reasoning/07.5-re-planning-when-things-fail.md
+  - "08 · Reflection & Self-Correction":
+      - Overview: docs/08-reflection-and-self-correction/README.md
+      - "8.1 The reflection pattern": docs/08-reflection-and-self-correction/08.1-the-reflection-pattern.md
+      - "8.2 The evaluator–optimizer loop": docs/08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md
+      - "8.3 Self-critique with tests": docs/08-reflection-and-self-correction/08.3-self-critique-with-tests.md
+      - "8.4 Limits of self-correction": docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md
+  - "09 · Agent Design Patterns":
+      - Overview: docs/09-agent-design-patterns/README.md
+      - "9.1 Prompt chaining": docs/09-agent-design-patterns/09.1-prompt-chaining.md
+      - "9.2 Routing": docs/09-agent-design-patterns/09.2-routing.md
+      - "9.3 Parallelisation (sectioning & voting)": docs/09-agent-design-patterns/09.3-parallelisation.md
+      - "9.4 Orchestrator–workers": docs/09-agent-design-patterns/09.4-orchestrator-workers.md
+      - "9.5 Evaluator–optimizer": docs/09-agent-design-patterns/09.5-evaluator-optimizer.md
+      - "9.6 Human-in-the-loop": docs/09-agent-design-patterns/09.6-human-in-the-loop.md
+      - "9.7 Choosing a pattern": docs/09-agent-design-patterns/09.7-choosing-a-pattern.md
+  - "10 · Multi-Agent Systems":
+      - Overview: docs/10-multi-agent-systems/README.md
+      - "10.1 Why multiple agents?": docs/10-multi-agent-systems/10.1-why-multiple-agents.md
+      - "10.2 Supervisor & hierarchical": docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md
+      - "10.3 Peer-to-peer & handoffs": docs/10-multi-agent-systems/10.3-peer-to-peer-and-handoffs.md
+      - "10.4 Shared state & communication": docs/10-multi-agent-systems/10.4-shared-state-and-communication.md
+      - "10.5 Agent-to-agent protocols": docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md
+      - "10.6 When multi-agent makes things worse": docs/10-multi-agent-systems/10.6-when-multi-agent-makes-things-worse.md
+  - "11 · Frameworks":
+      - Overview: docs/11-frameworks/README.md
+      - "11.1 Framework landscape": docs/11-frameworks/11.1-framework-landscape.md
+      - "11.2 LangGraph": docs/11-frameworks/11.2-langgraph.md
+      - "11.3 CrewAI": docs/11-frameworks/11.3-crewai.md
+      - "11.4 Microsoft AutoGen & Agent Framework": docs/11-frameworks/11.4-microsoft-autogen-and-agent-framework.md
+      - "11.5 OpenAI Agents SDK": docs/11-frameworks/11.5-openai-agents-sdk.md
+      - "11.6 Claude Agent SDK": docs/11-frameworks/11.6-claude-agent-sdk.md
+      - "11.7 LlamaIndex agents": docs/11-frameworks/11.7-llamaindex-agents.md
+      - "11.8 Pydantic AI": docs/11-frameworks/11.8-pydantic-ai.md
+      - "11.9 The no-framework approach": docs/11-frameworks/11.9-the-no-framework-approach.md
+      - "11.10 How to choose a framework": docs/11-frameworks/11.10-how-to-choose.md
+  - "12 · Evaluation":
+      - Overview: docs/12-evaluation/README.md
+      - "12.1 Why evals are hard for agents": docs/12-evaluation/12.1-why-agent-evals-are-hard.md
+      - "12.2 Task, trajectory & tool-use metrics": docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md
+      - "12.3 LLM-as-judge": docs/12-evaluation/12.3-llm-as-judge.md
+      - "12.4 Building an eval dataset": docs/12-evaluation/12.4-building-an-eval-dataset.md
+      - "12.5 Regression testing agents in CI": docs/12-evaluation/12.5-regression-testing-in-ci.md
+      - "12.6 Public benchmarks (overview)": docs/12-evaluation/12.6-public-benchmarks.md
+  - "13 · Safety & Guardrails":
+      - Overview: docs/13-safety-and-guardrails/README.md
+      - "13.1 Threat model for agents": docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md
+      - "13.2 Prompt injection & defences": docs/13-safety-and-guardrails/13.2-prompt-injection.md
+      - "13.3 Least-privilege tools & sandboxing": docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md
+      - "13.4 Input & output guardrails": docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md
+      - "13.5 Human approval for risky actions": docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md
+      - "13.6 Secrets & PII handling": docs/13-safety-and-guardrails/13.6-secrets-and-pii.md
+  - "14 · Observability & Debugging":
+      - Overview: docs/14-observability-and-debugging/README.md
+      - "14.1 Tracing agent runs": docs/14-observability-and-debugging/14.1-tracing-agent-runs.md
+      - "14.2 Logging tool calls": docs/14-observability-and-debugging/14.2-logging-tool-calls.md
+      - "14.3 OpenTelemetry for LLM apps": docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md
+      - "14.4 Tools for tracing": docs/14-observability-and-debugging/14.4-tracing-tools.md
+      - "14.5 Debugging a broken agent": docs/14-observability-and-debugging/14.5-debugging-a-broken-agent.md
+  - "15 · Production & Deployment":
+      - Overview: docs/15-production-and-deployment/README.md
+      - "15.1 Architecture of a production agent": docs/15-production-and-deployment/15.1-production-architecture.md
+      - "15.2 Sync vs async & background agents": docs/15-production-and-deployment/15.2-sync-vs-async-agents.md
+      - "15.3 Queues, retries & idempotency": docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md
+      - "15.4 State persistence & resumability": docs/15-production-and-deployment/15.4-state-persistence-and-resumability.md
+      - "15.5 Rate limits & fallbacks": docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md
+      - "15.6 Deploying with FastAPI & Docker": docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md
+  - "16 · Cost & Performance":
+      - Overview: docs/16-cost-and-performance/README.md
+      - "16.1 Token cost maths": docs/16-cost-and-performance/16.1-token-cost-maths.md
+      - "16.2 Prompt caching": docs/16-cost-and-performance/16.2-prompt-caching.md
+      - "16.3 Model routing": docs/16-cost-and-performance/16.3-model-routing.md
+      - "16.4 Latency optimisation": docs/16-cost-and-performance/16.4-latency-optimisation.md
+      - "16.5 Budget limits per run": docs/16-cost-and-performance/16.5-budget-limits-per-run.md
+  - "17 · Case Studies":
+      - Overview: docs/17-case-studies/README.md
+      - "17.1 Coding agent": docs/17-case-studies/17.1-coding-agent.md
+      - "17.2 Customer support agent": docs/17-case-studies/17.2-customer-support-agent.md
+      - "17.3 Research agent": docs/17-case-studies/17.3-research-agent.md
+      - "17.4 Data analysis agent": docs/17-case-studies/17.4-data-analysis-agent.md
+      - "17.5 Booking & scheduling agent": docs/17-case-studies/17.5-booking-and-scheduling-agent.md
+  - "18 · Projects":
+      - Overview: docs/18-projects/README.md
+      - "18.1 Project 1: Weather + calculator agent": docs/18-projects/18.1-project-1-weather-and-calculator-agent.md
+      - "18.2 Project 2: Personal research assistant": docs/18-projects/18.2-project-2-research-assistant.md
+      - "18.3 Project 3: RAG agent over your PDFs": docs/18-projects/18.3-project-3-rag-over-your-pdfs.md
+      - "18.4 Project 4: Multi-agent content team": docs/18-projects/18.4-project-4-multi-agent-content-team.md
+      - "18.5 Project 5: Production-ready support agent": docs/18-projects/18.5-project-5-production-support-agent.md
+  - Glossary: GLOSSARY.md
+  - Cheatsheet: CHEATSHEET.md
+  - Contributing: CONTRIBUTING.md
+# NAV:END

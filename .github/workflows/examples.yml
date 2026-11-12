@@ -1,0 +1,36 @@
+name: Examples
+
+# Runs every example's tests with MockLLM. No API key or network access is needed.
+
+on:
+  push:
+    branches: [main]
+    paths: ["examples/**", ".github/workflows/examples.yml"]
+  pull_request:
+    paths: ["examples/**", ".github/workflows/examples.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: examples
+    env:
+      LLM_PROVIDER: mock
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: examples/requirements.txt
+      - run: pip install -r requirements.txt
+      - run: pytest

@@ -1,0 +1,47 @@
+name: Links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # every Monday, to catch external links that rot
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  internal:
+    name: Navigation and internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - name: Navigation is in sync with curriculum.yml
+        run: python scripts/build_nav.py --check
+      - name: Internal links and anchors resolve
+        run: python scripts/check_links.py
+
+  external:
+    name: External links (lychee)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --cache --max-cache-age 1d
+            --exclude-path .venv
+            --exclude-path examples/.venv
+            --exclude-path templates
+            --exclude "^https://example\\.com"
+            --exclude "YOUR-GITHUB-USERNAME"
+            "./**/*.md"
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
