@@ -2,7 +2,7 @@
 
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![GitHub stars](https://img.shields.io/github/stars/YOUR-GITHUB-USERNAME/agentic-ai-notes?style=social)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/asmustechno/agentic-ai-notes?style=social)](https://github.com/asmustechno/agentic-ai-notes/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 > **From zero to production: a visual, example-driven guide to Agentic AI.**
@@ -313,7 +313,7 @@ Found a mistake, a broken link or a confusing explanation? Please [open an issue
 
 **How to contribute, in three steps:**
 
-1. Find something to improve: a confusing sentence, an outdated API, a missing topic. Check the [open issues](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/issues) first.
+1. Find something to improve: a confusing sentence, an outdated API, a missing topic. Check the [open issues](https://github.com/asmustechno/agentic-ai-notes/issues) first.
 2. Fork the repo, make your change, and run through the checklist in [CONTRIBUTING.md](CONTRIBUTING.md#-before-you-open-a-pull-request).
 3. Open a pull request. The template has a short checklist.
 
@@ -323,4 +323,4 @@ First time contributing to open source? Fixing a typo or a broken link is a perf
 
 If these notes helped you, a star helps others find them.
 
-[![Star history chart](https://api.star-history.com/svg?repos=YOUR-GITHUB-USERNAME/agentic-ai-notes&type=Date)](https://star-history.com/#YOUR-GITHUB-USERNAME/agentic-ai-notes&Date)
+[![Star history chart](https://api.star-history.com/svg?repos=asmustechno/agentic-ai-notes&type=Date)](https://star-history.com/#asmustechno/agentic-ai-notes&Date)

@@ -1,6 +1,6 @@
 # Launch kit
 
-Everything needed to publish the repository and announce it. Replace `YOUR-GITHUB-USERNAME` throughout the repo first (see the checklist at the end).
+Everything needed to publish the repository and announce it.
 
 ## Repository description
 
@@ -38,7 +38,7 @@ Every page has short Python snippets for both Claude and OpenAI, and there are 5
 
 It's open source: content under CC BY 4.0, code under MIT. Corrections and PRs are very welcome.
 
-👉 https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes
+👉 https://github.com/asmustechno/agentic-ai-notes
 
 #AI #AIAgents #LLM #AgenticAI #OpenSource #Python
 ```
@@ -52,13 +52,11 @@ Plain words → diagram → example → code, for every topic: agent loop, tools
 
 Code snippets on every page, plus 5 guided projects.
 
-https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes
+https://github.com/asmustechno/agentic-ai-notes
 ```
 
 ## Before you announce: checklist
 
-- [ ] Rename the default branch to `main` (`git branch -m main`) if you prefer that name
-- [ ] Replace `YOUR-GITHUB-USERNAME` everywhere: `grep -rl YOUR-GITHUB-USERNAME --exclude-dir=.venv .`
 - [ ] Replace `TODO-MAINTAINER-CONTACT` in `CODE_OF_CONDUCT.md` with a real contact
 - [ ] Push to GitHub and click through a few pages to check that diagrams and links render
 - [ ] Add the description, topics and social preview above
