@@ -48,16 +48,6 @@ flowchart LR
 | 16.5 | [Budget limits per run](./16.5-budget-limits-per-run.md) — Cap tokens, steps and dollars for every run. | 🟡 Intermediate | ~8 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`16-cost-calculator`](../../examples/16-cost-calculator/README.md) | Cost of a call and of an agent loop, and the quadratic growth with steps | [16.1](./16.1-token-cost-maths.md) |
-| [`16-prompt-caching-layout`](../../examples/16-prompt-caching-layout/README.md) | A naive and a cache-friendly request layout run through a simulated prefix cache | [16.2](./16.2-prompt-caching.md) |
-| [`16-model-router`](../../examples/16-model-router/README.md) | Always-large, rule routing and a cascade, compared on cost and correctness | [16.3](./16.3-model-routing.md) |
-| [`16-latency`](../../examples/16-latency/README.md) | Concurrent versus sequential tool calls, and what streaming changes | [16.4](./16.4-latency-optimisation.md) |
-| [`16-budget-limits`](../../examples/16-budget-limits/README.md) | A budget tracker with step, token, dollar and time caps, a last-step signal and graceful stops | [16.5](./16.5-budget-limits-per-run.md) |
-
 <!-- FOOTER -->
 
 ---

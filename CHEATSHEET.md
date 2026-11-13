@@ -32,8 +32,7 @@ Every core idea in these notes on one page. Each row links to the page that expl
 ## 🔁 The agent loop in 15 lines
 
 ```python
-from common import tool_result, user
-
+# llm: any chat client; user() and tool_result() just build message dicts
 def run(llm, goal, tools, specs, system, max_steps=10):
     messages = [user(goal)]
     for _ in range(max_steps):                          # always cap the loop
@@ -51,7 +50,7 @@ def run(llm, goal, tools, specs, system, max_steps=10):
     return "Stopped: step limit reached."
 ```
 
-Build it step by step in [2.3](docs/02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md). Runnable: [`examples/01-anatomy-of-an-agent`](examples/01-anatomy-of-an-agent/README.md).
+Build it step by step in [2.3](docs/02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md).
 
 ## 🎚 Choosing how much autonomy
 

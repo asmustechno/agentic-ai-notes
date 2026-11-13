@@ -40,16 +40,6 @@ Models only know what they were trained on and what you put in the prompt. Retri
 | 6.5 | [Re-ranking & retrieval evaluation](./06.5-re-ranking-and-retrieval-evaluation.md) — Improve and measure the quality of what you retrieve. | 🔴 Advanced | ~12 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-Every example runs offline. The retrieval in them is a tiny pure-Python stand-in (hashed bag-of-words, character trigrams, BM25); real systems use an embedding model and a vector database, as explained in 6.2.
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`06-agentic-rag`](../../examples/06-agentic-rag/README.md) | Classic RAG vs an agent with a `search_docs` tool: multi-hop, query rewriting, "not found" | [6.1](./06.1-rag-in-5-minutes.md), [6.2](./06.2-embeddings-and-vector-databases.md), [6.4](./06.4-agentic-rag.md) |
-| [`06-chunking`](../../examples/06-chunking/README.md) | Five chunking strategies compared on the same questions | [6.3](./06.3-chunking-strategies.md) |
-| [`06-retrieval-eval`](../../examples/06-retrieval-eval/README.md) | BM25, vectors, RRF hybrid and re-ranking scored with recall@k, precision@k, MRR and nDCG | [6.5](./06.5-re-ranking-and-retrieval-evaluation.md) |
-
 <!-- FOOTER -->
 
 ---

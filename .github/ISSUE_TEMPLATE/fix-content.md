@@ -1,6 +1,6 @@
 ---
 name: Fix content
-about: Report a mistake, a confusing explanation, a broken link or an example that fails
+about: Report a mistake, a confusing explanation, a broken link or a code snippet that fails
 title: "fix: "
 labels: content
 ---
@@ -19,5 +19,5 @@ labels: content
 - [ ] Factual error
 - [ ] Confusing or unclear
 - [ ] Broken link or diagram
-- [ ] Example code fails (please paste the error and your Python / package versions)
+- [ ] A code snippet fails (please paste the error and your Python / package versions)
 - [ ] Typo or grammar

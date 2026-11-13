@@ -1,8 +1,0 @@
-# Pinned versions used and tested with these notes (November 2026).
-# Install into its own virtual environment (see README.md):  pip install -r requirements.txt
-llama-index-core==0.14.25
-# Model integrations, used only with LLM_PROVIDER=anthropic or openai
-llama-index-llms-anthropic==0.12.3
-llama-index-llms-openai==0.8.4
-python-dotenv==1.2.4
-pytest==9.2.0

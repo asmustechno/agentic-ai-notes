@@ -54,15 +54,6 @@ flowchart LR
 | 17.5 | [Booking & scheduling agent](./17.5-booking-and-scheduling-agent.md) — Find a time, book it, and confirm it. | 🟡 Intermediate | ~12 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`17-support-agent-triage`](../../examples/17-support-agent-triage/README.md) | Hard escalation rules, a JSON router, per-intent tools, a refund limit in code and handoff to a human with a summary | [17.2](./17.2-customer-support-agent.md) |
-| [`17-scheduling-agent`](../../examples/17-scheduling-agent/README.md) | Find slots across time zones, propose, confirm in the app, double-booking guard and idempotent booking | [17.5](./17.5-booking-and-scheduling-agent.md) |
-
-Pages 17.1, 17.3 and 17.4 include short, self-contained snippets (a coding workspace with guarded tools, a citation checker and a read-only SQL tool) that run with the standard library alone.
-
 <!-- FOOTER -->
 
 ---

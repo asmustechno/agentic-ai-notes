@@ -13,13 +13,13 @@ A working agent on your laptop is the easy half. This chapter covers the other h
 - Which errors to retry, how to back off with jitter, and how idempotency keys and dead-letter queues prevent duplicate side effects
 - How to checkpoint an agent run in SQLite and resume it after a crash without repeating work
 - How to handle rate limits, fall back to another model or provider, and use a circuit breaker; and what Anthropic's server-side refusal fallback does and doesn't do
-- How to serve an agent with FastAPI, test it with `TestClient` and `MockLLM`, and package it in a secure Docker image
+- How to serve an agent with FastAPI, test it with `TestClient` and a scripted fake model, and package it in a secure Docker image
 
 ## 📋 Prerequisites
 
 - [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md) and [2.5 Handling errors in the loop](../02-the-agent-loop/02.5-handling-errors-in-the-loop.md): the loop this chapter wraps
 - [14.1 Tracing agent runs](../14-observability-and-debugging/14.1-tracing-agent-runs.md): helpful for the observability parts
-- Basic HTTP (status codes, headers) and some familiarity with the command line. Docker is optional: every example runs and tests without it
+- Basic HTTP (status codes, headers) and some familiarity with the command line. Docker is optional: you can follow every page without it
 
 ## 👀 Chapter overview
 
@@ -39,15 +39,6 @@ A working agent on your laptop is the easy half. This chapter covers the other h
 | 15.5 | [Rate limits & fallbacks](./15.5-rate-limits-and-fallbacks.md) — Stay up when a provider is slow, busy or down. | 🔴 Advanced | ~10 min |
 | 15.6 | [Deploying with FastAPI & Docker](./15.6-deploying-with-fastapi-and-docker.md) — Ship an agent as a containerised web service. | 🔴 Advanced | ~15 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`15-retries-idempotency`](../../examples/15-retries-idempotency/README.md) | Which errors to retry, backoff with jitter, idempotency keys, an at-least-once queue with a dead-letter queue | [15.3](./15.3-queues-retries-and-idempotency.md), [15.1](./15.1-production-architecture.md) |
-| [`15-resumable-agent`](../../examples/15-resumable-agent/README.md) | Checkpointing every step in SQLite; resuming after simulated crashes without repeating side effects | [15.4](./15.4-state-persistence-and-resumability.md), [15.1](./15.1-production-architecture.md) |
-| [`15-fallbacks`](../../examples/15-fallbacks/README.md) | A token bucket, a circuit breaker and a provider fallback chain, driven by a fake clock | [15.5](./15.5-rate-limits-and-fallbacks.md), [15.1](./15.1-production-architecture.md) |
-| [`15-fastapi-service`](../../examples/15-fastapi-service/README.md) | A FastAPI agent service (sync and background runs, health check, env config, JSON logs) with a Dockerfile and Compose file | [15.6](./15.6-deploying-with-fastapi-and-docker.md), [15.2](./15.2-sync-vs-async-agents.md) |
 
 <!-- FOOTER -->
 

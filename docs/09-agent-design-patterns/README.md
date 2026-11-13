@@ -50,17 +50,6 @@ flowchart LR
 | 9.7 | [Choosing a pattern](./09.7-choosing-a-pattern.md) — A decision flowchart for picking the simplest pattern that works. | 🟡 Intermediate | ~8 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`09-prompt-chaining`](../../examples/09-prompt-chaining/README.md) | Extract → write → translate, with gates that stop bad output early | [9.1](./09.1-prompt-chaining.md) |
-| [`09-routing`](../../examples/09-routing/README.md) | Classify tickets, validate labels, route to prompts and small or large models | [9.2](./09.2-routing.md) |
-| [`09-parallelisation`](../../examples/09-parallelisation/README.md) | Sectioned code review and a SQL-injection vote, run concurrently | [9.3](./09.3-parallelisation.md) |
-| [`09-orchestrator-workers`](../../examples/09-orchestrator-workers/README.md) | A plan whose size depends on the task, validated, then run by workers | [9.4](./09.4-orchestrator-workers.md) |
-| [`08-evaluator-optimizer`](../../examples/08-evaluator-optimizer/README.md) | The reusable `optimize()` building block | [9.5](./09.5-evaluator-optimizer.md) |
-| [`09-human-in-the-loop`](../../examples/09-human-in-the-loop/README.md) | Approve, edit, reject and escalate; pause to JSON and resume | [9.6](./09.6-human-in-the-loop.md) |
-
 <!-- FOOTER -->
 
 ---

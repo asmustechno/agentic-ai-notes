@@ -39,17 +39,6 @@ A ReAct agent decides one step at a time. That is enough for short tasks, but lo
 | 7.5 | [Re-planning when things fail](./07.5-re-planning-when-things-fail.md) — Notice a broken plan and change course. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-All examples run offline with `MockLLM` and fake-data tools, and also work with a real model (`LLM_PROVIDER=anthropic|openai`).
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`07-chain-of-thought`](../../examples/07-chain-of-thought/README.md) | Direct vs chain-of-thought prompts, extracting the answer from `<answer>` tags | [7.1](./07.1-chain-of-thought-and-extended-thinking.md) |
-| [`07-plan-and-execute`](../../examples/07-plan-and-execute/README.md) | A JSON plan validated in code, run in dependency order by a tool-using executor | [7.2](./07.2-plan-and-execute.md), [7.3](./07.3-task-decomposition.md) |
-| [`07-tree-of-thoughts`](../../examples/07-tree-of-thoughts/README.md) | Breadth-first tree of thoughts on the Game of 24, with the cost in model calls | [7.4](./07.4-tree-of-thoughts.md) |
-| [`07-replanning`](../../examples/07-replanning/README.md) | A failed step triggers a re-plan of the remaining work, with limits and giving up | [7.5](./07.5-re-planning-when-things-fail.md) |
-
 <!-- FOOTER -->
 
 ---

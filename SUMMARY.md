@@ -1,6 +1,6 @@
 # Summary
 
-Every page in reading order. Generated from `curriculum.yml` by `scripts/build_nav.py`; do not edit by hand.
+Every page in reading order.
 
 - [Home](README.md)
 - [Roadmap](ROADMAP.md)

@@ -41,15 +41,6 @@ Sometimes one agent isn't enough: the task is too broad for one context, or its 
 | 10.6 | [When multi-agent makes things worse](./10.6-when-multi-agent-makes-things-worse.md) — Cost, latency and coordination failures to watch for. | 🔴 Advanced | ~8 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`10-supervisor`](../../examples/10-supervisor/README.md) | A supervisor delegating to two specialist agents exposed as tools, with per-agent token counts | [10.1](./10.1-why-multiple-agents.md), [10.2](./10.2-supervisor-and-hierarchical.md) |
-| [`10-handoffs`](../../examples/10-handoffs/README.md) | A triage agent handing a conversation to billing or tech, with history filters and a handoff limit | [10.3](./10.3-peer-to-peer-and-handoffs.md) |
-| [`10-shared-state`](../../examples/10-shared-state/README.md) | Two agents writing to a versioned blackboard, with a caught conflict, per-agent views and a change log | [10.4](./10.4-shared-state-and-communication.md) |
-| [`10-a2a-basics`](../../examples/10-a2a-basics/README.md) | A teaching subset of A2A: Agent Card discovery, a multi-turn task and an artifact | [10.5](./10.5-agent-to-agent-protocols.md) |
-
 <!-- FOOTER -->
 
 ---

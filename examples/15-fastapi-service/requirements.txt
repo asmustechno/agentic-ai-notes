@@ -1,7 +1,0 @@
-# Runtime dependencies for the Docker image only (same pins as examples/requirements.txt).
-# The tests use the full examples/requirements.txt, which also has pytest and httpx.
-fastapi==0.162.5
-uvicorn==0.54.0
-anthropic==2.8.0
-openai==3.49.0
-python-dotenv==1.2.4

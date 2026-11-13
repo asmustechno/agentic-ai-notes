@@ -20,8 +20,8 @@ In chapter 03 you gave an agent tools by writing them into your own code. That w
 
 - [3.1 What is a tool?](../03-tools-and-function-calling/03.1-what-is-a-tool.md), [3.2 JSON Schema for tools](../03-tools-and-function-calling/03.2-json-schema-for-tools.md) and [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md)
 - [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md), for page 4.5
-- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the examples
-- Basic `async`/`await` in Python helps; the examples explain what they use
+- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the code snippets
+- Basic `async`/`await` in Python helps; the code snippets explain what they use
 
 ## 👀 Chapter overview
 
@@ -41,13 +41,6 @@ In chapter 03 you gave an agent tools by writing them into your own code. That w
 | 4.5 | [Connect MCP to an agent](./04.5-connect-mcp-to-an-agent.md) — Use an MCP server's tools from your own agent loop. | 🟡 Intermediate | ~12 min |
 | 4.6 | [Security for MCP servers](./04.6-mcp-security.md) — Trust, permissions and the risks of third-party servers. | 🔴 Advanced | ~12 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`04-mcp-server`](../../examples/04-mcp-server/README.md) | A notes MCP server with two tools, two resources and a prompt, plus a client that tours it in-process or over stdio | [4.2](./04.2-hosts-clients-and-servers.md), [4.3](./04.3-tools-resources-and-prompts.md), [4.4](./04.4-build-a-simple-mcp-server.md) |
-| [`04-mcp-agent`](../../examples/04-mcp-agent/README.md) | An agent loop that lists MCP tools, converts them to neutral tool specs and forwards calls; allowlist and tool-definition pinning | [4.5](./04.5-connect-mcp-to-an-agent.md), [4.6](./04.6-mcp-security.md) |
 
 <!-- FOOTER -->
 

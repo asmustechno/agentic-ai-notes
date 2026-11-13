@@ -2,8 +2,6 @@
 
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE-CODE)
-[![Links](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/links.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/links.yml)
-[![Examples](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/examples.yml/badge.svg)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/actions/workflows/examples.yml)
 [![GitHub stars](https://img.shields.io/github/stars/YOUR-GITHUB-USERNAME/agentic-ai-notes?style=social)](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/stargazers)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -13,13 +11,12 @@ These are free, open study notes on building AI agents. Start with no knowledge 
 
 Every idea is explained the same way: **plain words first, then a diagram, then a real example, then code.** No term is used before it is defined.
 
-**What's inside:** 19 chapters · 107 pages · 69 runnable examples that work offline · 5 guided projects · a [glossary](GLOSSARY.md) of 160+ terms · a one-page [cheatsheet](CHEATSHEET.md).
+**What's inside:** 19 chapters · 107 pages · code snippets on every page · 5 guided projects · a [glossary](GLOSSARY.md) of 160+ terms · a one-page [cheatsheet](CHEATSHEET.md).
 
 ## 📑 Contents
 
 - [Who these notes are for](#-who-these-notes-are-for)
 - [How to read them](#-how-to-read-them)
-- [Run the examples](#-run-the-examples)
 - [Table of contents](#-table-of-contents)
 - [Licenses](#-licenses)
 - [Contributing](#-contributing)
@@ -53,31 +50,18 @@ flowchart LR
 
 Difficulty badges: 🟢 Beginner · 🟡 Intermediate · 🔴 Advanced. Unknown word? Check the [Glossary](GLOSSARY.md).
 
-## 💻 Run the examples
-
-All runnable code lives in [`examples/`](examples/README.md). Every example works **without an API key** using a scripted `MockLLM`, so you can run and test everything offline.
-
-```bash
-cd examples
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-pytest                                              # runs offline with MockLLM
-```
-
-To use a real model, copy `.env.example` to `.env` and add an Anthropic or OpenAI key. Full instructions: [0.3 Setup](docs/00-start-here/00.3-setup.md).
-
 ## 📚 Table of contents
 
 <!-- TOC:START -->
 ### [00 · Start Here](docs/00-start-here/README.md)
 
-How these notes work, which path to follow, and how to set up the examples. *(~20 min)*
+How these notes work, which path to follow, and how to set up Python to run the snippets. *(~20 min)*
 
 | Page | What you'll learn | Level |
 | --- | --- | --- |
 | [0.1 How to use these notes](docs/00-start-here/00.1-how-to-use-these-notes.md) | How the notes are organised, what every page contains, and how to read them. | 🟢 |
 | [0.2 Learning paths](docs/00-start-here/00.2-learning-paths.md) | Three routes through the material: Beginner, Builder and Production. | 🟢 |
-| [0.3 Setup](docs/00-start-here/00.3-setup.md) | Install Python, add API keys, and run every example offline with MockLLM. | 🟢 |
+| [0.3 Setup](docs/00-start-here/00.3-setup.md) | Install Python and the model SDKs, add an API key, and run your first snippet. | 🟢 |
 
 ### [01 · Foundations](docs/01-foundations/README.md)
 
@@ -319,7 +303,7 @@ This repository uses two licenses, one for words and one for code:
 | What | License | File | In short |
 | --- | --- | --- | --- |
 | Written content (`docs/`, diagrams, all other Markdown) | [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) | [LICENSE](LICENSE) | Share and adapt freely, including commercially, as long as you give credit and link back. |
-| Code (`examples/`, `scripts/`, code snippets in the notes) | [MIT](https://opensource.org/license/mit) | [LICENSE-CODE](LICENSE-CODE) | Use the code in any project. Keep the copyright notice. |
+| Code snippets in the notes | [MIT](https://opensource.org/license/mit) | [LICENSE-CODE](LICENSE-CODE) | Use the code in any project. Keep the copyright notice. |
 
 Why two? CC BY 4.0 is designed for prose and images but is not recommended for software. MIT is the simplest permissive license for code. Together they let you reuse anything here with minimal friction.
 
@@ -330,7 +314,7 @@ Found a mistake, a broken link or a confusing explanation? Please [open an issue
 **How to contribute, in three steps:**
 
 1. Find something to improve: a confusing sentence, an outdated API, a missing topic. Check the [open issues](https://github.com/YOUR-GITHUB-USERNAME/agentic-ai-notes/issues) first.
-2. Fork the repo, make your change, and run the three checks in [CONTRIBUTING.md](CONTRIBUTING.md#-before-you-open-a-pull-request).
+2. Fork the repo, make your change, and run through the checklist in [CONTRIBUTING.md](CONTRIBUTING.md#-before-you-open-a-pull-request).
 3. Open a pull request. The template has a short checklist.
 
 First time contributing to open source? Fixing a typo or a broken link is a perfect start.

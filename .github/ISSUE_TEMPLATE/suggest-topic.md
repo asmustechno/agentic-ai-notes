@@ -1,6 +1,6 @@
 ---
 name: Suggest a topic
-about: Propose a new page, example, project or glossary term
+about: Propose a new page, project or glossary term
 title: "topic: "
 labels: suggestion
 ---

@@ -4,7 +4,7 @@
 
 > **Estimated reading time:** ~270 min · **Difficulty:** 🟢 Beginner to 🔴 Advanced · **Prerequisites:** [01 · Foundations](../01-foundations/README.md), [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools and Function Calling](../03-tools-and-function-calling/README.md)
 
-Reading about agents only gets you so far. This chapter is five guided projects of rising difficulty, from a first tool-using agent to a support agent with guardrails, tracing, evals and an HTTP API. Each project has a spec with acceptance criteria, an architecture diagram, a step-by-step build guide with milestones, a runnable **starter** with `# TODO` markers, a complete **solution**, and tests that tell you when you're done. Everything runs offline with `MockLLM`, and switches to Anthropic or OpenAI with one environment variable.
+Reading about agents only gets you so far. This chapter is five guided projects of rising difficulty, from a first tool-using agent to a support agent with guardrails, tracing, evals and an HTTP API. Each project has a spec with acceptance criteria, an architecture diagram, a step-by-step build guide with milestones and a concrete self-check for each one, and the key parts of a reference solution on the page. You build each one yourself, usually as a single `main.py`, and you can test it offline by driving it with a scripted fake model ([MockLLM](../../GLOSSARY.md#mockllm)) before pointing it at a real one.
 
 ## 🎯 What you'll learn
 
@@ -17,7 +17,7 @@ Reading about agents only gets you so far. This chapter is five guided projects 
 ## 📋 Prerequisites
 
 - [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md) and [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md), for every project
-- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the examples and tests
+- [0.3 Setup](../00-start-here/00.3-setup.md), so you have Python and an API key ready
 - Each project page lists the chapters it draws on; Projects 4 and 5 lean on chapters 08–15
 
 ## 👀 Chapter overview
@@ -30,14 +30,14 @@ Reading about agents only gets you so far. This chapter is five guided projects 
 
 ```mermaid
 flowchart LR
-    S["Read the spec<br/>and acceptance criteria"] --> B["Build in starter/<br/>one milestone at a time"]
-    B --> T["PROJECT_TARGET=starter pytest"]
+    S["Read the spec<br/>and acceptance criteria"] --> B["Build your main.py<br/>one milestone at a time"]
+    B --> T["Run the milestone's<br/>self-check"]
     T -->|failing| B
-    T -->|all green| X["Stretch goals<br/>(Try it yourself)"]
-    B -.->|stuck| SOL["Peek at solution/"]
+    T -->|every box ticked| X["Stretch goals<br/>(Try it yourself)"]
+    B -.->|stuck| SOL["Read the reference<br/>solution on the page"]
 ```
 
-*The tests are the definition of done. Run them against your starter code with `PROJECT_TARGET=starter`; without it, they test the reference solution.*
+*The acceptance criteria are the definition of done. Check each milestone before moving on; turning each criterion into a small test with a scripted fake model makes the checks repeatable.*
 
 ## 📄 Pages in this chapter
 
@@ -51,17 +51,15 @@ flowchart LR
 | 18.5 | [Project 5: Production-ready support agent](./18.5-project-5-production-support-agent.md) — Evals, guardrails and tracing, end to end. | 🔴 Advanced | ~90 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
+## 💻 What you'll build
 
-Each project folder has `starter/`, `solution/`, `tests/` and a README with the expected output.
-
-| Example | What it shows | Used in |
+| Project | What you build | Page |
 | --- | --- | --- |
-| [`18-project-1-weather-calculator`](../../examples/18-project-1-weather-calculator/README.md) | Two tools, a safe calculator, a loop with a step limit and error handling; optional real weather from Open-Meteo | [18.1](./18.1-project-1-weather-and-calculator-agent.md) |
-| [`18-project-2-research-assistant`](../../examples/18-project-2-research-assistant/README.md) | Pluggable search (offline corpus or Anthropic web search), JSON memory across sessions, checked citations | [18.2](./18.2-project-2-research-assistant.md) |
-| [`18-project-3-rag-over-pdfs`](../../examples/18-project-3-rag-over-pdfs/README.md) | Ingest `.md`/`.txt`/`.pdf`, chunk, hashed bag-of-words embeddings, `search_docs` tool, citation check | [18.3](./18.3-project-3-rag-over-your-pdfs.md) |
-| [`18-project-4-content-team`](../../examples/18-project-4-content-team/README.md) | Researcher, writer and editor sharing state; rubric plus hard checks; bounded revision rounds | [18.4](./18.4-project-4-multi-agent-content-team.md) |
-| [`18-project-5-support-agent`](../../examples/18-project-5-support-agent/README.md) | Refund approval, input/tool/output guardrails, OpenTelemetry spans, eval suite with metrics, FastAPI | [18.5](./18.5-project-5-production-support-agent.md) |
+| Weather + calculator agent | Two tools, a safe calculator, a loop with a step limit and error handling; optional real weather from Open-Meteo | [18.1](./18.1-project-1-weather-and-calculator-agent.md) |
+| Research assistant | Pluggable search (offline corpus or Anthropic web search), JSON memory across sessions, checked citations | [18.2](./18.2-project-2-research-assistant.md) |
+| RAG over your PDFs | Ingest `.md`/`.txt`/`.pdf`, chunk, hashed bag-of-words embeddings, `search_docs` tool, citation check | [18.3](./18.3-project-3-rag-over-your-pdfs.md) |
+| Multi-agent content team | Researcher, writer and editor sharing state; rubric plus hard checks; bounded revision rounds | [18.4](./18.4-project-4-multi-agent-content-team.md) |
+| Production support agent | Refund approval, input/tool/output guardrails, OpenTelemetry spans, eval suite with metrics, FastAPI | [18.5](./18.5-project-5-production-support-agent.md) |
 
 <!-- FOOTER -->
 

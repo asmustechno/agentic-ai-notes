@@ -1,3 +1,0 @@
-# Extra package for Project 3 (PDF text extraction). Text and Markdown files work without it.
-# Install from this folder:  pip install -r requirements.txt
-pypdf==7.0.1

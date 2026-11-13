@@ -60,15 +60,6 @@ flowchart TD
 | 3.7 | [Computer use & browser agents](./03.7-computer-use-and-browser-agents.md) — An overview of agents that see screens and click buttons. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`03-function-calling-roundtrip`](../../examples/03-function-calling-roundtrip/README.md) | The exact Anthropic and OpenAI JSON for each step of a tool call | [3.3](./03.3-how-function-calling-works.md), [3.1](./03.1-what-is-a-tool.md) |
-| [`03-tool-design`](../../examples/03-tool-design/README.md) | A bad tool vs a good one: pydantic validation, helpful errors, concise output, pagination | [3.4](./03.4-designing-good-tools.md), [3.2](./03.2-json-schema-for-tools.md) |
-| [`03-parallel-tools`](../../examples/03-parallel-tools/README.md) | Several calls in one turn, run with threads and `asyncio`, returned in the right shape | [3.5](./03.5-parallel-tool-calls.md) |
-| [`03-code-execution`](../../examples/03-code-execution/README.md) | A subprocess runner with a timeout and limits, and a model fixing its own bug | [3.6](./03.6-code-execution-as-a-tool.md) |
-
 <!-- FOOTER -->
 
 ---

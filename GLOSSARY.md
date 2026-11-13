@@ -42,7 +42,7 @@ Retrieval-augmented generation in which search is a tool the model calls, so the
 
 ### API key
 
-A secret string that identifies you to a model provider and lets your code call its API. Keep it in a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+A secret string that identifies you to a model provider and lets your code call its API. Keep it in an environment variable or a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Approval gate
 
@@ -194,7 +194,7 @@ A list of numbers that represents the meaning of a piece of text. Texts with sim
 
 ### Environment variable
 
-A named setting passed to a program by its environment rather than written in its code, such as `LLM_PROVIDER=mock`. The examples read them from a `.env` file. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+A named setting passed to a program by its environment rather than written in its code, such as `ANTHROPIC_API_KEY`. The model SDKs read your API key from one. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Episodic memory
 
@@ -348,7 +348,7 @@ A retrieval metric: for each query, 1 divided by the position of the first relev
 
 ### MockLLM
 
-A fake model used in these notes' examples. It returns pre-written responses, so every example and test can run offline, for free, and with the same result every time. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+A fake model that returns pre-written responses in order, so agent code and tests can run offline, for free, and with the same result every time. You can write one in ten lines. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Model cascade
 

@@ -17,7 +17,7 @@ flowchart LR
     B["🟢 Beginner<br/>chapters 00–03<br/>+ Project 1"] --> BU["🟡 Builder<br/>chapters 04–11<br/>+ Projects 2–4"] --> PR["🔴 Production<br/>chapters 12–17<br/>+ Project 5"]
 ```
 
-*Times are reading time plus the project. Running and changing the examples takes longer, and is where most of the learning happens.*
+*Times are reading time plus the project. Running and changing the code snippets takes longer, and is where most of the learning happens.*
 
 | Path | You will be able to… | Time |
 | --- | --- | --- |
@@ -31,11 +31,11 @@ flowchart LR
 
 | Step | Read | Do | Checkpoint: you can… |
 | --- | --- | --- | --- |
-| 1 | [00 · Start Here](docs/00-start-here/README.md) | Run `examples/00-check-setup` | Run every example offline |
-| 2 | [01 · Foundations](docs/01-foundations/README.md) | Run the three chapter 01 examples | Explain chatbot vs workflow vs agent, and name the five parts of an agent |
+| 1 | [00 · Start Here](docs/00-start-here/README.md) | Install Python and an SDK, and run the first snippet | Call a model from your own code |
+| 2 | [01 · Foundations](docs/01-foundations/README.md) | Label the five parts in the `Agent` class from [1.5](docs/01-foundations/01.5-anatomy-of-an-agent.md) | Explain chatbot vs workflow vs agent, and name the five parts of an agent |
 | 3 | [02 · The Agent Loop](docs/02-the-agent-loop/README.md) | Write the loop from scratch | Explain ReAct and why every loop needs limits |
 | 4 | [03 · Tools & Function Calling](docs/03-tools-and-function-calling/README.md) | Define and validate your own tool | Trace a tool call round trip for two providers |
-| 🏁 | [Project 1: Weather + calculator agent](docs/18-projects/18.1-project-1-weather-and-calculator-agent.md) | Build it from the starter code | Ship a working tool-using agent with tests |
+| 🏁 | [Project 1: Weather + calculator agent](docs/18-projects/18.1-project-1-weather-and-calculator-agent.md) | Build it milestone by milestone | Ship a working tool-using agent with tests |
 
 ## 🟡 Builder path
 

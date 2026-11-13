@@ -4,7 +4,7 @@
 
 > **Estimated reading time:** ~113 min · **Difficulty:** 🟡 Intermediate · **Prerequisites:** [01 · Foundations](../01-foundations/README.md), [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md)
 
-There are now more agent frameworks than anyone can try. This chapter gives you a map, then rebuilds **the same agent** (the Paris-vs-Rome weather agent from [1.5](../01-foundations/01.5-anatomy-of-an-agent.md)) in LangGraph, CrewAI, Microsoft Agent Framework (and the archived AutoGen), the OpenAI Agents SDK, the Claude Agent SDK, LlamaIndex and Pydantic AI, so you can compare like with like. It ends with the case for using no framework at all, and a short process for choosing. Every example runs offline with that framework's own fake model, and every page states the exact package version it was checked against.
+There are now more agent frameworks than anyone can try. This chapter gives you a map, then rebuilds **the same agent** (the Paris-vs-Rome weather agent from [1.5](../01-foundations/01.5-anatomy-of-an-agent.md)) in LangGraph, CrewAI, Microsoft Agent Framework (and the archived AutoGen), the OpenAI Agents SDK, the Claude Agent SDK, LlamaIndex and Pydantic AI, so you can compare like with like. It ends with the case for using no framework at all, and a short process for choosing. Every page shows how to test the agent offline with that framework's own fake model, and states the exact package version it was checked against.
 
 ## 🎯 What you'll learn
 
@@ -46,22 +46,6 @@ There are now more agent frameworks than anyone can try. This chapter gives you 
 | 11.9 | [The no-framework approach](./11.9-the-no-framework-approach.md) — When a plain loop over the provider SDK is the best choice. | 🟡 Intermediate | ~10 min |
 | 11.10 | [How to choose a framework](./11.10-how-to-choose.md) — Questions that point you to the right tool. | 🟢 Beginner | ~8 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-Each framework example has its own `requirements.txt` and needs its own virtual environment; see each README for the exact install and run commands. Their tests are skipped by the main test run unless the framework is installed.
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`11-langgraph`](../../examples/11-langgraph/README.md) | The weather agent as a state graph, tested with a fake chat model | [11.2](./11.2-langgraph.md) |
-| [`11-crewai`](../../examples/11-crewai/README.md) | The weather agent as a one-agent crew, tested with a scripted `BaseLLM` | [11.3](./11.3-crewai.md) |
-| [`11-agent-framework`](../../examples/11-agent-framework/README.md) | The weather agent in Microsoft Agent Framework, tested with a scripted chat client | [11.4](./11.4-microsoft-autogen-and-agent-framework.md) |
-| [`11-autogen`](../../examples/11-autogen/README.md) | The same agent in archived AutoGen, for reading and migrating old code | [11.4](./11.4-microsoft-autogen-and-agent-framework.md) |
-| [`11-openai-agents-sdk`](../../examples/11-openai-agents-sdk/README.md) | `Agent` + `Runner`, a handoff, tested with the SDK's `ScriptedModel` | [11.5](./11.5-openai-agents-sdk.md) |
-| [`11-claude-agent-sdk`](../../examples/11-claude-agent-sdk/README.md) | The Claude Code harness with in-process MCP tools; live run needs an API key | [11.6](./11.6-claude-agent-sdk.md) |
-| [`11-llamaindex`](../../examples/11-llamaindex/README.md) | A `FunctionAgent` with plain-function tools, tested with `MockFunctionCallingLLM` | [11.7](./11.7-llamaindex-agents.md) |
-| [`11-pydantic-ai`](../../examples/11-pydantic-ai/README.md) | Typed tools and validation retries, tested with `FunctionModel` and `TestModel` | [11.8](./11.8-pydantic-ai.md) |
-| [`01-anatomy-of-an-agent`](../../examples/01-anatomy-of-an-agent/README.md) | The no-framework baseline: the same agent over the shared LLM wrapper | [11.9](./11.9-the-no-framework-approach.md) |
 
 <!-- FOOTER -->
 

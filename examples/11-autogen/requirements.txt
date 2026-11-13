@@ -1,7 +1,0 @@
-# Pinned versions used and tested with these notes (November 2026).
-# Install into its own virtual environment (see README.md):  pip install -r requirements.txt
-# AutoGen is archived (no more fixes). Kept for reading and migrating old code.
-autogen-agentchat==0.7.5
-autogen-ext[openai]==0.7.5
-python-dotenv==1.2.4
-pytest==9.2.0

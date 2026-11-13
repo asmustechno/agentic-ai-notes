@@ -52,14 +52,6 @@ flowchart LR
 | 12.6 | [Public benchmarks (overview)](./12.6-public-benchmarks.md) — Well-known agent benchmarks and how to read them. | 🟡 Intermediate | ~8 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`12-trajectory-metrics`](../../examples/12-trajectory-metrics/README.md) | Scoring recorded runs: final state, trajectory matching, tool precision/recall, cost, pass@k vs pass^k | [12.1](./12.1-why-agent-evals-are-hard.md), [12.2](./12.2-task-trajectory-and-tool-metrics.md) |
-| [`12-llm-judge`](../../examples/12-llm-judge/README.md) | A rubric judge with structured verdicts, a position-bias check, and calibration with Cohen's kappa | [12.3](./12.3-llm-as-judge.md) |
-| [`12-regression-evals`](../../examples/12-regression-evals/README.md) | An eval runner with recorded replies, stale-recording detection, thresholds and a baseline gate | [12.4](./12.4-building-an-eval-dataset.md), [12.5](./12.5-regression-testing-in-ci.md), [12.6](./12.6-public-benchmarks.md) |
-
 <!-- FOOTER -->
 
 ---

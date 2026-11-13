@@ -49,14 +49,6 @@ flowchart LR
 | 14.5 | [Debugging a broken agent](./14.5-debugging-a-broken-agent.md) — A step-by-step method for finding what went wrong. | 🟡 Intermediate | ~12 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`14-tracing-otel`](../../examples/14-tracing-otel/README.md) | An agent traced with OpenTelemetry and GenAI attributes, printed as a span tree and tested with an in-memory exporter | [14.1](./14.1-tracing-agent-runs.md), [14.3](./14.3-opentelemetry-for-llm-apps.md), [14.4](./14.4-tracing-tools.md) |
-| [`14-structured-logging`](../../examples/14-structured-logging/README.md) | JSON logs for every tool call, with a run ID, redaction, and prod versus debug modes | [14.2](./14.2-logging-tool-calls.md) |
-| [`14-debugging-walkthrough`](../../examples/14-debugging-walkthrough/README.md) | A broken agent reproduced from recorded replies, diagnosed from its trace, fixed, and kept as a regression test | [14.5](./14.5-debugging-a-broken-agent.md) |
-
 <!-- FOOTER -->
 
 ---

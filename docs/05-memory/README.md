@@ -19,8 +19,8 @@ A model remembers nothing between calls. Everything an agent "knows" about the c
 
 - [1.4 How LLMs work](../01-foundations/01.4-how-llms-work.md): tokens, context windows and statelessness
 - [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): memory as one of the five parts
-- [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md): the loop the examples build on
-- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the examples
+- [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md): the loop the code on these pages builds on
+- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the code snippets
 
 ## 👀 Chapter overview
 
@@ -39,14 +39,6 @@ A model remembers nothing between calls. Everything an agent "knows" about the c
 | 5.4 | [Episodic, semantic & procedural memory](./05.4-episodic-semantic-and-procedural-memory.md) — Three kinds of long-term memory and what each is for. | 🟡 Intermediate | ~10 min |
 | 5.5 | [Memory design trade-offs](./05.5-memory-design-trade-offs.md) — What to store, when to recall, and what it costs. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`05-summarising-memory`](../../examples/05-summarising-memory/README.md) | Trimming versus a rolling summary on the same eight-turn chat, with a token budget | [5.2](./05.2-summarisation-and-context-compaction.md) |
-| [`05-vector-memory`](../../examples/05-vector-memory/README.md) | `remember` and `recall` tools over a vector store that survives between sessions; a toy offline embedder and where it fails | [5.1](./05.1-short-term-vs-long-term-memory.md), [5.3](./05.3-vector-memory.md) |
-| [`05-memory-types`](../../examples/05-memory-types/README.md) | Separate semantic, episodic and procedural stores filled by a reflection step, with PII redaction and updates | [5.4](./05.4-episodic-semantic-and-procedural-memory.md), [5.5](./05.5-memory-design-trade-offs.md) |
 
 <!-- FOOTER -->
 

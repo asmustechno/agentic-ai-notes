@@ -1,7 +1,6 @@
 # Python
 __pycache__/
 *.py[cod]
-.pytest_cache/
 .venv/
 venv/
 *.egg-info/
@@ -10,9 +9,6 @@ venv/
 .env
 .env.*
 !.env.example
-
-# MkDocs build output
-site/
 
 # Editors and OS
 .vscode/

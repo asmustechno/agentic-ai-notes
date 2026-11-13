@@ -19,7 +19,7 @@ A chatbot that says something wrong is embarrassing. An agent that *does* someth
 
 - [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): the five parts you will be protecting
 - [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md): the model *asks*, your code *runs*; that gap is where most defences live
-- Basic Python, and the examples set up as in [0.3 Setup](../00-start-here/00.3-setup.md)
+- Basic Python, enough to read the snippets ([0.3 Setup](../00-start-here/00.3-setup.md) if you want to run them)
 
 ## 👀 Chapter overview
 
@@ -39,15 +39,6 @@ A chatbot that says something wrong is embarrassing. An agent that *does* someth
 | 13.5 | [Human approval for risky actions](./13.5-human-approval-for-risky-actions.md) — Require a person to approve irreversible steps. | 🟡 Intermediate | ~8 min |
 | 13.6 | [Secrets & PII handling](./13.6-secrets-and-pii.md) — Keep keys and personal data out of prompts, logs and outputs. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`13-prompt-injection-demo`](../../examples/13-prompt-injection-demo/README.md) | A poisoned web page fools the agent; marking + taint tracking and the dual-LLM pattern stop the data leak anyway | [13.1](./13.1-threat-model-for-agents.md), [13.2](./13.2-prompt-injection.md), [13.3](./13.3-least-privilege-and-sandboxing.md) |
-| [`13-guardrails`](../../examples/13-guardrails/README.md) | Layered input and output guards: length, deny list, injection flag, moderation hook, schema, refund limit, PII, link allowlist | [13.4](./13.4-input-and-output-guardrails.md) |
-| [`13-approval-gate`](../../examples/13-approval-gate/README.md) | Risk tiers, dry-run previews, human approval and a JSONL audit log | [13.5](./13.5-human-approval-for-risky-actions.md) |
-| [`13-pii-redaction`](../../examples/13-pii-redaction/README.md) | Reversible placeholders for emails, phones, cards and API keys, plus a redacting log filter | [13.6](./13.6-secrets-and-pii.md) |
 
 <!-- FOOTER -->
 

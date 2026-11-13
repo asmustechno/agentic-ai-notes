@@ -46,14 +46,6 @@ flowchart LR
 | 8.4 | [Limits of self-correction](./08.4-limits-of-self-correction.md) — When an agent cannot fix its own mistakes. | 🔴 Advanced | ~8 min |
 <!-- PAGES:END -->
 
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`08-reflection`](../../examples/08-reflection/README.md) | Draft, critique, revise, until the critic says `NO ISSUES` | [8.1](./08.1-the-reflection-pattern.md) |
-| [`08-evaluator-optimizer`](../../examples/08-evaluator-optimizer/README.md) | Separate generator and evaluator, rubric, hard checks, reusable `optimize()` | [8.2](./08.2-evaluator-optimizer-loop.md), [9.5](../09-agent-design-patterns/09.5-evaluator-optimizer.md) |
-| [`08-self-critique-with-tests`](../../examples/08-self-critique-with-tests/README.md) | Generated code run against fixed tests in a subprocess with a timeout; failures fed back | [8.3](./08.3-self-critique-with-tests.md) |
-
 <!-- FOOTER -->
 
 ---

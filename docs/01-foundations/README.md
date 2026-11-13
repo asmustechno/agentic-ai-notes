@@ -17,7 +17,7 @@ Before building an agent, you need a clear picture of what one is. This chapter 
 
 ## 📋 Prerequisites
 
-- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the examples
+- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the code snippets
 - Basic Python
 
 ## 👀 Chapter overview
@@ -38,14 +38,6 @@ Before building an agent, you need a clear picture of what one is. This chapter 
 | 1.5 | [Anatomy of an agent](./01.5-anatomy-of-an-agent.md) — Model, instructions, tools, memory and loop: the five parts of every agent. | 🟢 Beginner | ~10 min |
 | 1.6 | [When NOT to use an agent](./01.6-when-not-to-use-an-agent.md) — Signs that a simpler solution will serve you better. | 🟢 Beginner | ~7 min |
 <!-- PAGES:END -->
-
-## 💻 Examples for this chapter
-
-| Example | What it shows | Used in |
-| --- | --- | --- |
-| [`01-chatbot-workflow-agent`](../../examples/01-chatbot-workflow-agent/README.md) | One customer question answered three ways | [1.1](./01.1-what-is-an-ai-agent.md), [1.2](./01.2-chatbot-vs-workflow-vs-agent.md), [1.3](./01.3-the-autonomy-spectrum.md) |
-| [`01-how-llms-work`](../../examples/01-how-llms-work/README.md) | Statelessness, growing context and token counting | [1.4](./01.4-how-llms-work.md) |
-| [`01-anatomy-of-an-agent`](../../examples/01-anatomy-of-an-agent/README.md) | An agent with its five parts labelled in code | [1.5](./01.5-anatomy-of-an-agent.md) |
 
 <!-- FOOTER -->
 
