@@ -1,709 +1,709 @@
 # 📖 Glossary
 
-Every term used in these notes, A to Z. Each entry gives a short, plain definition and links to the page that explains it properly. Pages link here the first time they use a term.
+In notes mein jo bhi term use hua hai, sab yahan A se Z tak hai. Har entry mein ek chhoti, simple definition hai. Saath mein us page ka link hai jahan woh term achhe se samjhaya gaya hai. Pages pehli baar koi term use karte hain to yahin link karte hain.
 
-> Missing a term? [Suggest it](.github/ISSUE_TEMPLATE/suggest-topic.md).
+> Koi term missing hai? [Suggest karo](.github/ISSUE_TEMPLATE/suggest-topic.md).
 
-**Jump to:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
+**Seedha jao:** [A](#a) · [B](#b) · [C](#c) · [D](#d) · [E](#e) · [F](#f) · [G](#g) · [H](#h) · [I](#i) · [J](#j) · [L](#l) · [M](#m) · [N](#n) · [O](#o) · [P](#p) · [Q](#q) · [R](#r) · [S](#s) · [T](#t) · [V](#v) · [W](#w)
 
 ## A
 
 ### Agent
 
-A system in which a [large language model](#large-language-model-llm) decides, step by step, which actions to take (usually by calling [tools](#tool)) to reach a goal, and keeps going until the goal is met or it stops. → [1.1 What is an AI agent?](docs/01-foundations/01.1-what-is-an-ai-agent.md)
+Aisa system jisme ek [large language model](#large-language-model-llm) step by step decide karta hai ki goal tak pahunchne ke liye kaun sa action lena hai. Aksar yeh action [tools](#tool) call karna hota hai. Woh tab tak chalta rehta hai jab tak goal poora na ho jaye ya woh ruk na jaye. → [1.1 AI agent kya hai?](docs/01-foundations/01.1-what-is-an-ai-agent.md)
 
 ### Agent card
 
-In A2A, a JSON document an agent publishes (usually at /.well-known/agent-card.json) describing its name, skills, endpoints, capabilities and authentication requirements. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
+A2A mein ek JSON document jo agent publish karta hai (aksar /.well-known/agent-card.json par). Isme agent ka naam, skills, endpoints, capabilities aur authentication ki zaroorat likhi hoti hai. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
 
 ### Agent framework
 
-A library that provides ready-made pieces for building agents, such as the loop, tool schemas, memory and multi-agent patterns, so you write less of that code yourself. → [11.1 Framework landscape](docs/11-frameworks/11.1-framework-landscape.md)
+Ek library jo agent banane ke ready-made pieces deti hai, jaise loop, tool schemas, memory aur multi-agent patterns. Isse tumhe yeh code khud kam likhna padta hai. → [11.1 Frameworks ka poora naksha](docs/11-frameworks/11.1-framework-landscape.md)
 
 ### Agent harness
 
-A complete, ready-made agent runtime with built-in tools, permissions and context management that you configure rather than build. Claude Code, used through the Claude Agent SDK, is one. → [11.6 Claude Agent SDK](docs/11-frameworks/11.6-claude-agent-sdk.md)
+Ek poora, ready-made agent runtime jisme tools, permissions aur context management pehle se built-in hote hain. Tum ise banate nahi, sirf configure karte ho. Claude Code, jo Claude Agent SDK ke through use hota hai, aisa hi ek harness hai. → [11.6 Claude Agent SDK](docs/11-frameworks/11.6-claude-agent-sdk.md)
 
 ### Agent loop
 
-The repeating cycle at the heart of an agent: observe the current state, think about what to do, act (for example by calling a tool), then observe the result. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
+Agent ke beech ka repeat hone wala cycle: current state dekho, socho kya karna hai, act karo (jaise koi tool call karo), phir result dekho. → [2.1 Observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
 
 ### Agent-computer interface (ACI)
 
-The set of commands and tools an agent uses to work in a computer environment, such as search, view and edit commands for a coding agent. Its design strongly affects how well the agent performs. → [17.1 Coding agent](docs/17-case-studies/17.1-coding-agent.md)
+Commands aur tools ka woh set jisse agent computer environment mein kaam karta hai. Jaise coding agent ke liye search, view aur edit commands. Iska design agent ki performance par bahut asar daalta hai. → [17.1 Coding agent](docs/17-case-studies/17.1-coding-agent.md)
 
 ### Agent2Agent protocol (A2A)
 
-An open protocol, under the Linux Foundation, that lets independent agents discover each other through Agent Cards, exchange messages and track shared tasks without exposing their internals. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
+Linux Foundation ke under ek open protocol. Isse alag-alag agents Agent Cards ke through ek dusre ko dhoondh sakte hain, messages bhej sakte hain aur shared tasks track kar sakte hain. Apne andar ki details expose nahi karni padti. → [10.5 Agent-to-agent protocols](docs/10-multi-agent-systems/10.5-agent-to-agent-protocols.md)
 
 ### Agentic RAG
 
-Retrieval-augmented generation in which search is a tool the model calls, so the agent decides whether to search, what to search for, when to search again, and when to say the answer isn't there. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+Retrieval-augmented generation jisme search ek tool hai jo model khud call karta hai. Agent decide karta hai ki search karna hai ya nahi, kya search karna hai, dobara kab search karna hai, aur kab bolna hai ki answer mila hi nahi. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
 
 ### API key
 
-A secret string that identifies you to a model provider and lets your code call its API. Keep it in an environment variable or a `.env` file, never in code. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+Ek secret string jo model provider ko batati hai ki tum kaun ho, aur tumhare code ko uski API call karne deti hai. Ise environment variable ya `.env` file mein rakho, code mein kabhi nahi. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Approval gate
 
-Code in the agent loop that pauses a risky tool call, shows a person a preview of exactly what will happen, and runs it only if they approve. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
+Agent loop ka woh code jo risky tool call ko rok deta hai. Woh insaan ko exact preview dikhata hai ki kya hone wala hai, aur approve hone par hi chalata hai. → [13.5 Risky actions ke liye human approval](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
 
 ### Approximate nearest neighbour (ANN) search
 
-A way to find the vectors closest to a query without comparing it with every stored vector, trading a little accuracy for a large gain in speed. HNSW and IVF are common ANN indexes. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
+Query ke sabse kareeb wale vectors dhoondhne ka tarika, bina har stored vector se compare kiye. Thodi accuracy jaati hai, lekin speed bahut badh jaati hai. HNSW aur IVF common ANN indexes hain. → [6.2 Embeddings aur vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ### At-least-once delivery
 
-A queue guarantee that every job is delivered until a worker confirms it, so nothing is lost but some jobs are processed more than once. Handlers must therefore be safe to run twice. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Queue ki guarantee ki har job tab tak deliver hoti rahegi jab tak koi worker confirm na kare. Kuch bhi khota nahi, lekin kuch jobs ek se zyada baar process ho sakti hain. Isliye handlers aise hone chahiye ki do baar chalne par bhi safe rahein. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Audit log
 
-An append-only record of every action an agent took or was refused, with who approved it and what happened, kept for investigation and accountability. → [13.5 Human approval for risky actions](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
+Append-only record jisme agent ka har action likha hota hai, chahe hua ho ya refuse hua ho. Saath mein yeh bhi ki kisne approve kiya aur kya hua. Yeh investigation aur accountability ke liye rakha jaata hai. → [13.5 Risky actions ke liye human approval](docs/13-safety-and-guardrails/13.5-human-approval-for-risky-actions.md)
 
 ### Autonomy spectrum
 
-A scale describing how much an LLM system's model decides, from a single prompt (code decides everything) to a fully autonomous agent (the model sets its own sub-goals). → [1.3 The autonomy spectrum](docs/01-foundations/01.3-the-autonomy-spectrum.md)
+Ek scale jo batata hai ki LLM system mein model kitna decide karta hai. Ek single prompt (sab kuch code decide karta hai) se lekar fully autonomous agent tak (model apne sub-goals khud set karta hai). → [1.3 Autonomy ka spectrum](docs/01-foundations/01.3-the-autonomy-spectrum.md)
 
 ## B
 
 ### Background agent
 
-An agent run that no one is waiting for in real time: it is started by a schedule or an event and reports its result somewhere useful, such as a ticket or a chat message. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
+Aisa agent run jiska koi real time mein wait nahi kar raha. Yeh schedule ya kisi event se start hota hai, aur apna result kisi kaam ki jagah report karta hai, jaise ticket ya chat message. → [15.2 Sync vs async aur background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Benchmark
 
-A public, standardised set of tasks with a fixed way of grading them, used to compare models or agent systems. A score describes the whole system tested (model plus scaffold), on that benchmark's tasks only. → [12.6 Public benchmarks (overview)](docs/12-evaluation/12.6-public-benchmarks.md)
+Tasks ka ek public, standard set jise grade karne ka tarika fixed hota hai. Iska use models ya agent systems compare karne ke liye hota hai. Score poore tested system (model plus scaffold) ke baare mein hai, aur sirf us benchmark ke tasks par. → [12.6 Public benchmarks (ek overview)](docs/12-evaluation/12.6-public-benchmarks.md)
 
 ### Blackboard
 
-A shared store that several agents read and write through tools. It needs rules for who may see and change what, and for catching conflicting writes. → [10.4 Shared state & communication](docs/10-multi-agent-systems/10.4-shared-state-and-communication.md)
+Ek shared store jise kai agents tools ke through padhte aur likhte hain. Isme rules chahiye ki kaun kya dekh aur badal sakta hai, aur conflicting writes kaise pakdein. → [10.4 Shared state aur communication](docs/10-multi-agent-systems/10.4-shared-state-and-communication.md)
 
 ### BM25
 
-A keyword ranking function that scores documents by how many of the query's words they contain, weighting rare words more, with diminishing returns for repeats and a correction for document length. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Keyword ranking function jo documents ko score karta hai is basis par ki usme query ke kitne words hain. Rare words ko zyada weight milta hai. Repeat words ka fayda dheere-dheere kam hota hai, aur document ki length ke liye correction hota hai. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### Browser agent
 
-An agent that uses a web browser through tools, such as opening pages, reading their text and clicking or filling elements, to complete tasks on websites. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
+Aisa agent jo tools ke through web browser use karta hai, jaise page kholna, text padhna, elements par click karna ya fill karna. Isse woh websites par tasks poore karta hai. → [3.7 Computer use aur browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
 
 ## C
 
 ### Canary token
 
-A unique, meaningless string planted in a system prompt or secret document. If it ever appears in a model's output, you know the hidden text has leaked, so an output guardrail can block the reply. → [18.5 Project 5: Production-ready support agent](docs/18-projects/18.5-project-5-production-support-agent.md)
+Ek unique, bematlab string jo system prompt ya secret document mein daal di jaati hai. Agar yeh kabhi model ke output mein dikhe, to samjho hidden text leak ho gaya. Tab output guardrail reply ko block kar sakta hai. → [18.5 Project 5: Production-ready support agent](docs/18-projects/18.5-project-5-production-support-agent.md)
 
 ### Chain-of-thought (CoT)
 
-Prompting a model to write out intermediate reasoning steps before its final answer, which improves accuracy on multi-step problems. Introduced by Wei et al. (2022). → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
+Model se final answer se pehle beech ke reasoning steps likhwana. Isse multi-step problems par accuracy badhti hai. Wei et al. (2022) ne introduce kiya. → [7.1 Chain-of-thought aur extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ### Chatbot
 
-A system that answers with a single model reply per message and takes no actions. It can only use what the model already knows or what is in the prompt. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+Aisa system jo har message par model ka ek hi reply deta hai aur koi action nahi leta. Woh sirf wahi use kar sakta hai jo model pehle se jaanta hai ya jo prompt mein hai. → [1.2 Chatbot, workflow aur agent mein farak](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
 
 ### Checkpoint
 
-A saved snapshot of a run's state (for an agent, the messages and the step counter) that lets the run resume after a crash instead of starting over. → [15.4 State persistence & resumability](docs/15-production-and-deployment/15.4-state-persistence-and-resumability.md)
+Run ki state ka saved snapshot (agent ke liye: messages aur step counter). Isse crash ke baad run wahin se resume ho sakta hai, shuru se nahi. → [15.4 State persistence aur resumability](docs/15-production-and-deployment/15.4-state-persistence-and-resumability.md)
 
 ### Chunking
 
-Splitting documents into smaller pieces (chunks) before indexing them for retrieval. How you split decides what search can find. → [6.3 Chunking strategies](docs/06-rag-for-agents/06.3-chunking-strategies.md)
+Retrieval ke liye index karne se pehle documents ko chhote pieces (chunks) mein todna. Tum kaise todte ho, usi se decide hota hai ki search kya dhoondh paayega. → [6.3 Chunking ke tarike](docs/06-rag-for-agents/06.3-chunking-strategies.md)
 
 ### Circuit breaker
 
-A guard that stops calling a dependency after repeated failures, fails fast for a cool-down period, then lets one trial call through to see whether it has recovered. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+Ek guard jo baar-baar fail hone par kisi dependency ko call karna band kar deta hai. Cool-down period tak turant fail karta hai, phir ek trial call jaane deta hai yeh dekhne ke liye ki woh theek hui ya nahi. → [15.5 Rate limits aur fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
 ### Compounding errors
 
-The way small per-step error rates add up over many steps: if each step is right with probability p, all n steps are right with probability pⁿ. A key reason long agent runs need ways to catch mistakes. → [1.6 When NOT to use an agent](docs/01-foundations/01.6-when-not-to-use-an-agent.md)
+Har step ki chhoti error rate bahut saare steps mein milkar badi ho jaati hai. Agar har step probability p se sahi hai, to saare n steps sahi hone ki probability pⁿ hai. Isi wajah se lambe agent runs ko galtiyan pakadne ke tarike chahiye. → [1.6 Agent kab use NAHI karna chahiye](docs/01-foundations/01.6-when-not-to-use-an-agent.md)
 
 ### Computer use
 
-Letting a model operate a computer like a person: it receives screenshots and asks for mouse and keyboard actions, which your code performs on an isolated machine. → [3.7 Computer use & browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
+Model ko insaan ki tarah computer chalane dena. Model screenshots leta hai aur mouse/keyboard actions maangta hai, jo tumhara code ek isolated machine par karta hai. → [3.7 Computer use aur browser agents](docs/03-tools-and-function-calling/03.7-computer-use-and-browser-agents.md)
 
 ### Confused deputy
 
-An attack in which a program with legitimate authority, such as an MCP proxy server holding OAuth credentials, is tricked into using that authority on an attacker's behalf. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+Ek attack jisme sahi authority wale program ko (jaise OAuth credentials rakhne wala MCP proxy server) bewakoof bana kar attacker ke liye woh authority use karwa li jaati hai. → [4.6 MCP servers ki security](docs/04-model-context-protocol/04.6-mcp-security.md)
 
 ### Container
 
-A running instance of a container image: an isolated process with its own filesystem, started the same way on any machine. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+Container image ka chalta hua instance. Yeh ek isolated process hai jiska apna filesystem hota hai, aur har machine par same tarike se start hota hai. → [15.6 FastAPI aur Docker se deploy karna](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
 
 ### Container image
 
-A packaged, read-only bundle of an application with its runtime and dependencies (for example a Docker image), built once and run anywhere. It should never contain secrets. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+Application, uske runtime aur dependencies ka packaged, read-only bundle (jaise Docker image). Ek baar build karo, kahin bhi chalao. Isme secrets kabhi nahi hone chahiye. → [15.6 FastAPI aur Docker se deploy karna](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
 
 ### Context compaction
 
-Shrinking a long conversation so it fits its budget, usually by replacing older turns with a summary, so the model continues from the summary instead of the full history. Anthropic and OpenAI can also do it server-side. → [5.2 Summarisation & context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
+Lambi conversation ko chhota karna taaki woh budget mein fit ho. Aksar purane turns ko summary se replace karte hain, aur model poori history ki jagah summary se aage badhta hai. Anthropic aur OpenAI yeh server-side bhi kar sakte hain. → [5.2 Summarisation aur context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
 
 ### Context editing
 
-Removing specific content from a conversation before the model sees it, such as old tool results or thinking blocks, to keep the context small without summarising it. → [5.2 Summarisation & context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
+Model ke dekhne se pehle conversation se specific content hata dena, jaise purane tool results ya thinking blocks. Isse context chhota rehta hai, bina summary banaye. → [5.2 Summarisation aur context compaction](docs/05-memory/05.2-summarisation-and-context-compaction.md)
 
 ### Context isolation
 
-Giving a sub-task its own fresh context, so its raw work (searches, files, tool output) stays out of the main agent's context and only a short result comes back. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
+Kisi sub-task ko apna fresh context dena. Uska raw kaam (searches, files, tool output) main agent ke context se bahar rehta hai, aur sirf chhota sa result wapas aata hai. → [10.1 Multiple agents kyun?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
 
 ### Context window
 
-The maximum amount of text, measured in [tokens](#token), that a model can read in one request. Everything the model "knows" about the current task must fit inside it. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Text ki maximum quantity, [tokens](#token) mein naapi hui, jo model ek request mein padh sakta hai. Current task ke baare mein model jo bhi "jaanta" hai, sab isi mein fit hona chahiye. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Correlation ID
 
-An identifier, such as a run ID, attached to every log line and trace of one request or agent run, so all its records can be found and joined together. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
+Ek identifier, jaise run ID, jo ek request ya agent run ki har log line aur trace par lagaya jaata hai. Isse uske saare records dhoondh kar jode ja sakte hain. → [14.2 Tool calls ko log karna](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
 
 ### Cosine similarity
 
-A measure of how closely two vectors point in the same direction, from -1 to 1. For embeddings scaled to length 1 it equals their dot product. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
+Yeh naapta hai ki do vectors kitna same direction mein point karte hain, -1 se 1 tak. Length 1 par scale kiye embeddings ke liye yeh unke dot product ke barabar hai. → [6.2 Embeddings aur vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ## D
 
 ### Data contamination
 
-When benchmark or test questions (or their answers) end up in a model's training data, so its score partly reflects memorisation and overstates how well it handles new problems. → [12.6 Public benchmarks (overview)](docs/12-evaluation/12.6-public-benchmarks.md)
+Jab benchmark ya test ke sawal (ya unke jawab) model ke training data mein pahunch jaate hain. Tab score kuch had tak ratta dikhata hai, aur nayi problems par model ko jitna achha batata hai utna woh hota nahi. → [12.6 Public benchmarks (ek overview)](docs/12-evaluation/12.6-public-benchmarks.md)
 
 ### Data exfiltration
 
-Getting private data out of a system to somewhere an attacker can read it, for example by tricking an agent into emailing it or putting it in a URL. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+Private data ko system se nikaal kar aisi jagah pahunchana jahan attacker padh sake. Jaise agent ko bewakoof bana kar data email karwana ya URL mein daalwana. → [13.1 Agents ke liye threat model](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### Dead-letter queue (DLQ)
 
-A holding queue for jobs that failed permanently or ran out of retries, so they are neither retried forever nor silently dropped, and a human can inspect and replay them. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Un jobs ke liye holding queue jo hamesha ke liye fail ho gayi ya jinke retries khatam ho gaye. Na woh hamesha retry hoti hain, na chupchaap gayab hoti hain. Koi insaan unhe dekh kar replay kar sakta hai. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Defence in depth
 
-Stacking several independent, imperfect safety layers so that an attack that gets past one is caught by another. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+Kai independent, imperfect safety layers ek ke upar ek lagana. Jo attack ek layer se nikal jaaye, use dusri pakad le. → [13.1 Agents ke liye threat model](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### Directed acyclic graph (DAG)
 
-A set of tasks connected by one-way dependency arrows with no loops. Plans shaped like this can be put in a valid order, and independent tasks can run in parallel. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+Tasks ka set jo one-way dependency arrows se jude hain, aur koi loop nahi hai. Aise plans ko ek valid order mein lagaya ja sakta hai, aur independent tasks parallel chal sakte hain. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
 
 ### Done criterion
 
-A test that says when a task is finished, such as "the lunch total in EUR is known". The best ones can be checked by code. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+Ek test jo batata hai ki task kab poora hua, jaise "the lunch total in EUR is known". Sabse achhe criteria woh hain jo code check kar sake. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
 
 ### Dual LLM pattern
 
-A design in which a privileged model plans and calls tools but never reads untrusted text, while a quarantined model with no tools reads it; code passes results between them only as variable references. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+Ek design jisme privileged model plan karta hai aur tools call karta hai, lekin untrusted text kabhi nahi padhta. Untrusted text ek quarantined model padhta hai jiske paas koi tool nahi. Code dono ke beech results sirf variable references ke roop mein pass karta hai. → [13.2 Prompt injection aur uske defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
 ## E
 
 ### Embedding
 
-A list of numbers that represents the meaning of a piece of text. Texts with similar meanings have embeddings that are close together, which makes search by meaning possible. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
+Numbers ki list jo text ke matlab ko represent karti hai. Milte-julte matlab wale texts ke embeddings paas-paas hote hain. Isi se matlab ke basis par search ho paata hai. → [6.2 Embeddings aur vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ### Environment variable
 
-A named setting passed to a program by its environment rather than written in its code, such as `ANTHROPIC_API_KEY`. The model SDKs read your API key from one. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+Ek named setting jo program ko code mein likhne ki jagah uske environment se milti hai, jaise `ANTHROPIC_API_KEY`. Model SDKs tumhari API key isi se padhte hain. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Episodic memory
 
-Long-term memory of past experiences: what task an agent did, what it tried and how it turned out. Recalled to learn from similar past runs. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
+Purane experiences ki long-term memory: agent ne kaun sa task kiya, kya try kiya aur result kya raha. Milte-julte purane runs se seekhne ke liye ise yaad kiya jaata hai. → [5.4 Episodic, semantic aur procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
 
 ### Eval
 
-Short for evaluation: a repeatable test that measures how well an LLM system performs on a set of example tasks. → [12.1 Why evals are hard for agents](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
+Evaluation ka short form. Ek repeatable test jo naapta hai ki LLM system example tasks ke set par kitna achha perform karta hai. → [12.1 Agents ke evals mushkil kyun hain?](docs/12-evaluation/12.1-why-agent-evals-are-hard.md)
 
 ### Evaluator-optimizer
 
-A loop in which one LLM call generates a result and a separate evaluator grades it against clear criteria and gives feedback; the generator revises until the result passes or a round limit is reached. → [8.2 The evaluator–optimizer loop](docs/08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md)
+Ek loop jisme ek LLM call result banata hai aur alag evaluator use clear criteria par grade karke feedback deta hai. Generator tab tak sudhaarta hai jab tak result pass na ho ya round limit na aa jaye. → [8.2 Evaluator–optimizer loop](docs/08-reflection-and-self-correction/08.2-evaluator-optimizer-loop.md)
 
 ### Exponential backoff
 
-A retry strategy that doubles the wait after each failure (for example 0.5 s, 1 s, 2 s, 4 s) up to a cap, giving a struggling service time to recover. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Retry ka tarika jisme har failure ke baad wait double hota hai (jaise 0.5 s, 1 s, 2 s, 4 s), ek cap tak. Isse pareshaan service ko theek hone ka time milta hai. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Extended thinking
 
-Reasoning a model does internally before it replies, returned as separate thinking blocks (often hidden or summarized) and billed as output tokens. Anthropic's name for built-in reasoning. → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
+Reply se pehle model andar hi andar jo reasoning karta hai. Yeh alag thinking blocks mein aati hai (aksar hidden ya summarized) aur output tokens ki tarah bill hoti hai. Built-in reasoning ke liye yeh Anthropic ka naam hai. → [7.1 Chain-of-thought aur extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ## F
 
 ### Fake model
 
-A stand-in for a real LLM that returns scripted replies, so agent code can be tested offline, for free and deterministically. MockLLM is one; most frameworks ship their own. → [11.1 Framework landscape](docs/11-frameworks/11.1-framework-landscape.md)
+Asli LLM ki jagah ek stand-in jo scripted replies deta hai. Isse agent code offline, free aur deterministic tarike se test ho sakta hai. MockLLM aisa hi ek hai; zyada tar frameworks apna khud ka dete hain. → [11.1 Frameworks ka poora naksha](docs/11-frameworks/11.1-framework-landscape.md)
 
 ### Function calling
 
-The model's ability to reply with a structured request to run one of the tools you described, instead of (or as well as) plain text. Your code runs the tool and sends the result back. Also called *tool calling* or *tool use*. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+Model ki yeh ability ki woh plain text ki jagah (ya saath mein) structured request bhej sake ki tumhare describe kiye tools mein se koi chalaya jaye. Tumhara code tool chalata hai aur result wapas bhejta hai. Ise *tool calling* ya *tool use* bhi kehte hain. → [3.3 Function calling kaise kaam karta hai](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
 ## G
 
 ### Gate
 
-A check in plain code between two steps of a workflow, such as "is this valid JSON?" or "is it under 80 words?". If it fails, the workflow stops or retries that step instead of passing bad output on. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
+Workflow ke do steps ke beech plain code mein ek check, jaise "is this valid JSON?" ya "is it under 80 words?". Fail hone par workflow ruk jaata hai ya woh step retry karta hai, kharab output aage nahi bhejta. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
 
 ### Guardrail
 
-A check that runs before or after a model call to block, fix or flag unsafe or invalid input and output. → [13.4 Input & output guardrails](docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md)
+Model call se pehle ya baad chalne wala check jo unsafe ya invalid input aur output ko block, fix ya flag karta hai. → [13.4 Input aur output guardrails](docs/13-safety-and-guardrails/13.4-input-and-output-guardrails.md)
 
 ## H
 
 ### Hallucination
 
-When a model states something false or invented as if it were true, such as a delivery date it had no data for. Giving the model real data through tools or retrieval reduces it. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+Jab model koi galat ya banayi hui baat aise bolta hai jaise woh sach ho, jaise aisi delivery date jiska uske paas koi data nahi tha. Tools ya retrieval se model ko asli data dene par yeh kam hota hai. → [1.2 Chatbot, workflow aur agent mein farak](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
 
 ### Handoff
 
-Passing control of a conversation from one agent to another, which then answers the user directly with its own instructions and tools. Usually offered to the model as a tool such as transfer_to_billing. → [10.3 Peer-to-peer & handoffs](docs/10-multi-agent-systems/10.3-peer-to-peer-and-handoffs.md)
+Conversation ka control ek agent se dusre ko dena. Dusra agent phir apne instructions aur tools ke saath seedha user ko jawab deta hai. Aksar model ko yeh transfer_to_billing jaise tool ke roop mein diya jaata hai. → [10.3 Peer-to-peer aur handoffs](docs/10-multi-agent-systems/10.3-peer-to-peer-and-handoffs.md)
 
 ### Health check
 
-A cheap endpoint, such as GET /healthz, that a load balancer or orchestrator calls to decide whether a service instance is alive and should receive traffic. → [15.6 Deploying with FastAPI & Docker](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
+Ek sasta endpoint, jaise GET /healthz, jise load balancer ya orchestrator call karta hai. Isse decide hota hai ki service instance zinda hai aur traffic lena chahiye ya nahi. → [15.6 FastAPI aur Docker se deploy karna](docs/15-production-and-deployment/15.6-deploying-with-fastapi-and-docker.md)
 
 ### Human-in-the-loop (HITL)
 
-A design in which an agent pauses at chosen points so a person can approve, edit or reject an action, or take over the case, before the run continues. → [9.6 Human-in-the-loop](docs/09-agent-design-patterns/09.6-human-in-the-loop.md)
+Ek design jisme agent chune hue points par ruk jaata hai. Wahan insaan action ko approve, edit ya reject kar sakta hai, ya case khud sambhal sakta hai. Uske baad run aage badhta hai. → [9.6 Human-in-the-loop](docs/09-agent-design-patterns/09.6-human-in-the-loop.md)
 
 ### Hybrid search
 
-Retrieval that combines keyword search (such as BM25) with vector search, so exact terms and paraphrases are both found. The two result lists are usually merged with reciprocal rank fusion. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Retrieval jo keyword search (jaise BM25) aur vector search dono milata hai. Isse exact terms aur paraphrases dono mil jaate hain. Dono result lists ko aksar reciprocal rank fusion se merge karte hain. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ## I
 
 ### Idempotency key
 
-A unique id sent with a request that has a side effect, so the receiver can recognise a retry of the same request and return the first result instead of acting twice. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Side effect wali request ke saath bheji gayi unique id. Isse receiver same request ka retry pehchaan leta hai aur do baar kaam karne ki jagah pehla result lauta deta hai. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Idempotent
 
-Describes an operation that has the same effect whether it runs once or many times, like setting a thermostat to 21°C. Idempotent operations are safe to retry. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Aisa operation jiska effect same rehta hai chahe woh ek baar chale ya kai baar. Jaise thermostat ko 21°C par set karna. Idempotent operations ko retry karna safe hai. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Indirect prompt injection
 
-Prompt injection that arrives through content the agent reads, such as a web page, email, document or tool result, rather than from the user. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+Prompt injection jo user se nahi, balki us content se aata hai jo agent padhta hai, jaise web page, email, document ya tool result. → [13.2 Prompt injection aur uske defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
 ### Instructions
 
-The part of an agent that tells the model its role, goal, rules and how to use its tools, usually written as the system prompt. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+Agent ka woh hissa jo model ko uska role, goal, rules aur tools use karne ka tarika batata hai. Aksar yeh system prompt ke roop mein likha jaata hai. → [1.5 Agent ke andar kya-kya hota hai](docs/01-foundations/01.5-anatomy-of-an-agent.md)
 
 ## J
 
 ### Jitter
 
-Randomness added to retry waits so that many clients that failed at the same moment do not all retry at the same moment. → [15.3 Queues, retries & idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
+Retry waits mein daali gayi randomness. Isse jo bahut saare clients ek hi pal mein fail hue, woh sab ek hi pal mein retry nahi karte. → [15.3 Queues, retries aur idempotency](docs/15-production-and-deployment/15.3-queues-retries-and-idempotency.md)
 
 ### Job queue
 
-A buffer between the part of a system that accepts work and the workers that do it. It absorbs bursts and keeps jobs safe if a worker crashes. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
+System ke us hisse ke beech ka buffer jo kaam leta hai, aur un workers ke beech jo kaam karte hain. Yeh achanak aaye load ko sambhal leta hai aur worker crash hone par bhi jobs safe rakhta hai. → [15.1 Production agent ka architecture](docs/15-production-and-deployment/15.1-production-architecture.md)
 
 ### JSON Schema
 
-A standard way to describe the shape of JSON data: which fields exist, their types, which are required and which values are allowed. Tool definitions use it to describe a tool's inputs. → [3.2 JSON Schema for tool definitions](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
+JSON data ki shape describe karne ka standard tarika: kaun se fields hain, unke types kya hain, kaun required hain aur kaun si values allowed hain. Tool definitions tool ke inputs describe karne ke liye ise use karti hain. → [3.2 Tool definitions ke liye JSON Schema](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
 
 ### JSON-RPC
 
-A simple message format for remote procedure calls written in JSON: each request has an id, a method and params, and each response carries the same id with a result or an error. MCP messages use JSON-RPC 2.0. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+JSON mein likha remote procedure calls ka simple message format. Har request mein id, method aur params hote hain. Har response mein wahi id hoti hai, saath mein result ya error. MCP messages JSON-RPC 2.0 use karte hain. → [4.2 Hosts, clients aur servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ## L
 
 ### Large language model (LLM)
 
-A neural network trained on large amounts of text to predict the next [token](#token). Given a prompt, it generates text one token at a time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Ek neural network jo bahut saare text par train hua hai taaki agla [token](#token) predict kar sake. Prompt milne par yeh ek-ek token karke text banata hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Least privilege
 
-Giving each part of a system, including an agent and its tools, only the access it needs for its task, for only as long as it needs it. → [13.3 Least-privilege tools & sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
+System ke har hisse ko, agent aur uske tools samet, sirf utna access dena jitna uske task ke liye chahiye, aur sirf utni der ke liye. → [13.3 Least-privilege tools aur sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
 
 ### Lethal trifecta
 
-Simon Willison's name for an agent that combines access to private data, exposure to untrusted content and a way to communicate externally; together they let an attacker steal data. Removing any one leg removes that attack. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+Simon Willison ka diya naam us agent ke liye jisme teen cheezein ek saath hain: private data ka access, untrusted content se exposure, aur bahar communicate karne ka tarika. Teeno milkar attacker ko data churane dete hain. Koi ek leg hata do, to woh attack khatam. → [13.1 Agents ke liye threat model](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### LLM-as-judge
 
-Using a language model to grade another model's or agent's output against a rubric, returning a structured verdict. It needs checking against human labels before you trust it. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
+Language model se kisi dusre model ya agent ka output rubric ke against grade karwana, jo structured verdict deta hai. Bharosa karne se pehle ise human labels se check karna zaroori hai. → [12.3 LLM-as-judge: model se grading karwao](docs/12-evaluation/12.3-llm-as-judge.md)
 
 ### Long-term memory
 
-Information an agent keeps between runs, such as user preferences, past results or documents. Code stores it and puts relevant parts back into the context when needed. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+Woh information jo agent runs ke beech sambhaal ke rakhta hai, jaise user preferences, purane results ya documents. Code ise store karta hai aur zaroorat par relevant hisse context mein wapas daalta hai. → [1.5 Agent ke andar kya-kya hota hai](docs/01-foundations/01.5-anatomy-of-an-agent.md)
 
 ## M
 
 ### Max tokens
 
-The limit you set on how many tokens the model may write in one reply. If it is reached, the reply is cut off and the stop reason says so. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Tumhari set ki hui limit ki model ek reply mein kitne tokens likh sakta hai. Limit aa gayi to reply beech mein kat jaata hai, aur stop reason yahi batata hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### MCP client
 
-The connector inside an MCP host that talks to exactly one MCP server, sending it requests such as tools/list and tools/call. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+MCP host ke andar ka connector jo exactly ek MCP server se baat karta hai, aur use tools/list aur tools/call jaisi requests bhejta hai. → [4.2 Hosts, clients aur servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ### MCP host
 
-The AI application that uses MCP servers, such as a desktop chat app, an IDE or your own agent. It runs one MCP client per server, works with the model and enforces user consent. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+Woh AI application jo MCP servers use karti hai, jaise desktop chat app, IDE ya tumhara apna agent. Yeh har server ke liye ek MCP client chalata hai, model ke saath kaam karta hai aur user consent enforce karta hai. → [4.2 Hosts, clients aur servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ### MCP prompt
 
-A reusable message template offered by an MCP server, which the user chooses, often as a slash command. One of the three server primitives, alongside tools and resources. → [4.3 Tools, resources and prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
+MCP server ka diya hua reusable message template, jise user chunta hai, aksar slash command ke roop mein. Yeh teen server primitives mein se ek hai; baaki do tools aur resources hain. → [4.3 Tools, resources aur prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
 
 ### MCP resource
 
-Read-only data offered by an MCP server and identified by a URI, such as a file or a database schema. The host application decides when to attach it to the model's context. → [4.3 Tools, resources and prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
+MCP server ka diya hua read-only data jo URI se pehchaana jaata hai, jaise koi file ya database schema. Host application decide karti hai ki ise model ke context mein kab jodna hai. → [4.3 Tools, resources aur prompts](docs/04-model-context-protocol/04.3-tools-resources-and-prompts.md)
 
 ### MCP server
 
-A program that exposes tools, resources and prompts from one system (such as GitHub, a database or your notes) through the Model Context Protocol, so any MCP host can use them. → [4.4 Build a simple MCP server](docs/04-model-context-protocol/04.4-build-a-simple-mcp-server.md)
+Ek program jo kisi ek system (jaise GitHub, database ya tumhare notes) ke tools, resources aur prompts ko Model Context Protocol ke through expose karta hai. Isse koi bhi MCP host unhe use kar sakta hai. → [4.4 Ek simple MCP server banao](docs/04-model-context-protocol/04.4-build-a-simple-mcp-server.md)
 
 ### Mean reciprocal rank (MRR)
 
-A retrieval metric: for each query, 1 divided by the position of the first relevant result (0 if none), averaged over all queries. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Ek retrieval metric. Har query ke liye pehle relevant result ki position ka 1 divided by (koi na mile to 0), phir saari queries ka average. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### MockLLM
 
-A fake model that returns pre-written responses in order, so agent code and tests can run offline, for free, and with the same result every time. You can write one in ten lines. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+Ek fake model jo pehle se likhe responses order mein lautata hai. Isse agent code aur tests offline, free aur har baar same result ke saath chalte hain. Tum ise das lines mein likh sakte ho. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ### Model cascade
 
-A routing strategy that tries a cheaper model first, checks its answer, and sends the request to a more capable model only if the check fails. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
+Routing ka tarika jisme pehle sasta model try hota hai, uska answer check hota hai, aur check fail hone par hi request zyada capable model ko jaati hai. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
 
 ### Model Context Protocol (MCP)
 
-An open protocol that standardises how applications give models access to tools, data and prompts, so one integration works across many apps. → [4.1 Why MCP exists](docs/04-model-context-protocol/04.1-why-mcp-exists.md)
+Ek open protocol jo standard karta hai ki applications models ko tools, data aur prompts ka access kaise dein. Isse ek integration bahut saare apps mein chal jaata hai. → [4.1 MCP kyun bana?](docs/04-model-context-protocol/04.1-why-mcp-exists.md)
 
 ### Model fallback
 
-Switching a request to another model or provider when the first one is unavailable, overloaded or declines it. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+Jab pehla model ya provider unavailable ho, overloaded ho ya request decline kar de, tab request ko dusre model ya provider par bhej dena. → [15.5 Rate limits aur fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
 ### Model gateway
 
-The single component every model call goes through. It handles retries, rate limits, fallbacks between models or providers, and records tokens and cost. → [15.1 Architecture of a production agent](docs/15-production-and-deployment/15.1-production-architecture.md)
+Woh single component jisse har model call guzarti hai. Yeh retries, rate limits, models ya providers ke beech fallbacks sambhalta hai, aur tokens aur cost record karta hai. → [15.1 Production agent ka architecture](docs/15-production-and-deployment/15.1-production-architecture.md)
 
 ### Model routing
 
-Choosing which model handles each request, for example sending easy work to a small, cheap model and hard work to a large one, using rules, a classifier or a cascade. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
+Har request ke liye chunna ki kaun sa model use sambhalega. Jaise aasan kaam chhote, saste model ko aur mushkil kaam bade model ko. Iske liye rules, classifier ya cascade use hota hai. → [16.3 Model routing](docs/16-cost-and-performance/16.3-model-routing.md)
 
 ### Multi-agent system
 
-A system in which several agents, each with its own instructions, tools and context, work on one task by delegating to or handing over to each other. → [10.1 Why multiple agents?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
+Aisa system jisme kai agents, har ek apne instructions, tools aur context ke saath, ek task par kaam karte hain. Woh ek dusre ko kaam delegate karte hain ya hand over karte hain. → [10.1 Multiple agents kyun?](docs/10-multi-agent-systems/10.1-why-multiple-agents.md)
 
 ### Multi-hop question
 
-A question that needs two or more lookups, where a later search depends on what an earlier one found, such as "the price of the plan that includes SSO". → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+Aisa sawal jisme do ya zyada lookups chahiye, aur baad wali search pehli search ke result par depend karti hai. Jaise "the price of the plan that includes SSO". → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
 
 ## N
 
 ### nDCG
 
-Normalised discounted cumulative gain: a retrieval metric that rewards putting the most relevant results first, using graded relevance and a discount for lower positions. 1.0 means the ideal order. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Normalised discounted cumulative gain. Ek retrieval metric jo sabse relevant results ko upar rakhne par reward deta hai. Isme graded relevance hoti hai aur neeche ki positions ke liye discount. 1.0 ka matlab ideal order. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ## O
 
 ### Observability
 
-Being able to answer "what happened, and why?" about a running system from the data it records (traces, logs and metrics), without adding new code first. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+Chalte hue system ke baare mein "kya hua, aur kyun?" ka jawab uske record kiye data (traces, logs aur metrics) se de paana, bina pehle naya code jode. → [14.1 Agent runs ko trace karna](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
 
 ### Observation
 
-The result an agent sees after an action, such as a tool's output or error, added to the conversation so the model can use it in its next decision. In ReAct it is the line your code writes after each Action. → [2.1 The observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
+Action ke baad agent ko jo result dikhta hai, jaise tool ka output ya error. Ise conversation mein joda jaata hai taaki model agle decision mein use kar sake. ReAct mein yeh woh line hai jo tumhara code har Action ke baad likhta hai. → [2.1 Observe–think–act loop](docs/02-the-agent-loop/02.1-the-observe-think-act-loop.md)
 
 ### OpenTelemetry (OTel)
 
-An open, vendor-neutral standard and set of libraries for creating and exporting traces, metrics and logs, so the same instrumentation works with many backends. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
+Traces, metrics aur logs banane aur export karne ka open, vendor-neutral standard aur libraries ka set. Isse same instrumentation bahut saare backends ke saath chal jaata hai. → [14.3 LLM apps ke liye OpenTelemetry](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
 
 ### Orchestrator-workers
 
-A pattern in which a lead LLM call breaks a task into sub-tasks decided at run time, worker calls handle one sub-task each, and the lead combines their results. → [9.4 Orchestrator–workers](docs/09-agent-design-patterns/09.4-orchestrator-workers.md)
+Ek pattern jisme lead LLM call task ko run time par decide hue sub-tasks mein todti hai. Har worker call ek sub-task sambhalti hai, aur lead unke results jodti hai. → [9.4 Orchestrator–workers](docs/09-agent-design-patterns/09.4-orchestrator-workers.md)
 
 ## P
 
 ### Parallel tool calls
 
-Several tool calls returned by the model in a single turn. Your code may run them at the same time, but must return one result per call, matched by ID. → [3.5 Parallel tool calls](docs/03-tools-and-function-calling/03.5-parallel-tool-calls.md)
+Ek hi turn mein model ki taraf se aaye kai tool calls. Tumhara code unhe ek saath chala sakta hai, lekin har call ka ek result lautana zaroori hai, ID se match karke. → [3.5 Parallel tool calls](docs/03-tools-and-function-calling/03.5-parallel-tool-calls.md)
 
 ### Parallelisation
 
-Running independent LLM calls at the same time and combining the results in code: either different subtasks (sectioning) or the same task several times, aggregated by a vote (voting). → [9.3 Parallelisation (sectioning & voting)](docs/09-agent-design-patterns/09.3-parallelisation.md)
+Independent LLM calls ek saath chalana aur code mein results jodna. Ya to alag-alag subtasks (sectioning), ya same task kai baar chala kar vote se faisla (voting). → [9.3 Parallelisation (sectioning aur voting)](docs/09-agent-design-patterns/09.3-parallelisation.md)
 
 ### pass@k (pass at k)
 
-The chance that at least one of k independent attempts at a task succeeds. It rises towards 1 as k grows, and suits tasks where you can automatically pick the attempt that worked. → [12.2 Task, trajectory & tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
+Chance ki k independent attempts mein se kam se kam ek successful ho. k badhne par yeh 1 ki taraf badhta hai. Yeh un tasks ke liye theek hai jahan tum automatically kaam karne wala attempt chun sakte ho. → [12.2 Task, trajectory aur tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
 
 ### pass^k (pass hat k)
 
-The chance that all k independent attempts at a task succeed. It falls as k grows, and measures the consistency that customer-facing agents need. → [12.2 Task, trajectory & tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
+Chance ki saare k independent attempts successful hon. k badhne par yeh girta hai. Yeh woh consistency naapta hai jo customer-facing agents ko chahiye. → [12.2 Task, trajectory aur tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
 
 ### Personally identifiable information (PII)
 
-Information that can identify a person, such as a name, email address, phone number, card number or ID number. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
+Woh information jisse kisi insaan ki pehchaan ho sake, jaise naam, email address, phone number, card number ya ID number. → [13.6 Secrets aur PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
 
 ### Plan-and-execute
 
-An agent pattern in which a planner writes the whole plan first and an executor carries it out one step at a time, with code validating and scheduling the plan. → [7.2 Plan-and-execute](docs/07-planning-and-reasoning/07.2-plan-and-execute.md)
+Agent pattern jisme planner pehle poora plan likhta hai aur executor use ek-ek step karke poora karta hai. Code plan ko validate aur schedule karta hai. → [7.2 Plan-and-execute](docs/07-planning-and-reasoning/07.2-plan-and-execute.md)
 
 ### Position bias
 
-A judge model's tendency to prefer an answer because of where it appears (for example, first) rather than what it says. Countered by asking twice with the order swapped. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
+Judge model ki aadat ki woh answer ko uski jagah ki wajah se pasand kare (jaise pehle aaya hai), na ki uske content ki wajah se. Iska ilaaj: order badal kar do baar poochho. → [12.3 LLM-as-judge: model se grading karwao](docs/12-evaluation/12.3-llm-as-judge.md)
 
 ### Precision and recall at k
 
-Two retrieval metrics. Precision@k is the share of the top k results that are relevant; recall@k is the share of all relevant documents that appear in the top k. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Do retrieval metrics. Precision@k: top k results mein se kitna hissa relevant hai. Recall@k: saare relevant documents mein se kitna hissa top k mein aaya. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### Procedural memory
 
-Long-term memory of how to do the job: instructions, rules and code, plus what the model learned in training. Rules learned from feedback can be added, with care. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
+Kaam kaise karna hai, uski long-term memory: instructions, rules aur code, plus jo model ne training mein seekha. Feedback se seekhe rules dhyan se jode ja sakte hain. → [5.4 Episodic, semantic aur procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
 
 ### Prompt caching
 
-A provider feature that reuses the work already done on the unchanged beginning (prefix) of a request, making repeated input tokens much cheaper and faster to process. → [16.2 Prompt caching](docs/16-cost-and-performance/16.2-prompt-caching.md)
+Provider ka feature jo request ki unchanged shuruaat (prefix) par pehle se kiya kaam reuse karta hai. Isse baar-baar aane wale input tokens bahut saste aur jaldi process hote hain. → [16.2 Prompt caching](docs/16-cost-and-performance/16.2-prompt-caching.md)
 
 ### Prompt chaining
 
-A workflow that splits a task into a fixed sequence of LLM calls, each working on the previous call's output, usually with gates in code between the steps. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
+Workflow jo task ko LLM calls ke fixed sequence mein todta hai. Har call pichhli call ke output par kaam karti hai, aur aksar steps ke beech code mein gates hote hain. → [9.1 Prompt chaining](docs/09-agent-design-patterns/09.1-prompt-chaining.md)
 
 ### Prompt injection
 
-An attack in which text the model reads, such as a user message, a web page or a tool result, contains instructions designed to override the developer's instructions. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+Ek attack jisme model jo text padhta hai (jaise user message, web page ya tool result), usme aise instructions hote hain jo developer ke instructions ko override karne ke liye banaye gaye hain. → [13.2 Prompt injection aur uske defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
 ## Q
 
 ### Query rewriting
 
-Turning a user's question into better search queries, for example by adding product names, using synonyms, or splitting it into one query per fact. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
+User ke sawal ko behtar search queries mein badalna. Jaise product names jodna, synonyms use karna, ya har fact ke liye alag query banana. → [6.4 Agentic RAG](docs/06-rag-for-agents/06.4-agentic-rag.md)
 
 ## R
 
 ### Rate limit
 
-A cap a provider puts on how much you can send in a time window, such as requests or tokens per minute. Going over it returns HTTP 429. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+Provider ki lagayi cap ki ek time window mein tum kitna bhej sakte ho, jaise requests ya tokens per minute. Isse upar gaye to HTTP 429 milta hai. → [15.5 Rate limits aur fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
 ### Re-planning
 
-Writing a new plan for the remaining work after a step fails, keeping finished steps and using the failure's reason, within a fixed limit of attempts. → [7.5 Re-planning when things fail](docs/07-planning-and-reasoning/07.5-re-planning-when-things-fail.md)
+Koi step fail hone ke baad bache hue kaam ke liye naya plan likhna. Poore ho chuke steps rakhe jaate hain aur failure ki wajah use hoti hai. Yeh attempts ki fixed limit ke andar hota hai. → [7.5 Jab kuch fail ho, tab re-planning](docs/07-planning-and-reasoning/07.5-re-planning-when-things-fail.md)
 
 ### Re-ranker
 
-A model that re-scores a short list of retrieved passages by reading the query and each passage together (often a cross-encoder). Slower than first-stage search but more accurate. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Ek model jo retrieved passages ki chhoti list ko dobara score karta hai, query aur har passage ko saath padh kar (aksar cross-encoder). First-stage search se slow hai, lekin zyada accurate. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### ReAct
 
-Short for "Reasoning and Acting": a pattern in which the model alternates between writing a reasoning step and taking an action, then reads the observation before continuing. Introduced by Yao et al. (2022). → [2.2 ReAct explained](docs/02-the-agent-loop/02.2-react-explained.md)
+"Reasoning and Acting" ka short form. Ek pattern jisme model baari-baari reasoning step likhta hai aur action leta hai, phir aage badhne se pehle observation padhta hai. Yao et al. (2022) ne introduce kiya. → [2.2 ReAct ko samjho](docs/02-the-agent-loop/02.2-react-explained.md)
 
 ### Reasoning effort
 
-A request setting that controls how much a model thinks before answering, such as low, medium or high. Claude takes it as output_config.effort; OpenAI as reasoning.effort or reasoning_effort. → [7.1 Chain-of-thought & extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
+Request ki setting jo control karti hai ki model jawab se pehle kitna soche, jaise low, medium ya high. Claude ise output_config.effort ke roop mein leta hai; OpenAI reasoning.effort ya reasoning_effort ke roop mein. → [7.1 Chain-of-thought aur extended thinking](docs/07-planning-and-reasoning/07.1-chain-of-thought-and-extended-thinking.md)
 
 ### Reciprocal rank fusion (RRF)
 
-A way to merge several ranked lists using only positions: each document scores the sum of 1 / (k + rank) over the lists it appears in. → [6.5 Re-ranking & retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
+Kai ranked lists ko sirf positions se merge karne ka tarika. Har document ka score un lists par 1 / (k + rank) ka sum hota hai jinme woh aata hai. → [6.5 Re-ranking aur retrieval evaluation](docs/06-rag-for-agents/06.5-re-ranking-and-retrieval-evaluation.md)
 
 ### Redaction
 
-Replacing sensitive values in text with placeholders or masks, for example turning an email address into <EMAIL_1>, before the text reaches a model or a log. → [13.6 Secrets & PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
+Text ke sensitive values ko placeholders ya masks se badalna, jaise email address ko <EMAIL_1> bana dena. Yeh text ke model ya log tak pahunchne se pehle hota hai. → [13.6 Secrets aur PII handling](docs/13-safety-and-guardrails/13.6-secrets-and-pii.md)
 
 ### Reflection
 
-A pattern in which a model drafts an answer, critiques the draft (usually with a separate critic prompt and a checklist), and revises it, repeating until the critique finds no problems or a round limit is hit. → [8.1 The reflection pattern](docs/08-reflection-and-self-correction/08.1-the-reflection-pattern.md)
+Ek pattern jisme model draft answer likhta hai, phir draft ki kamiyan nikalta hai (aksar alag critic prompt aur checklist se), aur use sudhaarta hai. Yeh tab tak repeat hota hai jab tak critique ko koi problem na mile ya round limit na aa jaye. → [8.1 Reflection pattern](docs/08-reflection-and-self-correction/08.1-the-reflection-pattern.md)
 
 ### Regression test
 
-A test that captures a bug that was fixed, such as a recorded failing agent run, so the bug is caught automatically if it ever comes back. → [14.5 Debugging a broken agent](docs/14-observability-and-debugging/14.5-debugging-a-broken-agent.md)
+Ek test jo fix kiye gaye bug ko pakad ke rakhta hai, jaise record kiya hua failing agent run. Bug kabhi wapas aaya to automatically pakda jayega. → [14.5 Bigde hue agent ko debug karna](docs/14-observability-and-debugging/14.5-debugging-a-broken-agent.md)
 
 ### Retrieval-augmented generation (RAG)
 
-A technique that first retrieves relevant documents, then gives them to the model along with the question, so the answer is grounded in that information. → [6.1 RAG in 5 minutes](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
+Ek technique jo pehle relevant documents retrieve karti hai, phir unhe sawal ke saath model ko deti hai. Isse answer us information par based rehta hai. → [6.1 RAG, 5 minute mein](docs/06-rag-for-agents/06.1-rag-in-5-minutes.md)
 
 ### Routing
 
-A workflow that first classifies an input, checks the label, and then sends the input to a handler (prompt, tools or model) specialised for that kind of input. → [9.2 Routing](docs/09-agent-design-patterns/09.2-routing.md)
+Workflow jo pehle input ko classify karta hai, label check karta hai, phir input ko us kism ke input ke liye specialised handler (prompt, tools ya model) ko bhejta hai. → [9.2 Routing](docs/09-agent-design-patterns/09.2-routing.md)
 
 ### Rubric
 
-A written list of criteria, each with a clear pass/fail rule, that a human or model grader uses so that grading is consistent. → [12.3 LLM-as-judge](docs/12-evaluation/12.3-llm-as-judge.md)
+Criteria ki likhi hui list, har ek ka clear pass/fail rule. Human ya model grader ise use karta hai taaki grading consistent rahe. → [12.3 LLM-as-judge: model se grading karwao](docs/12-evaluation/12.3-llm-as-judge.md)
 
 ### Rug pull
 
-When an MCP server changes its tool definitions or behaviour after a user has approved it, for example by adding hidden instructions to a description. Pinning tool definitions defends against it. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+Jab MCP server user ke approve karne ke baad apne tool definitions ya behaviour badal deta hai, jaise description mein hidden instructions jod dena. Tool definitions ko pin karna isse bachata hai. → [4.6 MCP servers ki security](docs/04-model-context-protocol/04.6-mcp-security.md)
 
 ### Run budget
 
-Limits on how many steps, tokens, dollars and seconds one agent run may use, checked in the loop before each model call so the run stops gracefully when a limit is reached. → [16.5 Budget limits per run](docs/16-cost-and-performance/16.5-budget-limits-per-run.md)
+Limits ki ek agent run kitne steps, tokens, dollars aur seconds use kar sakta hai. Har model call se pehle loop mein check hoti hain, taaki limit aate hi run araam se ruk jaye. → [16.5 Har run ki budget limits](docs/16-cost-and-performance/16.5-budget-limits-per-run.md)
 
 ## S
 
 ### Sampling
 
-How a model picks each next token from its predicted probabilities, rather than always taking the most likely one. It is why the same prompt can give different replies. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Model apni predicted probabilities se har agla token kaise chunta hai, hamesha sabse likely wala lene ki jagah. Isi wajah se same prompt alag-alag replies de sakta hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Sandbox
 
-An isolated, disposable environment, such as a locked-down container or microVM, where an agent's code runs with limited files, network and resources and no secrets. → [13.3 Least-privilege tools & sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
+Ek isolated, use-and-throw environment, jaise locked-down container ya microVM. Wahan agent ka code limited files, network aur resources ke saath chalta hai, aur koi secrets nahi hote. → [13.3 Least-privilege tools aur sandboxing](docs/13-safety-and-guardrails/13.3-least-privilege-and-sandboxing.md)
 
 ### Self-correction
 
-A model revising its own output. Intrinsic self-correction uses only what the model already knows and is unreliable for reasoning; self-correction with external feedback (tests, errors, tool results) works much better. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
+Model ka apna output khud sudhaarna. Intrinsic self-correction sirf wahi use karta hai jo model pehle se jaanta hai, aur reasoning ke liye bharosemand nahi hai. External feedback (tests, errors, tool results) ke saath self-correction kahin behtar kaam karta hai. → [8.4 Self-correction ki limits](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
 
 ### Semantic conventions
 
-Agreed names and meanings for span names and attributes in OpenTelemetry, such as gen_ai.usage.input_tokens, so that every backend can read data from any instrumented app. → [14.3 OpenTelemetry for LLM apps](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
+OpenTelemetry mein span names aur attributes ke liye tay kiye gaye naam aur matlab, jaise gen_ai.usage.input_tokens. Isse har backend kisi bhi instrumented app ka data padh sakta hai. → [14.3 LLM apps ke liye OpenTelemetry](docs/14-observability-and-debugging/14.3-opentelemetry-for-llm-apps.md)
 
 ### Semantic memory
 
-Long-term memory of facts about the user, the world or the agent itself, such as "the user is vegetarian". A new value for the same fact should replace the old one. → [5.4 Episodic, semantic & procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
+User, duniya ya khud agent ke baare mein facts ki long-term memory, jaise "the user is vegetarian". Same fact ki nayi value purani ko replace kare. → [5.4 Episodic, semantic aur procedural memory](docs/05-memory/05.4-episodic-semantic-and-procedural-memory.md)
 
 ### Server tool
 
-A tool the model provider runs on its own infrastructure inside the API call, such as web search or code execution, so your code does not execute it. → [3.6 Code execution as a tool](docs/03-tools-and-function-calling/03.6-code-execution-as-a-tool.md)
+Aisa tool jise model provider API call ke andar apne infrastructure par chalata hai, jaise web search ya code execution. Tumhara code ise execute nahi karta. → [3.6 Code execution ek tool ki tarah](docs/03-tools-and-function-calling/03.6-code-execution-as-a-tool.md)
 
 ### Server-sent events (SSE)
 
-A simple HTTP standard for a server to push a stream of events to a client over one long-lived response, often used to stream an agent's progress to a browser. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
+Ek simple HTTP standard jisse server ek lambe chalne wale response par client ko events ki stream bhejta hai. Aksar agent ki progress browser tak stream karne ke liye use hota hai. → [15.2 Sync vs async aur background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Short-term memory
 
-What an agent knows during the current run: the conversation so far, including every tool call and result. It lives in the context window. → [1.5 Anatomy of an agent](docs/01-foundations/01.5-anatomy-of-an-agent.md)
+Current run ke dauraan agent jo jaanta hai: ab tak ki conversation, har tool call aur result samet. Yeh context window mein rehti hai. → [1.5 Agent ke andar kya-kya hota hai](docs/01-foundations/01.5-anatomy-of-an-agent.md)
 
 ### Span
 
-One timed step inside a trace, such as a model call or a tool call, with a name, start and end time, attributes, a status and a link to its parent step. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+Trace ke andar ek timed step, jaise model call ya tool call. Isme naam, start aur end time, attributes, status aur parent step ka link hota hai. → [14.1 Agent runs ko trace karna](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
 
 ### State graph
 
-A way to build an agent as nodes (steps) connected by edges (what runs next), all reading and updating one shared state object. LangGraph's core abstraction. → [11.2 LangGraph](docs/11-frameworks/11.2-langgraph.md)
+Agent ko nodes (steps) aur edges (aage kya chalega) se banane ka tarika. Saare nodes ek shared state object padhte aur update karte hain. Yeh LangGraph ka core abstraction hai. → [11.2 LangGraph](docs/11-frameworks/11.2-langgraph.md)
 
 ### Stateless
 
-Describes an API that keeps no memory between calls. LLM APIs are stateless, so your code must resend the conversation every time. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Aisi API jo calls ke beech kuch yaad nahi rakhti. LLM APIs stateless hain, isliye tumhare code ko har baar poori conversation dobara bhejni padti hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### stdio transport
 
-The MCP transport in which the host starts the server as a local subprocess and they exchange newline-delimited JSON-RPC messages over its standard input and output. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+MCP transport jisme host server ko local subprocess ki tarah start karta hai. Dono uske standard input aur output par newline-delimited JSON-RPC messages ka lena-dena karte hain. → [4.2 Hosts, clients aur servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ### Stop reason
 
-The field in a model's reply that says why it stopped writing: it finished, it wants to call a tool, it hit the output limit, or it refused. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Model ke reply ka woh field jo batata hai ki usne likhna kyun roka: kaam khatam hua, tool call karna chahta hai, output limit aa gayi, ya usne mana kar diya. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Stopping condition
 
-A rule that ends an agent run: the good one is a complete final answer; the safety ones are limits your code enforces, such as maximum steps, time, tokens, cost or repeated identical calls. → [2.4 Stopping conditions](docs/02-the-agent-loop/02.4-stopping-conditions.md)
+Agent run khatam karne ka rule. Achha wala hai poora final answer. Safety wale woh limits hain jo tumhara code enforce karta hai, jaise maximum steps, time, tokens, cost ya baar-baar same calls. → [2.4 Agent kab ruke: stopping conditions](docs/02-the-agent-loop/02.4-stopping-conditions.md)
 
 ### Streamable HTTP
 
-The MCP transport for servers that run independently, often remotely: the client sends each message as an HTTP POST to one endpoint, and the reply comes back as JSON or as a stream of events for that request. → [4.2 Hosts, clients and servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
+Un servers ke liye MCP transport jo alag se chalte hain, aksar remote. Client har message ek endpoint par HTTP POST karke bhejta hai, aur reply JSON ya us request ke events ki stream ke roop mein aata hai. → [4.2 Hosts, clients aur servers](docs/04-model-context-protocol/04.2-hosts-clients-and-servers.md)
 
 ### Streaming
 
-Receiving a model's reply piece by piece as it is generated, instead of all at once at the end, so users see the first words sooner. → [16.4 Latency optimisation](docs/16-cost-and-performance/16.4-latency-optimisation.md)
+Model ka reply bante-bante tukdon mein lena, end mein ek saath nahi. Isse users ko pehle words jaldi dikhte hain. → [16.4 Latency kam karna](docs/16-cost-and-performance/16.4-latency-optimisation.md)
 
 ### Strict mode
 
-A tool option (`strict: true`) that makes the provider constrain the model's output so its tool arguments always match the JSON Schema. Anthropic and OpenAI both offer it, with slightly different schema rules. → [3.2 JSON Schema for tool definitions](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
+Tool option (`strict: true`) jisse provider model ka output constrain karta hai, taaki tool arguments hamesha JSON Schema se match karein. Anthropic aur OpenAI dono yeh dete hain, thode alag schema rules ke saath. → [3.2 Tool definitions ke liye JSON Schema](docs/03-tools-and-function-calling/03.2-json-schema-for-tools.md)
 
 ### Structured logging
 
-Writing each log entry as data (usually one JSON object with named fields) instead of a free-text sentence, so logs can be searched, filtered and counted. → [14.2 Logging tool calls](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
+Har log entry ko free-text sentence ki jagah data ki tarah likhna (aksar named fields wala ek JSON object). Isse logs search, filter aur count ho sakte hain. → [14.2 Tool calls ko log karna](docs/14-observability-and-debugging/14.2-logging-tool-calls.md)
 
 ### Subagent
 
-An agent started by another agent to do one focused sub-task in its own context. It receives a brief and returns only its final result. → [10.2 Supervisor & hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
+Ek agent jise dusra agent apne context mein ek focused sub-task karne ke liye start karta hai. Use ek brief milta hai aur woh sirf apna final result lautata hai. → [10.2 Supervisor aur hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
 
 ### Supervisor agent
 
-An agent that keeps control of a task, delegates parts of it to specialist agents (usually exposed to it as tools) and combines their results. Also called a lead, orchestrator or manager agent. → [10.2 Supervisor & hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
+Ek agent jo task ka control apne paas rakhta hai, uske hisse specialist agents ko delegate karta hai (jo aksar use tools ki tarah diye jaate hain) aur unke results jodta hai. Ise lead, orchestrator ya manager agent bhi kehte hain. → [10.2 Supervisor aur hierarchical](docs/10-multi-agent-systems/10.2-supervisor-and-hierarchical.md)
 
 ### Sycophancy
 
-A model's tendency to agree with the user, or with what the prompt implies, even when that means giving up a correct answer. It is why "are you sure?" is a poor way to check an answer. → [8.4 Limits of self-correction](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
+Model ki aadat ki woh user se ya prompt ke ishaare se sehmat ho jaye, chahe iske liye sahi answer chhodna pade. Isi wajah se "are you sure?" poochh kar answer check karna achha tarika nahi hai. → [8.4 Self-correction ki limits](docs/08-reflection-and-self-correction/08.4-limits-of-self-correction.md)
 
 ### System prompt
 
-Instructions given to the model separately from the user's messages, used to set its role, rules and behaviour for the whole conversation. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+User ke messages se alag model ko diye gaye instructions. Inse poori conversation ke liye model ka role, rules aur behaviour set hota hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ## T
 
 ### Taint tracking
 
-Remembering when untrusted content has entered an agent's context, and restricting risky actions (such as sending data out) from that point on. → [13.2 Prompt injection & defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
+Yaad rakhna ki untrusted content kab agent ke context mein aaya, aur us point se risky actions (jaise data bahar bhejna) par rok lagana. → [13.2 Prompt injection aur uske defences](docs/13-safety-and-guardrails/13.2-prompt-injection.md)
 
 ### Task decomposition
 
-Breaking a goal into smaller sub-tasks, each with one outcome, a done criterion and explicit dependencies on other sub-tasks. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
+Goal ko chhote sub-tasks mein todna. Har sub-task ka ek outcome, ek done criterion aur dusre sub-tasks par clear dependencies hoti hain. → [7.3 Task decomposition](docs/07-planning-and-reasoning/07.3-task-decomposition.md)
 
 ### Temperature
 
-A sampling setting that controls how random a model's output is: lower is more predictable, higher is more varied. Several recent models no longer accept it, and even at 0 outputs can vary. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Sampling setting jo control karti hai ki model ka output kitna random ho: kam matlab zyada predictable, zyada matlab zyada variety. Kai recent models ab ise accept nahi karte, aur 0 par bhi outputs badal sakte hain. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Text-to-SQL
 
-Turning a question in plain language into a SQL query that answers it. Usually evaluated by comparing the query's results with those of a reference query. → [17.4 Data analysis agent](docs/17-case-studies/17.4-data-analysis-agent.md)
+Simple bhasha ke sawal ko aisi SQL query mein badalna jo uska jawab de. Aksar query ke results ko reference query ke results se compare karke evaluate kiya jaata hai. → [17.4 Data analysis agent](docs/17-case-studies/17.4-data-analysis-agent.md)
 
 ### Threat model
 
-A written answer to four questions about a system: what is valuable, who might attack it, how they could get in, and what damage they could do. → [13.1 Threat model for agents](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
+System ke baare mein chaar sawalon ka likha hua jawab: kya keemti hai, kaun attack kar sakta hai, woh andar kaise aa sakte hain, aur kya nuksaan kar sakte hain. → [13.1 Agents ke liye threat model](docs/13-safety-and-guardrails/13.1-threat-model-for-agents.md)
 
 ### Time to first token (TTFT)
 
-How long after a request is sent the first token of the response arrives. It grows with the amount of uncached input the model has to read. → [16.4 Latency optimisation](docs/16-cost-and-performance/16.4-latency-optimisation.md)
+Request bhejne ke kitni der baad response ka pehla token aata hai. Model ko jitna zyada uncached input padhna ho, yeh utna badhta hai. → [16.4 Latency kam karna](docs/16-cost-and-performance/16.4-latency-optimisation.md)
 
 ### Token
 
-The unit of text a model reads and writes: often a word, part of a word, or a punctuation mark. Context windows, limits and prices are all measured in tokens. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Text ki woh unit jo model padhta aur likhta hai: aksar ek word, word ka hissa, ya punctuation mark. Context windows, limits aur prices sab tokens mein naape jaate hain. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Token bucket
 
-A rate-limiting algorithm: tokens refill at a steady rate up to a maximum, each request takes one, and requests wait when the bucket is empty. It allows short bursts while capping the average rate. → [15.5 Rate limits & fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
+Rate-limiting algorithm. Tokens ek steady rate se maximum tak refill hote hain, har request ek token leti hai, aur bucket khaali ho to requests wait karti hain. Yeh chhote bursts allow karta hai lekin average rate par cap rakhta hai. → [15.5 Rate limits aur fallbacks](docs/15-production-and-deployment/15.5-rate-limits-and-fallbacks.md)
 
 ### Token passthrough
 
-An anti-pattern in which an MCP server accepts an access token that was not issued for it and forwards it to another API. The MCP authorization specification forbids it. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+Ek anti-pattern jisme MCP server aisa access token accept kar leta hai jo uske liye issue hi nahi hua tha, aur use kisi dusri API ko forward kar deta hai. MCP authorization specification ise mana karti hai. → [4.6 MCP servers ki security](docs/04-model-context-protocol/04.6-mcp-security.md)
 
 ### Tokenizer
 
-The component that splits text into tokens before the model reads it. Each provider has its own, so the same text gives different token counts on different models. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Woh component jo model ke padhne se pehle text ko tokens mein todta hai. Har provider ka apna hota hai, isliye same text alag models par alag token count deta hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Tool
 
-A function that your code exposes to the model, described by a name, a description and an input schema. The model can ask for it to be run; your code runs it and returns the result. → [3.1 What is a tool?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
+Ek function jo tumhara code model ko expose karta hai, naam, description aur input schema ke saath. Model use chalane ko keh sakta hai; tumhara code use chalata hai aur result lautata hai. → [3.1 Tool kya hota hai?](docs/03-tools-and-function-calling/03.1-what-is-a-tool.md)
 
 ### Tool call
 
-The model's structured request to run one tool: the tool's name, its arguments and an ID. Your code runs it and replies with a tool result carrying the same ID. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+Ek tool chalane ki model ki structured request: tool ka naam, uske arguments aur ek ID. Tumhara code use chalata hai aur same ID wale tool result se reply karta hai. → [3.3 Function calling kaise kaam karta hai](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
 ### Tool choice
 
-A request setting that controls whether the model may call a tool, must call one, must call a specific one, or may not call any on this turn. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+Request ki setting jo control karti hai ki is turn par model tool call kar sakta hai, use karna hi padega, koi specific tool call karna padega, ya koi bhi tool call nahi kar sakta. → [3.3 Function calling kaise kaam karta hai](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
 ### Tool poisoning
 
-An attack that hides instructions for the model inside a tool's name, description or schema, so that simply connecting the tool can steer the agent, for example into leaking files. → [4.6 Security for MCP servers](docs/04-model-context-protocol/04.6-mcp-security.md)
+Ek attack jo model ke liye instructions tool ke naam, description ya schema mein chhupa deta hai. Isse sirf tool connect karne se hi agent bhatak sakta hai, jaise files leak karna. → [4.6 MCP servers ki security](docs/04-model-context-protocol/04.6-mcp-security.md)
 
 ### Tool result
 
-The message your code sends back after running a tool call, linked to it by ID. It carries the tool's output, or an error message the model can read and act on. → [3.3 How function calling works](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
+Tool call chalane ke baad tumhara code jo message wapas bhejta hai, ID se us call se juda hua. Isme tool ka output hota hai, ya aisa error message jise model padh kar kuch kar sake. → [3.3 Function calling kaise kaam karta hai](docs/03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
 ### Trace
 
-The record of one request or agent run as a tree of spans that share one trace ID: the run at the root, with model calls and tool calls as its children. → [14.1 Tracing agent runs](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
+Ek request ya agent run ka record, spans ke tree ki tarah jinki trace ID same hai. Root par run hota hai, aur model calls aur tool calls uske children. → [14.1 Agent runs ko trace karna](docs/14-observability-and-debugging/14.1-tracing-agent-runs.md)
 
 ### Trajectory
 
-The ordered list of steps an agent took in one run, especially its tool calls and their arguments. Evals compare it with an expected trajectory to check the path, not just the result. → [12.2 Task, trajectory & tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
+Ek run mein agent ke liye gaye steps ki ordered list, khaas kar tool calls aur unke arguments. Evals ise expected trajectory se compare karte hain taaki sirf result nahi, raasta bhi check ho. → [12.2 Task, trajectory aur tool-use metrics](docs/12-evaluation/12.2-task-trajectory-and-tool-metrics.md)
 
 ### Transformer
 
-The neural network architecture behind modern LLMs, introduced in 2017. It lets each token take every earlier token into account when predicting the next one. → [1.4 How LLMs work](docs/01-foundations/01.4-how-llms-work.md)
+Modern LLMs ke peeche ka neural network architecture, 2017 mein introduce hua. Isme agla token predict karte waqt har token pichhle saare tokens ko dhyan mein le sakta hai. → [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](docs/01-foundations/01.4-how-llms-work.md)
 
 ### Tree of thoughts (ToT)
 
-A search method in which a model proposes several possible next steps, evaluates them, keeps the most promising and continues, exploring a tree of partial solutions. Introduced by Yao et al. (2023). → [7.4 Tree-of-thoughts (overview)](docs/07-planning-and-reasoning/07.4-tree-of-thoughts.md)
+Search ka tarika jisme model kai possible next steps propose karta hai, unhe evaluate karta hai, sabse promising wale rakhta hai aur aage badhta hai. Aise woh partial solutions ka tree explore karta hai. Yao et al. (2023) ne introduce kiya. → [7.4 Tree-of-thoughts (ek overview)](docs/07-planning-and-reasoning/07.4-tree-of-thoughts.md)
 
 ## V
 
 ### Vector database
 
-A store for embeddings, with their text and metadata, that can quickly return the vectors nearest to a query vector, usually with an approximate nearest neighbour index. → [6.2 Embeddings & vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
+Embeddings ka store, unke text aur metadata ke saath. Yeh query vector ke sabse kareeb wale vectors jaldi lauta sakta hai, aksar approximate nearest neighbour index se. → [6.2 Embeddings aur vector databases](docs/06-rag-for-agents/06.2-embeddings-and-vector-databases.md)
 
 ### Vector memory
 
-Long-term memory stored as text plus embeddings, and recalled by finding the memories whose embeddings are most similar to the query's. → [5.3 Vector memory](docs/05-memory/05.3-vector-memory.md)
+Text plus embeddings ke roop mein store ki gayi long-term memory. Yaad karte waqt woh memories nikaali jaati hain jinke embeddings query se sabse zyada milte hain. → [5.3 Vector memory](docs/05-memory/05.3-vector-memory.md)
 
 ### Virtual environment
 
-A self-contained folder of Python packages for one project, so its dependencies do not clash with other projects. Created with `python -m venv .venv`. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
+Ek project ke Python packages ka apna alag folder, taaki uski dependencies dusre projects se na takrayein. `python -m venv .venv` se banta hai. → [0.3 Setup](docs/00-start-here/00.3-setup.md)
 
 ## W
 
 ### Webhook
 
-An HTTP request a system sends to a URL you registered when something happens, such as an agent run finishing, so you don't have to poll. → [15.2 Sync vs async & background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
+Ek HTTP request jo system kuch hone par (jaise agent run khatam hone par) tumhare registered URL par bhejta hai. Isse tumhe baar-baar poll nahi karna padta. → [15.2 Sync vs async aur background agents](docs/15-production-and-deployment/15.2-sync-vs-async-agents.md)
 
 ### Workflow
 
-An LLM system in which your code fixes the sequence of steps in advance and the model fills in parts, such as writing text or classifying input. Contrast with an agent, where the model chooses the steps. → [1.2 Chatbot vs workflow vs agent](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)
+Ek LLM system jisme steps ka sequence tumhara code pehle se fix karta hai, aur model kuch hisse bharta hai, jaise text likhna ya input classify karna. Agent se farak: wahan steps model chunta hai. → [1.2 Chatbot, workflow aur agent mein farak](docs/01-foundations/01.2-chatbot-vs-workflow-vs-agent.md)

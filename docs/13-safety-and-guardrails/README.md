@@ -2,48 +2,52 @@
 
 # 13 · Safety & Guardrails
 
-> **Estimated reading time:** ~65 min · **Difficulty:** 🟡 Intermediate to 🔴 Advanced · **Prerequisites:** [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md), [12 · Evaluation](../12-evaluation/README.md) (helpful)
+> **Padhne ka time:** ~65 min · **Level:** 🟡 Intermediate se 🔴 Advanced · **Pehle padho:** [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md), [12 · Evaluation](../12-evaluation/README.md) (helpful hai)
 
-A chatbot that says something wrong is embarrassing. An agent that *does* something wrong can send your customer list to a stranger, delete a database or refund the wrong person. This chapter treats agent safety as a security problem: work out who could attack you and how, then stack several imperfect defences so that no single failure is a disaster. It is honest about the hard part: there is still no complete fix for prompt injection, so most of the work goes into limiting what a fooled agent *can* do.
+Chatbot kuch galat bol de, toh sirf sharmindagi hoti hai. Lekin agent kuch galat *kar* de, toh woh tumhari customer list kisi anjaan ko bhej sakta hai, database delete kar sakta hai, ya galat bande ko refund de sakta hai.
 
-## 🎯 What you'll learn
+Yeh chapter agent safety ko ek security problem ki tarah dekhta hai. Pehle samjho ki tum par kaun attack kar sakta hai aur kaise. Phir kai imperfect defences ek ke upar ek lagao, taaki koi ek failure disaster na ban jaaye.
 
-- How to threat-model an agent: assets, attackers, entry points, and the "lethal trifecta" of private data, untrusted content and external communication
-- Direct and indirect prompt injection, and what each defence (marking, taint tracking, the dual-LLM pattern, CaMeL, human approval) does and does not stop
-- Least privilege for tools: scoped credentials, read-only defaults, allowlists, network egress control and sandboxes
-- How to build layered input and output guardrails that are easy to test
-- How to put a human in front of irreversible actions without drowning them in approvals
-- How to keep secrets and personal data out of prompts, logs and outputs
+Yeh chapter mushkil hisse ke baare mein honest hai. Prompt injection ka abhi tak koi complete fix nahi hai. Isliye zyada kaam is baat par hota hai ki agar agent bevakoof ban bhi jaaye, toh woh kya-kya *kar sakta* hai, usko limit karo.
 
-## 📋 Prerequisites
+## 🎯 Is chapter mein kya seekhoge
 
-- [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): the five parts you will be protecting
-- [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md): the model *asks*, your code *runs*; that gap is where most defences live
-- Basic Python, enough to read the snippets ([0.3 Setup](../00-start-here/00.3-setup.md) if you want to run them)
+- Agent ka threat model kaise banate hain: assets, attackers, entry points, aur private data, untrusted content aur external communication ki "lethal trifecta"
+- Direct aur indirect prompt injection, aur har defence (marking, taint tracking, dual-LLM pattern, CaMeL, human approval) kya rokta hai aur kya nahi rokta
+- Tools ke liye least privilege: scoped credentials, read-only defaults, allowlists, network egress control aur sandboxes
+- Layered input aur output guardrails kaise banao jo test karne mein aasaan hon
+- Irreversible actions se pehle human ko kaise bithao, bina usko approvals mein dubaaye
+- Secrets aur personal data ko prompts, logs aur outputs se bahar kaise rakho
 
-## 👀 Chapter overview
+## 📋 Pehle se kya aana chahiye
 
-![Six defensive layers drawn as slices with holes: input guardrails, marking untrusted content, least-privilege tools, human approval, sandbox and egress control, and output guardrails with redaction. An attack arrow passes through holes in the first three layers and is stopped by human approval. Monitoring and an audit log run underneath every layer.](../../assets/diagrams/13-defence-in-depth.svg)
+- [1.5 Agent ke andar kya-kya hota hai](../01-foundations/01.5-anatomy-of-an-agent.md): woh paanch parts jinko tum protect karoge
+- [3.3 Function calling kaise kaam karta hai](../03-tools-and-function-calling/03.3-how-function-calling-works.md): model sirf *maangta* hai, tumhara code *chalata* hai; zyada tar defences isi gap mein rehte hain
+- Basic Python, bas itna ki snippets padh sako (agar chalana hai toh [0.3 Setup](../00-start-here/00.3-setup.md) dekho)
 
-*No layer is perfect. The attack here slips past three of them and is caught by the fourth. Pages 13.2 to 13.6 each build one or two of these layers; 13.1 helps you decide which ones your agent needs.*
+## 👀 Chapter ek nazar mein
 
-## 📄 Pages in this chapter
+![Chhe defensive layers, chhedon wale slices ki tarah bane hue: input guardrails, untrusted content ki marking, least-privilege tools, human approval, sandbox aur egress control, aur redaction ke saath output guardrails. Ek attack ka arrow pehli teen layers ke chhedon se nikal jaata hai aur human approval par ruk jaata hai. Monitoring aur audit log har layer ke neeche chalte hain.](../../assets/diagrams/13-defence-in-depth.svg)
+
+*Koi bhi layer perfect nahi hai. Yahan attack teen layers se bach nikalta hai aur chauthi par pakda jaata hai. Pages 13.2 se 13.6 har ek mein ek ya do layers banate hain; 13.1 tumhe decide karne mein madad karta hai ki tumhare agent ko kaun si layers chahiye.*
+
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 13.1 | [Threat model for agents](./13.1-threat-model-for-agents.md) — What can go wrong when a model can take actions. | 🟡 Intermediate | ~10 min |
-| 13.2 | [Prompt injection & defences](./13.2-prompt-injection.md) — Direct and indirect injection, and how to limit the damage. | 🔴 Advanced | ~15 min |
-| 13.3 | [Least-privilege tools & sandboxing](./13.3-least-privilege-and-sandboxing.md) — Give agents only the access they need. | 🔴 Advanced | ~12 min |
-| 13.4 | [Input & output guardrails](./13.4-input-and-output-guardrails.md) — Check what goes in and what comes out. | 🟡 Intermediate | ~10 min |
-| 13.5 | [Human approval for risky actions](./13.5-human-approval-for-risky-actions.md) — Require a person to approve irreversible steps. | 🟡 Intermediate | ~8 min |
-| 13.6 | [Secrets & PII handling](./13.6-secrets-and-pii.md) — Keep keys and personal data out of prompts, logs and outputs. | 🔴 Advanced | ~10 min |
+| 13.1 | [Agents ke liye threat model](./13.1-threat-model-for-agents.md) — Jab model actions le sakta hai, toh kya-kya galat ho sakta hai. | 🟡 Intermediate | ~10 min |
+| 13.2 | [Prompt injection aur uske defences](./13.2-prompt-injection.md) — Direct aur indirect injection, aur nuksaan ko limit kaise karo. | 🔴 Advanced | ~15 min |
+| 13.3 | [Least-privilege tools aur sandboxing](./13.3-least-privilege-and-sandboxing.md) — Agents ko sirf utna access do jitna zaroori hai. | 🔴 Advanced | ~12 min |
+| 13.4 | [Input aur output guardrails](./13.4-input-and-output-guardrails.md) — Jo andar jaata hai aur jo bahar aata hai, dono check karo. | 🟡 Intermediate | ~10 min |
+| 13.5 | [Risky actions ke liye human approval](./13.5-human-approval-for-risky-actions.md) — Irreversible steps se pehle kisi insaan ka approval lo. | 🟡 Intermediate | ~8 min |
+| 13.6 | [Secrets aur PII handling](./13.6-secrets-and-pii.md) — Keys aur personal data ko prompts, logs aur outputs se bahar rakho. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [12 · Evaluation](../12-evaluation/README.md) ·
-▶️ **Start reading:** [13.1 Threat model for agents](./13.1-threat-model-for-agents.md) ·
-➡️ **Next chapter:** [14 · Observability & Debugging](../14-observability-and-debugging/README.md)
+⬅️ **Pichla chapter:** [12 · Evaluation](../12-evaluation/README.md) ·
+▶️ **Padhna shuru karo:** [13.1 Agents ke liye threat model](./13.1-threat-model-for-agents.md) ·
+➡️ **Agla chapter:** [14 · Observability & Debugging](../14-observability-and-debugging/README.md)

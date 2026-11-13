@@ -2,47 +2,47 @@
 
 # 07 · Planning & Reasoning
 
-> **Estimated reading time:** ~46 min · **Difficulty:** 🟢 Beginner to 🔴 Advanced · **Prerequisites:** [02 · The Agent Loop](../02-the-agent-loop/README.md)
+> **Padhne ka time:** ~46 min · **Level:** 🟢 Beginner se 🔴 Advanced tak · **Pehle padho:** [02 · The Agent Loop](../02-the-agent-loop/README.md)
 
-A ReAct agent decides one step at a time. That is enough for short tasks, but longer ones need more: reasoning before acting, a plan that says what "done" means, and a way to recover when the plan meets reality. This chapter starts with how models reason (chain-of-thought prompting and built-in extended thinking), then builds plan-and-execute agents, shows how to decompose a goal into checkable sub-tasks, surveys tree-of-thoughts search, and ends with re-planning when a step fails.
+Ek ReAct agent ek waqt mein ek step decide karta hai. Chhote tasks ke liye itna kaafi hai. Lekin lambe tasks ko aur cheezein chahiye: kaam karne se pehle reasoning, ek plan jo bataye ki "done" ka matlab kya hai, aur plan jab reality se takraaye tab sambhalne ka tarika. Yeh chapter shuru hota hai is baat se ki models reason kaise karte hain (chain-of-thought prompting aur built-in extended thinking). Phir hum plan-and-execute agents banate hain, dekhte hain ki goal ko check karne layak sub-tasks mein kaise todte hain, tree-of-thoughts search ka overview lete hain, aur aakhir mein step fail hone pe re-planning sikhte hain.
 
-## 🎯 What you'll learn
+## 🎯 Is chapter mein kya seekhoge
 
-- Chain-of-thought prompting, built-in thinking on Claude and OpenAI models, and how to set reasoning effort
-- When explicit "think step by step" prompting still helps, and when it doesn't
-- The plan-and-execute pattern: a planner, an executor, and code that validates and schedules the plan
-- How to decompose a goal into sub-tasks with done criteria and a dependency graph
-- How tree of thoughts searches over partial solutions, and what that costs
-- How to detect a failed step, re-plan the remaining work, and stop within limits
+- Chain-of-thought prompting, Claude aur OpenAI models pe built-in thinking, aur reasoning effort kaise set karte hain
+- Explicit "think step by step" prompting kab abhi bhi help karti hai, aur kab nahi
+- Plan-and-execute pattern: ek planner, ek executor, aur code jo plan validate aur schedule karta hai
+- Goal ko done criteria aur dependency graph ke saath sub-tasks mein kaise todte hain
+- Tree of thoughts adhoore solutions ke upar kaise search karta hai, aur iski cost kya hai
+- Fail hua step kaise pakdein, bacha kaam re-plan kaise karein, aur limits ke andar kaise rukein
 
-## 📋 Prerequisites
+## 📋 Pehle se kya aana chahiye
 
-- [1.4 How LLMs work](../01-foundations/01.4-how-llms-work.md): tokens and output limits
-- [2.2 ReAct explained](../02-the-agent-loop/02.2-react-explained.md) and [2.5 Handling errors in the loop](../02-the-agent-loop/02.5-handling-errors-in-the-loop.md)
-- [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md)
+- [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](../01-foundations/01.4-how-llms-work.md): tokens aur output limits
+- [2.2 ReAct ko samjho](../02-the-agent-loop/02.2-react-explained.md) aur [2.5 Loop mein errors kaise sambhalein](../02-the-agent-loop/02.5-handling-errors-in-the-loop.md)
+- [3.3 Function calling kaise kaam karta hai](../03-tools-and-function-calling/03.3-how-function-calling-works.md)
 
-## 👀 Chapter overview
+## 👀 Chapter ek nazar mein
 
-![A goal goes to a planner model, which writes a plan of steps with dependencies and done-when criteria. An executor with tools runs one ready step at a time. A check sends the next step back to the executor, sends the user an answer when all steps are done, or, if a step failed, asks a re-planner for new steps for the remaining work.](../../assets/diagrams/07-plan-execute-replan.svg)
+![Ek goal planner model ke paas jaata hai, jo steps ka plan likhta hai, dependencies aur done-when criteria ke saath. Tools wala ek executor ek waqt mein ek ready step chalata hai. Ek check agla step wapas executor ko bhejta hai, saare steps ho jaane pe user ko answer bhejta hai, ya agar koi step fail hua toh bache kaam ke liye re-planner se naye steps maangta hai.](../../assets/diagrams/07-plan-execute-replan.svg)
 
-*The loop this chapter builds. The planner and re-planner think; the executor acts; your code checks each result and decides what happens next. Every model box can reason before it acts (7.1).*
+*Yeh woh loop hai jo yeh chapter banata hai. Planner aur re-planner sochte hain; executor kaam karta hai; tumhara code har result check karta hai aur decide karta hai ki aage kya hoga. Har model box kaam karne se pehle reason kar sakta hai (7.1).*
 
-## 📄 Pages in this chapter
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 7.1 | [Chain-of-thought & extended thinking](./07.1-chain-of-thought-and-extended-thinking.md) — Step-by-step reasoning, from prompting tricks to built-in model thinking. | 🟢 Beginner | ~10 min |
-| 7.2 | [Plan-and-execute](./07.2-plan-and-execute.md) — Make a plan first, then carry it out step by step. | 🟡 Intermediate | ~10 min |
-| 7.3 | [Task decomposition](./07.3-task-decomposition.md) — Break a big goal into small, checkable tasks. | 🟡 Intermediate | ~8 min |
-| 7.4 | [Tree-of-thoughts (overview)](./07.4-tree-of-thoughts.md) — Explore several lines of reasoning and keep the best. | 🔴 Advanced | ~8 min |
-| 7.5 | [Re-planning when things fail](./07.5-re-planning-when-things-fail.md) — Notice a broken plan and change course. | 🔴 Advanced | ~10 min |
+| 7.1 | [Chain-of-thought aur extended thinking](./07.1-chain-of-thought-and-extended-thinking.md) — Step-by-step reasoning, prompting tricks se le kar model ki built-in thinking tak. | 🟢 Beginner | ~10 min |
+| 7.2 | [Plan-and-execute](./07.2-plan-and-execute.md) — Pehle plan banao, phir usko step by step poora karo. | 🟡 Intermediate | ~10 min |
+| 7.3 | [Task decomposition](./07.3-task-decomposition.md) — Bade goal ko chhote, check karne layak tasks mein todo. | 🟡 Intermediate | ~8 min |
+| 7.4 | [Tree-of-thoughts (ek overview)](./07.4-tree-of-thoughts.md) — Reasoning ki kai lines explore karo aur best wali rakho. | 🔴 Advanced | ~8 min |
+| 7.5 | [Jab kuch fail ho, tab re-planning](./07.5-re-planning-when-things-fail.md) — Toota hua plan pehchano aur raasta badlo. | 🔴 Advanced | ~10 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [06 · RAG for Agents](../06-rag-for-agents/README.md) ·
-▶️ **Start reading:** [7.1 Chain-of-thought & extended thinking](./07.1-chain-of-thought-and-extended-thinking.md) ·
-➡️ **Next chapter:** [08 · Reflection & Self-Correction](../08-reflection-and-self-correction/README.md)
+⬅️ **Pichla chapter:** [06 · RAG for Agents](../06-rag-for-agents/README.md) ·
+▶️ **Padhna shuru karo:** [7.1 Chain-of-thought aur extended thinking](./07.1-chain-of-thought-and-extended-thinking.md) ·
+➡️ **Agla chapter:** [08 · Reflection & Self-Correction](../08-reflection-and-self-correction/README.md)

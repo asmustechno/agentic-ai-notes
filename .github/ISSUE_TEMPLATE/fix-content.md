@@ -1,23 +1,23 @@
 ---
-name: Fix content
-about: Report a mistake, a confusing explanation, a broken link or a code snippet that fails
+name: Content fix karo
+about: Koi galti, confusing explanation, toota link ya fail hone wala code snippet report karo
 title: "fix: "
 labels: content
 ---
 
 **Page**
-<!-- Link to the page, e.g. docs/02-the-agent-loop/02.2-react-explained.md -->
+<!-- Page ka link do, jaise docs/02-the-agent-loop/02.2-react-explained.md -->
 
-**What is wrong?**
-<!-- Quote the sentence, code or diagram. -->
+**Kya galat hai?**
+<!-- Woh sentence, code ya diagram quote karo. -->
 
-**What should it say?**
-<!-- Your suggested fix. A source link helps a lot for factual corrections. -->
+**Kya likha hona chahiye?**
+<!-- Tumhara suggested fix. Factual correction ke liye source link bahut madad karta hai. -->
 
-**Type of problem**
+**Problem kis type ki hai**
 
 - [ ] Factual error
-- [ ] Confusing or unclear
-- [ ] Broken link or diagram
-- [ ] A code snippet fails (please paste the error and your Python / package versions)
-- [ ] Typo or grammar
+- [ ] Confusing ya unclear
+- [ ] Toota link ya diagram
+- [ ] Code snippet fail hota hai (error aur apne Python / package versions paste karo)
+- [ ] Typo ya grammar

@@ -2,57 +2,57 @@
 
 # 14 · Observability & Debugging
 
-> **Estimated reading time:** ~51 min · **Difficulty:** 🟡 Intermediate · **Prerequisites:** [01 · Foundations](../01-foundations/README.md), [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md)
+> **Padhne ka time:** ~51 min · **Level:** 🟡 Intermediate · **Pehle padho:** [01 · Foundations](../01-foundations/README.md), [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md)
 
-An agent makes many decisions for every request, and its final answer hides all of them. This chapter shows how to record what an agent actually did (every model call and tool call, with timings, tokens, stop reasons and errors), how to log tool calls without leaking secrets, how to do it with the OpenTelemetry standard, which tools can store and display the result, and a step-by-step method for finding and fixing what went wrong.
+Agent har request ke liye bahut saare decisions leta hai, aur uska final answer un sab ko chhupa deta hai. Yeh chapter dikhata hai ki agent ne actually kya kiya, use kaise record karo: har model call aur tool call, timings, tokens, stop reasons aur errors ke saath. Phir yeh ki tool calls ko secrets leak kiye bina kaise log karo, yeh sab OpenTelemetry standard se kaise karo, kaunse tools result ko store aur display kar sakte hain, aur kya galat hua yeh dhoondhne aur fix karne ka ek step-by-step tarika.
 
-## 🎯 What you'll learn
+## 🎯 Is chapter mein kya seekhoge
 
-- What a trace and a span are, and what to capture for each model call and tool call
-- How to write structured JSON logs with a run ID, and what never to log
-- How to instrument an agent with OpenTelemetry and the GenAI semantic conventions, and test it offline
-- What LangSmith, Langfuse and Arize Phoenix offer, and how to choose between them
-- A five-step method for debugging an agent: reproduce, read the trace, locate the part, fix, add a regression test
+- Trace aur span kya hote hain, aur har model call aur tool call ke liye kya capture karna hai
+- Run ID ke saath structured JSON logs kaise likhein, aur kya kabhi log nahi karna
+- OpenTelemetry aur GenAI semantic conventions se agent ko kaise instrument karein, aur use offline test kaise karein
+- LangSmith, Langfuse aur Arize Phoenix kya dete hain, aur unmein se kaise chunein
+- Agent debug karne ka paanch step wala tarika: reproduce karo, trace padho, part locate karo, fix karo, regression test add karo
 
-## 📋 Prerequisites
+## 📋 Pehle se kya aana chahiye
 
-- [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): the five parts you will be debugging
-- [2.1 The observe-think-act loop](../02-the-agent-loop/02.1-the-observe-think-act-loop.md) and [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md)
-- Helpful: [13.6 Secrets & PII handling](../13-safety-and-guardrails/13.6-secrets-and-pii.md)
+- [1.5 Agent ke andar kya-kya hota hai](../01-foundations/01.5-anatomy-of-an-agent.md): woh paanch parts jinhe tum debug karoge
+- [2.1 Observe–think–act loop](../02-the-agent-loop/02.1-the-observe-think-act-loop.md) aur [3.3 Function calling kaise kaam karta hai](../03-tools-and-function-calling/03.3-how-function-calling-works.md)
+- Kaam aayega: [13.6 Secrets aur PII handling](../13-safety-and-guardrails/13.6-secrets-and-pii.md)
 
-## 👀 Chapter overview
+## 👀 Chapter ek nazar mein
 
-![A waterfall chart of one agent run: a root span for the whole run, and below it three model-call spans and two tool-call spans, one after another, each with its duration, tokens and stop reason.](../../assets/diagrams/14-trace-waterfall.svg)
+![Ek agent run ka waterfall chart: poore run ke liye ek root span, aur uske neeche teen model-call spans aur do tool-call spans, ek ke baad ek, har ek ke saath uski duration, tokens aur stop reason.](../../assets/diagrams/14-trace-waterfall.svg)
 
-*One run, one trace. 14.1 explains how to read this picture, 14.2 adds the logs behind it, 14.3 produces it with OpenTelemetry, 14.4 shows where to store it, and 14.5 uses it to find a bug.*
+*Ek run, ek trace. 14.1 batata hai yeh picture kaise padhni hai, 14.2 iske peeche ke logs add karta hai, 14.3 ise OpenTelemetry se banata hai, 14.4 dikhata hai ise kahan store karna hai, aur 14.5 ise bug dhoondhne ke liye use karta hai.*
 
 ```mermaid
 flowchart LR
-    A["14.1<br/>Traces and spans"] --> B["14.2<br/>Tool-call logs"]
+    A["14.1<br/>Traces aur spans"] --> B["14.2<br/>Tool-call logs"]
     B --> C["14.3<br/>OpenTelemetry"]
     C --> D["14.4<br/>Tracing tools"]
-    A --> E["14.5<br/>Debugging method"]
+    A --> E["14.5<br/>Debugging ka tarika"]
     C --> E
 ```
 
-*Read 14.1 first. 14.5 only needs 14.1, so you can jump to it when something is broken today.*
+*Pehle 14.1 padho. 14.5 ko sirf 14.1 chahiye, toh agar aaj hi kuch toota hai toh seedha wahan jaa sakte ho.*
 
-## 📄 Pages in this chapter
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 14.1 | [Tracing agent runs](./14.1-tracing-agent-runs.md) — Record every step of a run as a trace. | 🟡 Intermediate | ~10 min |
-| 14.2 | [Logging tool calls](./14.2-logging-tool-calls.md) — What to log for every tool call, and what never to log. | 🟢 Beginner | ~7 min |
-| 14.3 | [OpenTelemetry for LLM apps](./14.3-opentelemetry-for-llm-apps.md) — Standard traces and spans for agent systems. | 🔴 Advanced | ~12 min |
-| 14.4 | [Tools for tracing](./14.4-tracing-tools.md) — An overview of LangSmith, Langfuse and Arize Phoenix. | 🟡 Intermediate | ~10 min |
-| 14.5 | [Debugging a broken agent](./14.5-debugging-a-broken-agent.md) — A step-by-step method for finding what went wrong. | 🟡 Intermediate | ~12 min |
+| 14.1 | [Agent runs ko trace karna](./14.1-tracing-agent-runs.md) — Run ke har step ko ek trace ki tarah record karo. | 🟡 Intermediate | ~10 min |
+| 14.2 | [Tool calls ko log karna](./14.2-logging-tool-calls.md) — Har tool call ke liye kya log karna hai, aur kya kabhi nahi. | 🟢 Beginner | ~7 min |
+| 14.3 | [LLM apps ke liye OpenTelemetry](./14.3-opentelemetry-for-llm-apps.md) — Agent systems ke liye standard traces aur spans. | 🔴 Advanced | ~12 min |
+| 14.4 | [Tracing ke liye tools](./14.4-tracing-tools.md) — LangSmith, Langfuse aur Arize Phoenix ka overview. | 🟡 Intermediate | ~10 min |
+| 14.5 | [Bigde hue agent ko debug karna](./14.5-debugging-a-broken-agent.md) — Kya galat hua, yeh dhoondhne ka step-by-step tarika. | 🟡 Intermediate | ~12 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [13 · Safety & Guardrails](../13-safety-and-guardrails/README.md) ·
-▶️ **Start reading:** [14.1 Tracing agent runs](./14.1-tracing-agent-runs.md) ·
-➡️ **Next chapter:** [15 · Production & Deployment](../15-production-and-deployment/README.md)
+⬅️ **Pichla chapter:** [13 · Safety & Guardrails](../13-safety-and-guardrails/README.md) ·
+▶️ **Padhna shuru karo:** [14.1 Agent runs ko trace karna](./14.1-tracing-agent-runs.md) ·
+➡️ **Agla chapter:** [15 · Production & Deployment](../15-production-and-deployment/README.md)

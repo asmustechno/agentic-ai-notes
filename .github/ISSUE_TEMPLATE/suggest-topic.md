@@ -1,20 +1,20 @@
 ---
-name: Suggest a topic
-about: Propose a new page, project or glossary term
+name: Topic suggest karo
+about: Naya page, project ya glossary term propose karo
 title: "topic: "
 labels: suggestion
 ---
 
-**What topic?**
-<!-- One line. -->
+**Kaun sa topic?**
+<!-- Ek line. -->
 
-**Why should it be in the notes?**
-<!-- What problem does it help readers solve? -->
+**Yeh notes mein kyun hona chahiye?**
+<!-- Yeh readers ki kaun si problem solve karne mein madad karta hai? -->
 
-**Where would it fit?**
-<!-- Which chapter, or "new chapter". -->
+**Yeh kahan fit hoga?**
+<!-- Kaun sa chapter, ya "naya chapter". -->
 
-**Good sources**
-<!-- Official docs, papers or engineering posts we could cite. -->
+**Achhe sources**
+<!-- Official docs, papers ya engineering posts jinhe hum cite kar sakein. -->
 
-- [ ] I would like to write this myself
+- [ ] Main ise khud likhna chahunga/chahungi

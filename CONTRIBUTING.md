@@ -1,110 +1,110 @@
-# Contributing to Agentic AI Notes
+# Agentic AI Notes mein contribute kaise karo
 
-Thank you for helping. Every fix, from a typo to a new chapter, makes these notes better for the next reader.
+Madad karne ke liye shukriya. Typo ho ya naya chapter, har fix agle reader ke liye in notes ko behtar banata hai.
 
-## 📑 On this page
+## 📑 Is page par
 
-- [Ways to help](#-ways-to-help)
-- [How the repository works](#-how-the-repository-works)
-- [Writing a page](#-writing-a-page)
-- [Writing style](#-writing-style)
+- [Madad ke tarike](#-madad-ke-tarike)
+- [Repository kaise kaam karti hai](#-repository-kaise-kaam-karti-hai)
+- [Page likhna](#-page-likhna)
+- [Likhne ka style](#-likhne-ka-style)
 - [Diagrams](#-diagrams)
 - [Code snippets](#-code-snippets)
-- [Accuracy and sources](#-accuracy-and-sources)
-- [Before you open a pull request](#-before-you-open-a-pull-request)
-- [Licensing of contributions](#-licensing-of-contributions)
+- [Accuracy aur sources](#-accuracy-aur-sources)
+- [Pull request kholne se pehle](#-pull-request-kholne-se-pehle)
+- [Contributions ki licensing](#-contributions-ki-licensing)
 
-## 🙌 Ways to help
+## 🙌 Madad ke tarike
 
-- **Fix something:** a typo, a wrong fact, a broken link, a code snippet that no longer works. Use the [fix content](.github/ISSUE_TEMPLATE/fix-content.md) issue template, or just send a pull request.
-- **Suggest a topic:** use the [suggest a topic](.github/ISSUE_TEMPLATE/suggest-topic.md) template.
-- **Improve an explanation:** if a page confused you, tell us where. That feedback is gold.
-- **Translate:** open an issue first so we can agree on a structure.
+- **Kuch fix karo:** typo, galat fact, toota link, ya aisa code snippet jo ab nahi chalta. [fix content](.github/ISSUE_TEMPLATE/fix-content.md) issue template use karo, ya seedha pull request bhej do.
+- **Topic suggest karo:** [suggest a topic](.github/ISSUE_TEMPLATE/suggest-topic.md) template use karo.
+- **Explanation behtar karo:** agar koi page padh kar confuse hue, to batao kahan. Aisa feedback sona hai.
+- **Translate karo:** pehle issue kholo taaki hum structure par agree kar sakein.
 
-Small fixes need no discussion. For a new page or a large rewrite, please open an issue first.
+Chhote fixes ke liye discussion ki zaroorat nahi. Naye page ya bade rewrite ke liye pehle issue kholo.
 
-## 🧩 How the repository works
+## 🧩 Repository kaise kaam karti hai
 
 ```mermaid
 flowchart LR
-    R[README.md table of contents] --> CR[Chapter README]
+    R[README.md ki table of contents] --> CR[Chapter README]
     CR --> P[Pages NN.M-topic.md]
     P --> G[GLOSSARY.md]
     P --> A[assets/diagrams]
 ```
 
-*The README lists every chapter; each chapter README lists its pages; pages link to the glossary and to shared diagrams.*
+*README mein har chapter ki list hai. Har chapter README mein uske pages ki list hai. Pages glossary aur shared diagrams se link karte hain.*
 
-| Path | What lives there |
+| Path | Wahan kya rehta hai |
 | --- | --- |
-| `docs/NN-chapter/` | One chapter: a `README.md` overview plus one file per page, `NN.M-topic-name.md` |
-| `assets/diagrams/` | Hand-made SVG diagrams |
-| `README.md`, `SUMMARY.md` | The table of contents (detailed and flat) |
-| `GLOSSARY.md`, `CHEATSHEET.md`, `ROADMAP.md` | The index of terms, the one-page summary and the learning paths |
+| `docs/NN-chapter/` | Ek chapter: ek `README.md` overview, plus har page ki ek file, `NN.M-topic-name.md` |
+| `assets/diagrams/` | Haath se banaye SVG diagrams |
+| `README.md`, `SUMMARY.md` | Table of contents (detailed aur flat) |
+| `GLOSSARY.md`, `CHEATSHEET.md`, `ROADMAP.md` | Terms ka index, ek page ki summary aur learning paths |
 
-**To add or move a page,** update every place that lists it, so readers can always find it:
+**Page jodna ya move karna ho,** to har woh jagah update karo jahan woh listed hai, taaki readers use hamesha dhoondh sakein:
 
-1. The page itself: the breadcrumb on the first line and the previous/next links in the footer (after `<!-- FOOTER -->`).
-2. The footers of its neighbours, whose previous/next links now point to it.
-3. The chapter `README.md` page table.
-4. The table of contents in `README.md` and the list in `SUMMARY.md`.
+1. Khud page: pehli line ka breadcrumb aur footer ke previous/next links (`<!-- FOOTER -->` ke baad).
+2. Uske padosi pages ke footers, jinke previous/next links ab us par point karte hain.
+3. Chapter `README.md` ki page table.
+4. `README.md` ki table of contents aur `SUMMARY.md` ki list.
 
-## 📝 Writing a page
+## 📝 Page likhna
 
-Use any existing page as your model, for example [1.1 What is an AI agent?](docs/01-foundations/01.1-what-is-an-ai-agent.md). Every page must have:
+Kisi bhi existing page ko model ki tarah use karo, jaise [1.1 What is an AI agent?](docs/01-foundations/01.1-what-is-an-ai-agent.md). Har page mein yeh hona zaroori hai:
 
-- the breadcrumb (first line) and the footer (after `<!-- FOOTER -->`);
-- a difficulty badge, reading time and prerequisites;
-- an **In one sentence** summary;
-- a **📑 On this page** list linking to every `##` heading;
-- at least one diagram, with an italic caption saying what to notice;
-- a worked example, key takeaways, exercises with collapsible answers, and further reading.
+- breadcrumb (pehli line) aur footer (`<!-- FOOTER -->` ke baad);
+- difficulty badge, padhne ka time aur prerequisites;
+- ek **Ek line mein** summary;
+- ek **📑 Is page par** list jo har `##` heading se link kare;
+- kam se kam ek diagram, italic caption ke saath jo bataye ki kya notice karna hai;
+- ek worked example, key takeaways, collapsible answers wali exercises, aur aage padhne ke liye links.
 
-**Headings and emoji:** do not use emoji that carry an invisible variation selector (U+FE0F), such as ⚠️ or 🖼️, in headings. Some Markdown renderers keep that character in the anchor and others drop it, so "On this page" links break on one of them.
+**Headings aur emoji:** headings mein aise emoji mat use karo jinme invisible variation selector (U+FE0F) hota hai, jaise ⚠️ ya 🖼️. Kuch Markdown renderers yeh character anchor mein rakhte hain aur kuch hata dete hain. Isliye "Is page par" wale links kisi ek par toot jaate hain.
 
-**Glossary:** the first time a glossary term appears on a page, link it: `[tool](../../GLOSSARY.md#tool)`. Add new terms to [GLOSSARY.md](GLOSSARY.md) in alphabetical order, each linking to the page that explains it.
+**Glossary:** kisi page par glossary term pehli baar aaye, to use link karo: `[tool](../../GLOSSARY.md#tool)`. Naye terms [GLOSSARY.md](GLOSSARY.md) mein alphabetical order mein jodo, har ek us page se link kare jo use samjhata hai.
 
-## 💬 Writing style
+## 💬 Likhne ka style
 
-- **Plain English.** Short sentences. Active voice. "The agent calls the tool", not "The tool is called by the agent".
-- **Define before you use.** No jargon until it has been explained.
-- **Concrete first.** Start with a story or scenario, then generalise.
-- **Mark opinions.** "In practice, we recommend…" is fine. Presenting an opinion as fact is not.
-- **Vendor-neutral.** Where providers differ, show at least two.
-- **Relative links only**, so they work on GitHub and in a clone.
+- **Simple bhasha.** Chhote sentences. Active voice. "Agent tool call karta hai", na ki "Tool agent dwara call kiya jaata hai".
+- **Use karne se pehle define karo.** Jab tak koi jargon samjhaya na jaye, use mat use karo.
+- **Pehle concrete.** Kisi story ya scenario se shuru karo, phir general baat karo.
+- **Opinions ko mark karo.** "Practice mein hum recommend karte hain…" theek hai. Opinion ko fact ki tarah pesh karna theek nahi.
+- **Vendor-neutral.** Jahan providers alag hain, kam se kam do dikhao.
+- **Sirf relative links**, taaki woh GitHub par bhi chalein aur clone mein bhi.
 
 ## 🎨 Diagrams
 
-1. Prefer **Mermaid** (`flowchart`, `sequenceDiagram`, `stateDiagram-v2`). GitHub renders it.
-2. Use **SVG** in `assets/diagrams/` for overview graphics Mermaid cannot draw well. Follow the [diagram style guide](assets/diagrams/README.md).
-3. Every image needs **alt text** and an **italic caption** underneath.
-4. **Only original work.** Never copy or hot-link images you do not have the rights to.
+1. **Mermaid** ko prefer karo (`flowchart`, `sequenceDiagram`, `stateDiagram-v2`). GitHub ise render karta hai.
+2. Overview graphics jo Mermaid achhe se nahi bana sakta, unke liye `assets/diagrams/` mein **SVG** use karo. [diagram style guide](assets/diagrams/README.md) follow karo.
+3. Har image ko **alt text** aur neeche ek **italic caption** chahiye.
+4. **Sirf original kaam.** Jin images ke rights tumhare paas nahi, unhe kabhi copy ya hot-link mat karo.
 
 ## 🐍 Code snippets
 
-- Python 3.11+, type hints where they help, short and readable.
-- Each snippet shows **one idea**. Keep it self-contained: no imports from files that are not on the page.
-- Call providers through their official SDKs. Where providers differ, show both (Anthropic and OpenAI).
-- Never put real keys in a snippet. Read them from the environment.
-- Pin versions when they matter. Framework pages state `> Last verified: <month year> with <package>==<version>`.
-- Run your snippet before you submit it, and say in the pull request which versions you used.
+- Python 3.11+, jahan madad mile wahan type hints, chhota aur padhne mein aasan.
+- Har snippet **ek idea** dikhaye. Use self-contained rakho: aisi files se imports nahi jo page par nahi hain.
+- Providers ko unke official SDKs se call karo. Jahan providers alag hain, dono dikhao (Anthropic aur OpenAI).
+- Snippet mein kabhi asli keys mat daalo. Unhe environment se padho.
+- Jab versions matter karein to pin karo. Framework pages par likha hota hai `> Last verified: <month year> with <package>==<version>`.
+- Submit karne se pehle apna snippet chala ke dekho, aur pull request mein batao kaun se versions use kiye.
 
-## 🔎 Accuracy and sources
+## 🔎 Accuracy aur sources
 
-- **Do not invent** facts, benchmark numbers, paper titles or API parameters. If you are not sure, check the official source or leave it out.
-- Cite **original sources**: official documentation, the original papers, and well-known engineering posts.
-- APIs change quickly. Check current official docs before writing SDK or framework code.
+- Facts, benchmark numbers, paper titles ya API parameters **khud se mat banao**. Pakka nahi pata, to official source check karo ya chhod do.
+- **Original sources** cite karo: official documentation, original papers, aur jaane-maane engineering posts.
+- APIs jaldi badalti hain. SDK ya framework code likhne se pehle current official docs check karo.
 
-## ✅ Before you open a pull request
+## ✅ Pull request kholne se pehle
 
-- Every relative link and `#anchor` you added opens the right place (preview the page on your fork).
-- New pages are listed everywhere (see [How the repository works](#-how-the-repository-works)).
-- Code snippets run with the versions you state.
+- Tumhara joda har relative link aur `#anchor` sahi jagah khulta hai (apne fork par page preview karo).
+- Naye pages har jagah listed hain (dekho [Repository kaise kaam karti hai](#-repository-kaise-kaam-karti-hai)).
+- Code snippets tumhare bataye versions ke saath chalte hain.
 
-The [pull request template](.github/PULL_REQUEST_TEMPLATE.md) has the full checklist.
+Poori checklist [pull request template](.github/PULL_REQUEST_TEMPLATE.md) mein hai.
 
-## 📜 Licensing of contributions
+## 📜 Contributions ki licensing
 
-By contributing, you agree that your contribution is licensed under the same terms as the rest of the repository: **CC BY 4.0** for written content and diagrams ([LICENSE](LICENSE)) and **MIT** for code ([LICENSE-CODE](LICENSE-CODE)). Only contribute work you wrote yourself or have the right to license this way.
+Contribute karke tum maante ho ki tumhara contribution baaki repository wali terms par hi licensed hai: likhe hue content aur diagrams ke liye **CC BY 4.0** ([LICENSE](LICENSE)) aur code ke liye **MIT** ([LICENSE-CODE](LICENSE-CODE)). Sirf woh kaam contribute karo jo tumne khud likha hai ya jise is tarah license karne ka tumhe haq hai.
 
-Please follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+Hamara [Code of Conduct](CODE_OF_CONDUCT.md) follow karo.

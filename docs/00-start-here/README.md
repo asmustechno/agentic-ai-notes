@@ -2,47 +2,47 @@
 
 # 00 · Start Here
 
-> **Estimated reading time:** ~20 min · **Difficulty:** 🟢 Beginner · **Prerequisites:** none
+> **Padhne ka time:** ~20 min · **Level:** 🟢 Beginner · **Pehle padho:** kuch nahi
 
-Welcome. This short chapter shows you how the notes are built, helps you pick a route through them, and gets Python ready so you can run the code snippets on your machine.
+Welcome! Yeh chhota sa chapter dikhata hai ki notes kaise bane hain. Yeh tumhe unme se apna raasta chunne mein help karta hai. Aur Python ready karwata hai, taaki tum code snippets apni machine par chala sako.
 
-## 🎯 What you'll learn
+## 🎯 Is chapter mein kya seekhoge
 
-- How every page is laid out, so you always know where to look
-- Which of the three learning paths fits your goal
-- How to install Python and the model SDKs the code snippets use
-- How to get an API key (Anthropic or OpenAI) and keep it safe
+- Har page ka layout kaisa hai, taaki tumhe hamesha pata ho ki kahan dekhna hai
+- Teen learning paths mein se kaunsa tumhare goal ke liye sahi hai
+- Python aur woh model SDKs kaise install karne hain jo code snippets use karte hain
+- API key (Anthropic ya OpenAI) kaise leni hai aur use safe kaise rakhna hai
 
-## 📋 Prerequisites
+## 📋 Pehle se kya aana chahiye
 
 - Basic Python: functions, lists, dictionaries, `pip install`
-- Some experience chatting with ChatGPT, Claude or a similar assistant
+- ChatGPT, Claude ya kisi aise assistant se chat karne ka thoda experience
 
-That's all. No machine learning background is needed.
+Bas itna hi. Machine learning ka koi background nahi chahiye.
 
-## 👀 Chapter overview
+## 👀 Chapter ek nazar mein
 
 ```mermaid
 flowchart LR
-    A["0.1 How to use<br/>these notes"] --> B["0.2 Pick a<br/>learning path"] --> C["0.3 Set up<br/>Python and keys"] --> D(["01 · Foundations"])
+    A["0.1 In notes ko<br/>kaise use karein"] --> B["0.2 Learning path<br/>chuno"] --> C["0.3 Python aur keys<br/>set up karo"] --> D(["01 · Foundations"])
 ```
 
-*Three short pages, then you're ready for the real content in chapter 01.*
+*Teen chhote pages, phir tum chapter 01 ke asli content ke liye ready ho.*
 
-## 📄 Pages in this chapter
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 0.1 | [How to use these notes](./00.1-how-to-use-these-notes.md) — How the notes are organised, what every page contains, and how to read them. | 🟢 Beginner | ~5 min |
-| 0.2 | [Learning paths](./00.2-learning-paths.md) — Three routes through the material: Beginner, Builder and Production. | 🟢 Beginner | ~5 min |
-| 0.3 | [Setup](./00.3-setup.md) — Install Python and the model SDKs, add an API key, and run your first snippet. | 🟢 Beginner | ~10 min |
+| 0.1 | [In notes ko kaise use karein](./00.1-how-to-use-these-notes.md) — Notes kaise organise kiye gaye hain, har page mein kya hota hai, aur unhe kaise padhna hai. | 🟢 Beginner | ~5 min |
+| 0.2 | [Learning paths](./00.2-learning-paths.md) — Material mein se teen raaste: Beginner, Builder aur Production. | 🟢 Beginner | ~5 min |
+| 0.3 | [Setup](./00.3-setup.md) — Python aur model SDKs install karo, API key jodo, aur apna pehla snippet chalao. | 🟢 Beginner | ~10 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [Home](../../README.md) ·
-▶️ **Start reading:** [0.1 How to use these notes](./00.1-how-to-use-these-notes.md) ·
-➡️ **Next chapter:** [01 · Foundations](../01-foundations/README.md)
+⬅️ **Pichla chapter:** [Home](../../README.md) ·
+▶️ **Padhna shuru karo:** [0.1 In notes ko kaise use karein](./00.1-how-to-use-these-notes.md) ·
+➡️ **Agla chapter:** [01 · Foundations](../01-foundations/README.md)

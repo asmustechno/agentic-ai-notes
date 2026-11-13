@@ -2,54 +2,54 @@
 
 # 02 · The Agent Loop
 
-> **Estimated reading time:** ~51 min · **Difficulty:** 🟢 Beginner to 🟡 Intermediate · **Prerequisites:** [01 · Foundations](../01-foundations/README.md)
+> **Padhne ka time:** ~51 min · **Level:** 🟢 Beginner se 🟡 Intermediate · **Pehle padho:** [01 · Foundations](../01-foundations/README.md)
 
-The loop is what turns a model into an agent: call the model, run the tools it asks for, show it the results, and repeat until it is done. This chapter builds that loop from scratch. You will see the observe–think–act cycle as plain messages, trace the ReAct pattern that made it famous, write a complete agent in about 50 lines with no framework, and then make it robust: knowing when to stop, and surviving the errors that every real run hits.
+Loop hi woh cheez hai jo ek model ko agent banati hai. Model ko call karo, jo tools woh maange unhe chalao, use results dikhao, aur jab tak kaam khatam na ho tab tak repeat karo. Yeh chapter yahi loop bilkul zero se banata hai. Tum observe–think–act cycle ko simple messages ki tarah dekhoge. Phir ReAct pattern ko trace karoge, jisne ise famous banaya. Phir bina framework ke lagbhag 50 lines mein ek complete agent likhoge. Aur aakhir mein use mazboot banaoge: kab rukna hai yeh jaanna, aur har asli run mein aane wale errors se bach nikalna.
 
-## 🎯 What you'll learn
+## 🎯 Is chapter mein kya seekhoge
 
-- The observe–think–act cycle, and what each step adds to the conversation
-- The ReAct pattern (Thought → Action → Observation) in its original text form, and how native tool calling replaced it
-- How to write a working agent in about 50 lines of Python, on a small provider-neutral client and on the raw Anthropic and OpenAI SDKs
-- Every reason a run should stop: final answer, step limit, timeout, token and cost budgets, no progress, cut-off replies and refusals
-- How to turn tool failures, bad arguments and unknown tools into messages the model can fix, and how to retry API errors safely
+- Observe–think–act cycle, aur har step conversation mein kya add karta hai
+- ReAct pattern (Thought → Action → Observation) apne original text form mein, aur native tool calling ne iski jagah kaise li
+- Python ki lagbhag 50 lines mein ek chalta hua agent kaise likhein, ek chhote provider-neutral client pe aur raw Anthropic aur OpenAI SDKs pe
+- Run ke rukne ki har wajah: final answer, step limit, timeout, token aur cost budgets, koi progress nahi, kate hue replies aur refusals
+- Tool failures, galat arguments aur unknown tools ko aise messages mein kaise badlein jinhe model theek kar sake, aur API errors ko safely retry kaise karein
 
-## 📋 Prerequisites
+## 📋 Pehle se kya aana chahiye
 
-- [1.4 How LLMs work](../01-foundations/01.4-how-llms-work.md): stop reasons, `max_tokens` and why the API is stateless
-- [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): the five parts, including the loop
-- [0.3 Setup](../00-start-here/00.3-setup.md), so you can run the code snippets
+- [1.4 LLMs kaise kaam karte hain (bas utna jitna zaroori hai)](../01-foundations/01.4-how-llms-work.md): stop reasons, `max_tokens` aur API stateless kyun hai
+- [1.5 Agent ke andar kya-kya hota hai](../01-foundations/01.5-anatomy-of-an-agent.md): paanch parts, loop samet
+- [0.3 Setup](../00-start-here/00.3-setup.md), taaki tum code snippets chala sako
 
-## 👀 Chapter overview
+## 👀 Chapter ek nazar mein
 
 ```mermaid
 flowchart LR
-    A["2.1 The loop<br/>observe → think → act"] --> B["2.2 ReAct<br/>the loop, written as text"]
-    B --> C["2.3 Build it<br/>~50 lines, no framework"]
-    C --> D["2.4 Stop it<br/>limits and stop reasons"]
-    C --> E["2.5 Protect it<br/>errors and retries"]
-    D --> F(["A loop you can<br/>leave running"])
+    A["2.1 Loop<br/>observe → think → act"] --> B["2.2 ReAct<br/>loop, text mein likha hua"]
+    B --> C["2.3 Ise banao<br/>~50 lines, bina framework"]
+    C --> D["2.4 Ise roko<br/>limits aur stop reasons"]
+    C --> E["2.5 Ise bachao<br/>errors aur retries"]
+    D --> F(["Aisa loop jise<br/>chalta chhod sako"])
     E --> F
 ```
 
-*The first two pages explain the idea, the third builds it, and the last two make it safe. The code grows the same way: from a text-based ReAct agent, to a minimal agent, to a robust loop that handles every failure.*
+*Pehle do pages idea samjhate hain, teesra use banata hai, aur aakhri do use safe banate hain. Code bhi aise hi badhta hai: text-based ReAct agent se, ek minimal agent tak, aur phir ek mazboot loop tak jo har failure sambhalta hai.*
 
-## 📄 Pages in this chapter
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 2.1 | [The observe–think–act loop](./02.1-the-observe-think-act-loop.md) — The core cycle every agent runs, step by step. | 🟢 Beginner | ~8 min |
-| 2.2 | [ReAct explained](./02.2-react-explained.md) — The ReAct pattern, with a full Thought → Action → Observation trace. | 🟢 Beginner | ~10 min |
-| 2.3 | [A 50-line agent from scratch](./02.3-a-50-line-agent-from-scratch.md) — Write a working agent with no framework, in about 50 lines of Python. | 🟡 Intermediate | ~15 min |
-| 2.4 | [Stopping conditions](./02.4-stopping-conditions.md) — Max steps, timeouts and how an agent knows it is done. | 🟡 Intermediate | ~8 min |
-| 2.5 | [Handling errors in the loop](./02.5-handling-errors-in-the-loop.md) — Tool failures, bad model output and retries, without crashing the run. | 🟡 Intermediate | ~10 min |
+| 2.1 | [Observe–think–act loop](./02.1-the-observe-think-act-loop.md) — Woh core cycle jo har agent chalata hai, step by step. | 🟢 Beginner | ~8 min |
+| 2.2 | [ReAct ko samjho](./02.2-react-explained.md) — ReAct pattern, ek poore Thought → Action → Observation trace ke saath. | 🟢 Beginner | ~10 min |
+| 2.3 | [50 lines mein agent, bilkul zero se](./02.3-a-50-line-agent-from-scratch.md) — Bina framework ke, Python ki lagbhag 50 lines mein ek chalta hua agent likho. | 🟡 Intermediate | ~15 min |
+| 2.4 | [Agent kab ruke: stopping conditions](./02.4-stopping-conditions.md) — Max steps, timeouts, aur agent ko kaise pata chalta hai ki kaam ho gaya. | 🟡 Intermediate | ~8 min |
+| 2.5 | [Loop mein errors kaise sambhalein](./02.5-handling-errors-in-the-loop.md) — Tool failures, model ka galat output aur retries, bina run crash kiye. | 🟡 Intermediate | ~10 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [01 · Foundations](../01-foundations/README.md) ·
-▶️ **Start reading:** [2.1 The observe–think–act loop](./02.1-the-observe-think-act-loop.md) ·
-➡️ **Next chapter:** [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md)
+⬅️ **Pichla chapter:** [01 · Foundations](../01-foundations/README.md) ·
+▶️ **Padhna shuru karo:** [2.1 Observe–think–act loop](./02.1-the-observe-think-act-loop.md) ·
+➡️ **Agla chapter:** [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md)

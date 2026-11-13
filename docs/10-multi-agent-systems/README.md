@@ -2,49 +2,49 @@
 
 # 10 · Multi-Agent Systems
 
-> **Estimated reading time:** ~54 min · **Difficulty:** 🟡 Intermediate to 🔴 Advanced · **Prerequisites:** [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md), [09 · Agent Design Patterns](../09-agent-design-patterns/README.md)
+> **Padhne ka time:** ~54 min · **Level:** 🟡 Intermediate se 🔴 Advanced · **Pehle padho:** [02 · The Agent Loop](../02-the-agent-loop/README.md), [03 · Tools & Function Calling](../03-tools-and-function-calling/README.md), [09 · Agent Design Patterns](../09-agent-design-patterns/README.md)
 
-Sometimes one agent isn't enough: the task is too broad for one context, or its parts are better done in parallel by specialists. This chapter shows how teams of agents are organised (supervisors, handoffs and shared state), how independent agents from different organisations talk through open protocols such as A2A, and, just as important, when a team of agents costs more and does worse than one good agent.
+Kabhi-kabhi ek agent kaafi nahi hota. Task ek context ke liye bahut bada hota hai, ya uske hisse specialists parallel mein better kar sakte hain. Yeh chapter dikhata hai ki agents ki teams kaise organise hoti hain (supervisors, handoffs aur shared state). Yeh bhi ki alag-alag organisations ke independent agents A2A jaise open protocols se kaise baat karte hain. Aur utna hi zaroori: kab agents ki team ek achhe agent se zyada mehengi padti hai aur bura kaam karti hai.
 
-## 🎯 What you'll learn
+## 🎯 Is chapter mein kya seekhoge
 
-- What splitting work across agents buys you: separation of concerns, parallel exploration, context isolation and specialised tools
-- The supervisor pattern: a lead agent that delegates to specialist agents exposed as tools, and how to write a good brief
-- Handoffs: passing control of a conversation from one agent to another, as in the OpenAI Agents SDK
-- How agents share information through messages or a shared blackboard, and how to stop them overwriting each other
-- The A2A protocol: Agent Cards, tasks, messages and artifacts, and how A2A relates to MCP
-- The costs and failure modes of multi-agent systems, and a checklist for deciding when not to use them
+- Kaam ko agents mein baantne se kya milta hai: separation of concerns, parallel exploration, context isolation aur specialised tools
+- Supervisor pattern: ek lead agent jo tools ki tarah exposed specialist agents ko kaam delegate karta hai, aur achha brief kaise likhein
+- Handoffs: conversation ka control ek agent se dusre ko dena, jaise OpenAI Agents SDK mein
+- Agents messages ya shared blackboard se information kaise share karte hain, aur unhe ek dusre ka kaam overwrite karne se kaise rokein
+- A2A protocol: Agent Cards, tasks, messages aur artifacts, aur A2A ka MCP se kya rishta hai
+- Multi-agent systems ki keematein aur failure modes, aur ek checklist jo batati hai ki inhe kab use nahi karna
 
-## 📋 Prerequisites
+## 📋 Pehle se kya aana chahiye
 
-- [1.5 Anatomy of an agent](../01-foundations/01.5-anatomy-of-an-agent.md): every agent in a team is an ordinary agent
-- [3.3 How function calling works](../03-tools-and-function-calling/03.3-how-function-calling-works.md): agents call each other through tools
-- [9.4 Orchestrator-workers](../09-agent-design-patterns/09.4-orchestrator-workers.md): the workflow the supervisor pattern grows from
-- Helpful for 10.5: [4.1 Why MCP exists](../04-model-context-protocol/04.1-why-mcp-exists.md)
+- [1.5 Agent ke andar kya-kya hota hai](../01-foundations/01.5-anatomy-of-an-agent.md): team ka har agent ek normal agent hi hai
+- [3.3 Function calling kaise kaam karta hai](../03-tools-and-function-calling/03.3-how-function-calling-works.md): agents tools ke through ek dusre ko call karte hain
+- [9.4 Orchestrator–workers](../09-agent-design-patterns/09.4-orchestrator-workers.md): woh workflow jisse supervisor pattern nikalta hai
+- 10.5 ke liye helpful: [4.1 MCP kyun bana?](../04-model-context-protocol/04.1-why-mcp-exists.md)
 
-## 👀 Chapter overview
+## 👀 Chapter ek nazar mein
 
-![Four ways to arrange agents. One agent: an agent calls its tools. Supervisor: a supervisor sends briefs to two specialists and gets reports back. Handoffs: triage transfers control to billing or tech, which can transfer to each other. Shared state: two agents read and write a shared blackboard with versioned keys.](../../assets/diagrams/10-multi-agent-topologies.svg)
+![Agents ko arrange karne ke chaar tarike. Ek agent: agent apne tools call karta hai. Supervisor: supervisor do specialists ko briefs bhejta hai aur reports wapas paata hai. Handoffs: triage control billing ya tech ko transfer karta hai, jo ek dusre ko bhi transfer kar sakte hain. Shared state: do agents versioned keys wale shared blackboard ko padhte aur likhte hain.](../../assets/diagrams/10-multi-agent-topologies.svg)
 
-*Start on the left and move right only when you must. Pages 10.2, 10.3 and 10.4 cover panels ②, ③ and ④. Page 10.5 connects agents across organisations, and 10.6 explains why panel ① is often the right answer.*
+*Left se shuru karo aur right tabhi jao jab zaroori ho. Pages 10.2, 10.3 aur 10.4 panels ②, ③ aur ④ cover karte hain. Page 10.5 organisations ke paar agents ko jodta hai, aur 10.6 samjhata hai ki aksar panel ① hi sahi jawab kyun hota hai.*
 
-## 📄 Pages in this chapter
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 10.1 | [Why multiple agents?](./10.1-why-multiple-agents.md) — What splitting work across agents buys you. | 🟡 Intermediate | ~8 min |
-| 10.2 | [Supervisor & hierarchical](./10.2-supervisor-and-hierarchical.md) — A manager agent directs specialist agents. | 🟡 Intermediate | ~10 min |
-| 10.3 | [Peer-to-peer & handoffs](./10.3-peer-to-peer-and-handoffs.md) — Agents pass control to each other directly. | 🟡 Intermediate | ~10 min |
-| 10.4 | [Shared state & communication](./10.4-shared-state-and-communication.md) — How agents share what they know without stepping on each other. | 🔴 Advanced | ~10 min |
-| 10.5 | [Agent-to-agent protocols](./10.5-agent-to-agent-protocols.md) — An overview of open protocols such as A2A. | 🔴 Advanced | ~8 min |
-| 10.6 | [When multi-agent makes things worse](./10.6-when-multi-agent-makes-things-worse.md) — Cost, latency and coordination failures to watch for. | 🔴 Advanced | ~8 min |
+| 10.1 | [Multiple agents kyun?](./10.1-why-multiple-agents.md) — Kaam ko agents mein baantne se tumhe kya milta hai. | 🟡 Intermediate | ~8 min |
+| 10.2 | [Supervisor aur hierarchical](./10.2-supervisor-and-hierarchical.md) — Ek manager agent specialist agents ko direct karta hai. | 🟡 Intermediate | ~10 min |
+| 10.3 | [Peer-to-peer aur handoffs](./10.3-peer-to-peer-and-handoffs.md) — Agents seedha ek dusre ko control pass karte hain. | 🟡 Intermediate | ~10 min |
+| 10.4 | [Shared state aur communication](./10.4-shared-state-and-communication.md) — Agents ek dusre ke kaam par pair rakhe bina apni jaankari kaise share karte hain. | 🔴 Advanced | ~10 min |
+| 10.5 | [Agent-to-agent protocols](./10.5-agent-to-agent-protocols.md) — A2A jaise open protocols ka overview. | 🔴 Advanced | ~8 min |
+| 10.6 | [Jab multi-agent cheezein aur bigaad deta hai](./10.6-when-multi-agent-makes-things-worse.md) — Cost, latency aur coordination failures jin par nazar rakhni hai. | 🔴 Advanced | ~8 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [09 · Agent Design Patterns](../09-agent-design-patterns/README.md) ·
-▶️ **Start reading:** [10.1 Why multiple agents?](./10.1-why-multiple-agents.md) ·
-➡️ **Next chapter:** [11 · Frameworks](../11-frameworks/README.md)
+⬅️ **Pichla chapter:** [09 · Agent Design Patterns](../09-agent-design-patterns/README.md) ·
+▶️ **Padhna shuru karo:** [10.1 Multiple agents kyun?](./10.1-why-multiple-agents.md) ·
+➡️ **Agla chapter:** [11 · Frameworks](../11-frameworks/README.md)

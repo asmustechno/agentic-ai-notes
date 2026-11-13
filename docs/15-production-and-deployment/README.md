@@ -2,48 +2,50 @@
 
 # 15 · Production & Deployment
 
-> **Estimated reading time:** ~69 min · **Difficulty:** 🔴 Advanced · **Prerequisites:** [02 · The Agent Loop](../02-the-agent-loop/README.md), [14 · Observability & Debugging](../14-observability-and-debugging/README.md)
+> **Padhne ka time:** ~69 min · **Level:** 🔴 Advanced · **Pehle padho:** [02 · The Agent Loop](../02-the-agent-loop/README.md), [14 · Observability & Debugging](../14-observability-and-debugging/README.md)
 
-A working agent on your laptop is the easy half. This chapter covers the other half: what has to surround the agent loop so that it keeps working when many users arrive at once, a provider is overloaded, a deploy kills a run half-way through, or a retry tries to send the same email twice. You will see the architecture of a production agent, choose between synchronous and background runs, make retries safe with idempotency keys, checkpoint runs so they resume after a crash, survive rate limits and outages with fallbacks and circuit breakers, and finally ship the agent as a tested FastAPI service in a Docker container.
+Laptop par chalta hua agent banana aasaan wala half hai. Yeh chapter doosra half cover karta hai. Agent loop ke around kya-kya hona chahiye taaki woh tab bhi chale jab bahut saare users ek saath aa jayein, provider overloaded ho, koi deploy run ko beech mein maar de, ya koi retry same email do baar bhejne ki koshish kare.
 
-## 🎯 What you'll learn
+Is chapter mein tum production agent ka architecture dekhoge. Synchronous aur background runs ke beech choose karna seekhoge. Idempotency keys se retries ko safe banaoge. Runs ko checkpoint karoge taaki crash ke baad woh resume ho sakein. Fallbacks aur circuit breakers se rate limits aur outages jhel paoge. Aur aakhir mein agent ko ek tested FastAPI service ke roop mein Docker container mein ship karoge.
 
-- The components around the loop (API layer, job queue, workers, state store, model gateway, guardrails, observability, evals) and when you need each
-- When to answer inside one request, when to stream, and when to return a run id and work in the background
-- Which errors to retry, how to back off with jitter, and how idempotency keys and dead-letter queues prevent duplicate side effects
-- How to checkpoint an agent run in SQLite and resume it after a crash without repeating work
-- How to handle rate limits, fall back to another model or provider, and use a circuit breaker; and what Anthropic's server-side refusal fallback does and doesn't do
-- How to serve an agent with FastAPI, test it with `TestClient` and a scripted fake model, and package it in a secure Docker image
+## 🎯 Is chapter mein kya seekhoge
 
-## 📋 Prerequisites
+- Loop ke around kaun se components hote hain (API layer, job queue, workers, state store, model gateway, guardrails, observability, evals) aur har ek ki zaroorat kab padti hai
+- Kab ek hi request ke andar jawab dena hai, kab stream karna hai, aur kab run id return karke background mein kaam karna hai
+- Kaun se errors retry karne hain, jitter ke saath back off kaise karna hai, aur idempotency keys aur dead-letter queues duplicate side effects kaise rokti hain
+- Agent run ko SQLite mein checkpoint kaise karna hai aur crash ke baad bina kaam repeat kiye resume kaise karna hai
+- Rate limits kaise handle karne hain, doosre model ya provider par fall back kaise karna hai, circuit breaker kaise use karna hai; aur Anthropic ka server-side refusal fallback kya karta hai aur kya nahi karta
+- Agent ko FastAPI se serve kaise karna hai, `TestClient` aur ek scripted fake model se test kaise karna hai, aur use secure Docker image mein package kaise karna hai
 
-- [2.3 A 50-line agent from scratch](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md) and [2.5 Handling errors in the loop](../02-the-agent-loop/02.5-handling-errors-in-the-loop.md): the loop this chapter wraps
-- [14.1 Tracing agent runs](../14-observability-and-debugging/14.1-tracing-agent-runs.md): helpful for the observability parts
-- Basic HTTP (status codes, headers) and some familiarity with the command line. Docker is optional: you can follow every page without it
+## 📋 Pehle se kya aana chahiye
 
-## 👀 Chapter overview
+- [2.3 50 lines mein agent, bilkul zero se](../02-the-agent-loop/02.3-a-50-line-agent-from-scratch.md) aur [2.5 Loop mein errors kaise sambhalein](../02-the-agent-loop/02.5-handling-errors-in-the-loop.md): yahi loop hai jise yeh chapter wrap karta hai
+- [14.1 Agent runs ko trace karna](../14-observability-and-debugging/14.1-tracing-agent-runs.md): observability wale parts ke liye kaam aayega
+- Basic HTTP (status codes, headers) aur command line ki thodi jaankari. Docker optional hai: tum har page bina Docker ke bhi follow kar sakte ho
 
-![Architecture of a production agent: a client calls an API layer, which answers short tasks directly or queues long ones. Workers run the agent loop, call models through a gateway with primary and fallback providers, call tool services, and checkpoint each step to a state store. Guardrails check the loop; observability and evals cover everything.](../../assets/diagrams/15-production-architecture.svg)
+## 👀 Chapter ek nazar mein
 
-*The agent loop is the small box in the middle. Page 15.1 explains the whole picture; 15.2 covers the API layer's sync-or-async choice; 15.3 the queue and safe retries; 15.4 the state store; 15.5 the model gateway; 15.6 packages the service for deployment.*
+![Production agent ka architecture: client ek API layer ko call karta hai, jo chhote tasks ka jawab seedha deti hai ya lambe tasks ko queue mein daal deti hai. Workers agent loop chalate hain, primary aur fallback providers wale gateway ke through models ko call karte hain, tool services call karte hain, aur har step ko state store mein checkpoint karte hain. Guardrails loop ko check karte hain; observability aur evals sab kuch cover karte hain.](../../assets/diagrams/15-production-architecture.svg)
 
-## 📄 Pages in this chapter
+*Agent loop beech wala chhota sa box hai. Page 15.1 poori picture samjhata hai; 15.2 API layer ka sync-ya-async wala choice; 15.3 queue aur safe retries; 15.4 state store; 15.5 model gateway; aur 15.6 service ko deploy ke liye package karta hai.*
+
+## 📄 Is chapter ke pages
 
 <!-- PAGES:START -->
 | # | Page | Level | Time |
 | --- | --- | --- | --- |
-| 15.1 | [Architecture of a production agent](./15.1-production-architecture.md) — The components around the loop that make it reliable. | 🔴 Advanced | ~12 min |
-| 15.2 | [Sync vs async & background agents](./15.2-sync-vs-async-agents.md) — Request-response agents versus long-running jobs. | 🔴 Advanced | ~10 min |
-| 15.3 | [Queues, retries & idempotency](./15.3-queues-retries-and-idempotency.md) — Retry safely without doing things twice. | 🔴 Advanced | ~12 min |
-| 15.4 | [State persistence & resumability](./15.4-state-persistence-and-resumability.md) — Save progress so a run can resume after a crash. | 🔴 Advanced | ~10 min |
-| 15.5 | [Rate limits & fallbacks](./15.5-rate-limits-and-fallbacks.md) — Stay up when a provider is slow, busy or down. | 🔴 Advanced | ~10 min |
-| 15.6 | [Deploying with FastAPI & Docker](./15.6-deploying-with-fastapi-and-docker.md) — Ship an agent as a containerised web service. | 🔴 Advanced | ~15 min |
+| 15.1 | [Production agent ka architecture](./15.1-production-architecture.md) — Loop ke around woh components jo use reliable banate hain. | 🔴 Advanced | ~12 min |
+| 15.2 | [Sync vs async aur background agents](./15.2-sync-vs-async-agents.md) — Request-response agents vs lambe chalne wale jobs. | 🔴 Advanced | ~10 min |
+| 15.3 | [Queues, retries aur idempotency](./15.3-queues-retries-and-idempotency.md) — Safely retry karo, bina koi kaam do baar kiye. | 🔴 Advanced | ~12 min |
+| 15.4 | [State persistence aur resumability](./15.4-state-persistence-and-resumability.md) — Progress save karo taaki crash ke baad run resume ho sake. | 🔴 Advanced | ~10 min |
+| 15.5 | [Rate limits aur fallbacks](./15.5-rate-limits-and-fallbacks.md) — Provider slow, busy ya down ho, tab bhi chalte raho. | 🔴 Advanced | ~10 min |
+| 15.6 | [FastAPI aur Docker se deploy karna](./15.6-deploying-with-fastapi-and-docker.md) — Agent ko containerised web service ke roop mein ship karo. | 🔴 Advanced | ~15 min |
 <!-- PAGES:END -->
 
 <!-- FOOTER -->
 
 ---
 
-⬅️ **Previous chapter:** [14 · Observability & Debugging](../14-observability-and-debugging/README.md) ·
-▶️ **Start reading:** [15.1 Architecture of a production agent](./15.1-production-architecture.md) ·
-➡️ **Next chapter:** [16 · Cost & Performance](../16-cost-and-performance/README.md)
+⬅️ **Pichla chapter:** [14 · Observability & Debugging](../14-observability-and-debugging/README.md) ·
+▶️ **Padhna shuru karo:** [15.1 Production agent ka architecture](./15.1-production-architecture.md) ·
+➡️ **Agla chapter:** [16 · Cost & Performance](../16-cost-and-performance/README.md)
